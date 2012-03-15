@@ -1,0 +1,1 @@
+class AbstractPageView extends AbstractView

@@ -1,0 +1,283 @@
+[
+    {
+        "id": "media",
+        "label": "By Media",
+        "tags_collection": [
+            {
+                "id": "app",
+                "short_title": "App",
+                "long_title": "App"
+            },
+            {
+                "id": "installation",
+                "short_title": "Installation",
+                "long_title": "Installation"
+            },
+            {
+                "id": "web",
+                "short_title": "Web",
+                "long_title": "Web"
+            }
+        ]
+    },
+    {
+        "id": "date",
+        "label": "By Date",
+        "tags_collection": [
+            {
+                "id": "2012",
+                "short_title": "2012",
+                "long_title": "2012"
+            },
+            {
+                "id": "2011",
+                "short_title": "2011",
+                "long_title": "2011"
+            },
+            {
+                "id": "2010",
+                "short_title": "2010",
+                "long_title": "2010"
+            },
+            {
+                "id": "2009",
+                "short_title": "2009",
+                "long_title": "2009"
+            },
+            {
+                "id": "2008",
+                "short_title": "2008",
+                "long_title": "2008"
+            },
+            {
+                "id": "2007",
+                "short_title": "2007",
+                "long_title": "2007"
+            },
+            {
+                "id": "2006",
+                "short_title": "2006",
+                "long_title": "2006"
+            },
+            {
+                "id": "2005",
+                "short_title": "2005",
+                "long_title": "2005"
+            }
+        ]
+    },
+    {
+        "id": "toolkit",
+        "label": "By Toolkit",
+        "tags_collection": [
+            {
+                "id": "actionscript",
+                "short_title": "ActionScript",
+                "long_title": "ActionScript"
+            },
+            {
+                "id": "air",
+                "short_title": "Air",
+                "long_title": "Air"
+            },
+            {
+                "id": "3d",
+                "short_title": "3D",
+                "long_title": "3D"
+            },
+            {
+                "id": "javascript",
+                "short_title": "JavaScript",
+                "long_title": "JavaScript"
+            },
+            {
+                "id": "backbone",
+                "short_title": "Backbone.js",
+                "long_title": "Backbone.js"
+            },
+            {
+                "id": "robotlegs",
+                "short_title": "Robotlegs",
+                "long_title": "Robotlegs"
+            },
+            {
+                "id": "somacore",
+                "short_title": "Soma Core",
+                "long_title": "Soma Core"
+            },
+            {
+                "id": "timeline",
+                "short_title": "timeline",
+                "long_title": "timeline"
+            },
+            {
+                "id": "aftereffects",
+                "short_title": "After Effects",
+                "long_title": "After Effects"
+            },
+            {
+                "id": "openframeworks",
+                "short_title": "openFrameworks",
+                "long_title": "openFrameworks"
+            },
+            {
+                "id": "kinect",
+                "short_title": "Kinect",
+                "long_title": "Kinect"
+            }
+        ]
+    },
+    {
+        "id": "type",
+        "label": "By Type",
+        "tags_collection": [
+            {
+                "id": "branding",
+                "short_title": "Branding",
+                "long_title": "Branding"
+            },
+            {
+                "id": "campaign",
+                "short_title": "Campaign",
+                "long_title": "Campaign"
+            },
+            {
+                "id": "catalogue",
+                "short_title": "Catalogue",
+                "long_title": "Catalogue"
+            },
+            {
+                "id": "product",
+                "short_title": "Product",
+                "long_title": "Product"
+            },
+            {
+                "id": "portfolio",
+                "short_title": "Portfolio",
+                "long_title": "Portfolio"
+            },
+            {
+                "id": "opensource",
+                "short_title": "Opensource",
+                "long_title": "Opensource"
+            },
+            {
+                "id": "rd",
+                "short_title": "R & D",
+                "long_title": "R & D"
+            },
+            {
+                "id": "storytelling",
+                "short_title": "Storytelling",
+                "long_title": "Storytelling"
+            }
+        ]
+    },
+    {
+        "id": "industry",
+        "label": "By Industry",
+        "tags_collection": [
+            {
+                "id": "advertising",
+                "short_title": "Advertising",
+                "long_title": "Advertising"
+            },
+            {
+                "id": "automotive",
+                "short_title": "Auto.",
+                "long_title": "Automotive"
+            },
+            {
+                "id": "beauty",
+                "short_title": "Beauty",
+                "long_title": "Beauty"
+            },
+            {
+                "id": "drink",
+                "short_title": "Drink",
+                "long_title": "Drink"
+            },
+            {
+                "id": "fashion",
+                "short_title": "Fashion",
+                "long_title": "Fashion"
+            },
+            {
+                "id": "educational",
+                "short_title": "Educational",
+                "long_title": "Educational"
+            },
+            {
+                "id": "technology",
+                "short_title": "Tech.",
+                "long_title": "Technology"
+            },
+            {
+                "id": "design",
+                "short_title": "Design",
+                "long_title": "Design"
+            },
+            {
+                "id": "music",
+                "short_title": "Music",
+                "long_title": "Music"
+            },
+            {
+                "id": "tourism",
+                "short_title": "Tourism",
+                "long_title": "Tourism"
+            }
+        ]
+    },
+    {
+        "id": "agency",
+        "label": "By Agency",
+        "tags_collection": [
+            {
+                "id": "sideproject",
+                "short_title": "Side Project",
+                "long_title": "Side Project"
+            },
+            {
+                "id": "hires",
+                "short_title": "Hi-ReS!",
+                "long_title": "Hi-ReS!"
+            },
+            {
+                "id": "lessrain",
+                "short_title": "Less Rain",
+                "long_title": "Less Rain"
+            },
+            {
+                "id": "curiousgroup",
+                "short_title": "Curious Group",
+                "long_title": "Curious Group"
+            },
+            {
+                "id": "grafikonstruct",
+                "short_title": "Grafikonstruct",
+                "long_title": "Grafikonstruct"
+            },
+            {
+                "id": "dm9ddb",
+                "short_title": "DM9 DDB",
+                "long_title": "DM9 DDB"
+            },
+            {
+                "id": "madeinme",
+                "short_title": "Made In Me",
+                "long_title": "Made In Me"
+            },
+            {
+                "id": "magentala",
+                "short_title": "Magenta.la",
+                "long_title": "Magenta.la"
+            },
+            {
+                "id": "thebrooklynbrothers",
+                "short_title": "The Brooklyn Brothers",
+                "long_title": "The Brooklyn Brothers"
+            }
+        ]
+    }
+]

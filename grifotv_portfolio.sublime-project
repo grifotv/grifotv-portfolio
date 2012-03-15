@@ -1,0 +1,23 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/grifotv/devserver/sublime/grifotv_portfolio"
+		}
+	],
+    "build_systems":
+    [
+        {
+            "name": "Grifo.tv Portfolio Coffee",
+            "cmd": ["${project_path}/scripts/coffee.sh"],
+            "working_dir" : "${project_path}",
+            "path" : "/usr/local/bin/"
+        }
+    ],
+   "settings":
+   [
+       {
+           "translate_tabs_to_spaces": true
+       }
+   ]
+}

@@ -1,0 +1,582 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"backgrou",
+				"background	background-image: url"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/view/AppView.coffee",
+			"settings":
+			{
+				"buffer_size": 9964,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bin/data/projects.json",
+			"settings":
+			{
+				"buffer_size": 39810,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bin/index.html",
+			"settings":
+			{
+				"buffer_size": 15492,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bin/css/style.css",
+			"settings":
+			{
+				"buffer_size": 22432,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scripts/coffee.sh",
+			"settings":
+			{
+				"buffer_size": 255,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Grifo.tv Portfolio Coffee",
+	"command_palette":
+	{
+		"height": 45.0,
+		"selected_items":
+		[
+			[
+				"Install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 369.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/collection/stream/GithubCollection.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/model/stream/GithubModel.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/data/projects.json",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/index.html",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/AppView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/AppConfig.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/collection/portfolio/BrandCollection.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/model/portfolio/BrandModel.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/collection/portfolio/LabelCollection.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/model/portfolio/LabelModel.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/App.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/collection/portfolio/ExperienceCollection.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/model/portfolio/ExperienceModel.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/page/about/AboutPageView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/page/stream/StreamPageView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/collection/stream/TwitterCollection.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/model/stream/TwitterModel.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/header/ShareView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/page/about/ExperienceGroupView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/collection/portfolio/ExperienceGroupCollection.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/page/about/ExperienceView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/model/portfolio/ExperienceGroupModel.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/data/profiles.json",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/collection/portfolio/ProfileCollection.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/model/portfolio/ProfileModel.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/collection/stream/BlogCollection.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/collection/stream/FlickrCollection.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/collection/stream/YoutubeCollection.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/gdocs.html",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/css/style.css",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/page/stream/YoutubeView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/js/bg.js",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/page/projects/ThumbnailView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/page/projects/ProjectsPageView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/AbstractView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/page/project/ProjectPageView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/page/tags/TagsPageView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/data/experiences.json",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/page/PageContainerView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/page/AbstractPageView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/data/projects_backup.json",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/page/tags/TagsGridView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/page/projects/ProjectsGridView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/page/tags/TagGroupView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/header/HeaderBgView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/header/HeaderView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/header/NavView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/data/tags.json",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/data/brands_backup.json",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/data/brands.json",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/data/tags_backup.json",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/router/AppRouter.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/page/tags/TagView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/scripts/coffee.sh",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/AppStatus.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/model/AppConfigModel.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/model/AppStatusModel.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/constants/Constants.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/utils/Utils.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/css/layout.css",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/PageContainerView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/collection/ProjectCollection.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/ThumbnailView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/model/stream/FlickrModel.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/model/stream/YoutubeModel.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/YoutubeView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/model/ProjectModel.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/model/ProfileModel.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/ProjectsGridView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/TagsGridView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/TagView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/css/temp.css",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/model/stream/BlogModel.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/collection/stream/jsonFlickrFeed.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/constants/jsonFlickrFeed.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/collection/TwitterCollection.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/collection/GithubCollection.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/model/GithubModel.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/model/TwitterModel.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/App.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/view/AppView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/view/PageContainerView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/view/YoutubeView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/scripts/compress.sh",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/grifotv_portfolio.sublime-project",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/view/ProjectsGridView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/model/YoutubeModel.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/scripts/compile.sh",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/Console.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/view/TagView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/view/ProfileView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/view/ThumbnailView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/model/BrandModel.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/model/CreditGroupModel.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/model/CreditModel.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/model/ExperienceModel.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/model/LineModel.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/model/ProfileModel.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/model/ProjectModel.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/model/TagGroupModel.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/model/TagModel.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/router/AppRouter.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/view/BrandView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/view/CreditGroupView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/view/CreditView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/view/ExperienceView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/view/NavView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/collection/ExperienceCollection.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/collection/CreditGroupCollection.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/collection/CreditCollection.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/collection/LineCollection.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/collection/ProfileCollection.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/collection/ProjectCollection.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/collection/TagCollection.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/collection/BrandCollection.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/collection/TagGroupCollection.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/collection/YoutubeCollection.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/constants/Constants.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/view/Z.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/coffee.sh",
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/app.coffee",
+		"/Users/grifotv/Library/Application Support/Sublime Text 2/Packages/User/GrifoTvPortfolioCoffee.sublime-build",
+		"/Users/grifotv/devserver/sublime/grifo.tv/_portfolio-20120218/sponge/config/user/project.php",
+		"/Users/grifotv/devserver/sublime/grifo.tv/portfolio/sponge/config/user/project.php",
+		"/Users/grifotv/devserver/sublime/grifo.tv/public/production/js/src/view/AppView.coffee",
+		"/Users/grifotv/devserver/sublime/grifo.tv/public/production/js/src/view/BrandView.coffee",
+		"/Users/grifotv/devserver/sublime/grifo.tv/public/production/js/src/view/CreditGroupView.coffee",
+		"/Users/grifotv/devserver/sublime/grifo.tv/public/production/js/src/view/CreditView.coffee"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"dojo",
+			"fwa",
+			"error   : ( model_, response_ ) => @onLoad()",
+			"complete",
+			"portrait=0&amp;color=85c6e4",
+			"template_experience_column",
+			"columnTemplate",
+			"eeee",
+			"fff",
+			"project",
+			"a:hover",
+			".a",
+			"src=\"images/follow-",
+			"gif",
+			".gif",
+			"seta",
+			"paginacao-materia",
+			"paginacao-materia\npaginacao-materia",
+			"paginacao-materia",
+			"proxima-materia",
+			"materia",
+			"proxima-materia",
+			"materia-anterior",
+			"(model_)",
+			"copy",
+			"video-i",
+			"@el",
+			"page-container",
+			"tagsGridView",
+			"tags-grid",
+			"projects-grid",
+			"projectsGridView",
+			"page-container",
+			"scrollToTop",
+			"         : ",
+			"TWITTER_MAX_RESULTS",
+			"YOUTUBE_MAX_RESULTS",
+			"FLICKR_USER_ID",
+			"GITHUB_USER_ID",
+			"TWITTER_USER_ID",
+			"YOUTUBE_USER_ID",
+			"share",
+			"line",
+			"Constants",
+			"container-top",
+			"grifo.appConfigModel",
+			"Constants.URL_",
+			"EVENT_DATA_LOADED",
+			"container-top",
+			"content",
+			"style2",
+			"&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;",
+			"contact",
+			"chapeu",
+			"data-materia",
+			"titulo-materia",
+			";",
+			"}\n",
+			"{",
+			"}",
+			";",
+			"{",
+			"@.",
+			"@tagsGroup",
+			"@tagGr",
+			"collection",
+			"@collection",
+			"contact",
+			"copy",
+			"time_value",
+			"conso",
+			"')",
+			"('",
+			"']",
+			"['",
+			"ThumbnailV",
+			"TagVi",
+			"TagsGridV",
+			"ShareV",
+			"ProjectsGrid",
+			"PageCont",
+			"tagModel",
+			"el",
+			"window",
+			"UploadVideo",
+			"\"",
+			"\"\"",
+			"\"",
+			"}]},{",
+			"\"images\":[{",
+			",\"",
+			"{",
+			".swf",
+			"video-js.png",
+			"switch",
+			"PROJECTS",
+			"brand",
+			"tag",
+			"console",
+			"dandan",
+			"thumbnail",
+			"<",
+			"\"thumb\"",
+			"video",
+			"brand",
+			"\"images\": \"\",",
+			"tag",
+			"webfonts/",
+			"tag",
+			"0a9fe1",
+			"tag",
+			"tags",
+			"border-radius",
+			"tag",
+			"-moz-border-radius",
+			"tag",
+			"creative & art d",
+			"video-container",
+			"video",
+			"isFirstTime",
+			"window",
+			"windo",
+			"column_collection",
+			"columns",
+			"type\": \"exp",
+			"switch",
+			"shadow",
+			"tags-grid"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/view/AppView.coffee",
+					"settings":
+					{
+						"buffer_size": 9964,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4650,
+								4650
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1258.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "bin/data/projects.json",
+					"settings":
+					{
+						"buffer_size": 39810,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								31387,
+								31387
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 8,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 6111.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "bin/index.html",
+					"settings":
+					{
+						"buffer_size": 15492,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								913,
+								913
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3926.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "bin/css/style.css",
+					"settings":
+					{
+						"buffer_size": 22432,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								20886,
+								20886
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 15651.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "scripts/coffee.sh",
+					"settings":
+					{
+						"buffer_size": 255,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								242,
+								242
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"bin/index.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 363.0,
+	"status_bar_visible": true
+}

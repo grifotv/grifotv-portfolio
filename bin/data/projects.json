@@ -1,0 +1,587 @@
+[
+    {
+        "id": "beinghenry",
+        "tile_size": "big",
+        "short_title": "Being Henry",
+        "long_title": "Being Henry",
+        "headline": "An interactive film about choices",
+        "thumbnails": ["images/thumbnails/beinghenry.jpg"],
+        "url": "http://www.helloevoque.com/beinghenry",
+        "video": "<iframe class='video' src='http://player.vimeo.com/video/23361151?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' width='990' height='557' frameborder='0'></iframe>",
+        "credit_group_collection": [
+                {
+                        "label": "Less Rain Credits",
+                        "credit_collection": [
+                                {
+                                        "label": "Creative Director",
+                                        "profiles_id": [ "vassilios-alexiou" ]
+                                },
+                                {
+                                        "label": "Head of Production",
+                                        "profiles_id": [ "owen-wallis" ]
+                                },
+                                {
+                                        "label": "Developers",
+                                        "profiles_id": [ "danilo-figueiredo", "james-hunt", "luis-martinez", "derek-michael", "marcus-pauli" ]
+                                },
+                                {
+                                        "label": "Art Director",
+                                        "profiles_id": [ "arnaldo-boico" ]
+                                },
+                                {
+                                        "label": "Production Manager",
+                                        "profiles_id": [ "rachel-holland" ]
+                                }
+                        ]
+                },
+                {
+                        "label": "Full Credits",
+                        "credit_collection": [
+                                {
+                                        "label": "AD Agency",
+                                        "profiles_id": [ "the-brooklyn-brothers"  ]
+                                },
+                                {
+                                        "label": "Digital Production Partner",
+                                        "profiles_id": [ "less-rain" ]
+                                },
+                                {
+                                        "label": "Director",
+                                        "profiles_id": [ "nick-gordon" ]
+                                },
+                                {
+                                        "label": "Live Action & Digital Production",
+                                        "profiles_id": [ "somesuch" ]
+                                },
+                                {
+                                        "label": "Music",
+                                        "profiles_id": [ "soundtree" ]
+                                },
+                                {
+                                        "label": "Post production",
+                                        "profiles_id": [ "prime-focus" ]
+                                },
+                                {
+                                        "label": "Compression",
+                                        "profiles_id": [ "silversun" ]
+                                },
+                                {
+                                        "label": "Audio Post",
+                                        "profiles_id": [ "pure-soho", "grand-central", "angell-sound" ]
+                                }
+                        ]  
+                }
+        ],
+        "copy": "<p>Planned from the ground up as an interactive experience, it merges storytelling and interactivity in a seamless and intuitive way. My role was the Flash development of the structure using Robotlegs and the whole story interaction, making sure pre-loading is seamless.</p></br><p>Rather than simply being a website that allows users to play around with the paint colour, door configuration choices and different interior options of the new Range Rover Evoque, Being Henry is an interactive film in which viewers get to decide how Henry proceeds through the narrative at various stages. Does he head straight into the restaurant to meet his sisters and grandma, or does he decide to walk around the corner and 'forget' about his family reunion?</p><br/><p>Each choice viewers make on behalf of the film's lead character, Henry, takes him on a different journey through a multiple strand story, and each choice also dictates a particular set up of a new model of Range Rover's Evoque model – which you find out when the film has played out. You then have the option to play around further with the car's colour, interior etc, or replay the film and try making different choices.</p><br/><p>For example, choose to ignore your family re-union to spend time with a young waitress, and the car you end up with will be the two door coupe version, rather than the five door family version... It sounds interestingly lateral yet potentially bland, but high production values, an unfussy, intuitive digital interface created by Less Rain, great performances, and a genuinely engaging set of numerous storylines and even more (over 30) endings, means that actually it's tricky to stop re-playing the film and exploring the different choices / narratives. With various plots that include such characters as a gun-toting grandma, a mafia-linked baker, and an attractive young waitress waiting for Henry in the back room of a diner – it's all rather good fun.</p>",
+        "images": [ "images/projects/beinghenry/01.jpg", "images/projects/beinghenry/02.jpg", "images/projects/beinghenry/03.jpg", "images/projects/beinghenry/04.jpg", "images/projects/beinghenry/05.jpg", "images/projects/beinghenry/06.jpg", "images/projects/beinghenry/07.jpg", "images/projects/beinghenry/08.jpg", "images/projects/beinghenry/09.jpg", "images/projects/beinghenry/10.jpg", "images/projects/beinghenry/11.jpg", "images/projects/beinghenry/12.jpg", "images/projects/beinghenry/13.jpg", "images/projects/beinghenry/14.jpg", "images/projects/beinghenry/15.jpg", "images/projects/beinghenry/16.jpg" ],
+        "tags_id": [ "2011", "web", "actionscript", "robotlegs", "timeline", "aftereffects", "campaign", "storytelling", "automotive", "lessrain", "thebrooklynbrothers" ],
+        "display_tags_id": [ "storytelling", "automotive", "campaign", "web", "2011" ]
+    },
+    {
+        "id": "sergiocalderon",
+        "tile_size": "small",
+        "short_title": "Sergio Calderón",
+        "long_title": "Sergio Calderón",
+        "headline": "Art Director, Filmmaker and Visual Artist Portfolio",
+        "thumbnails": ["images/thumbnails/sergiocalderon.jpg"],
+        "url": "http://www.sergiocalderon.net",
+        "video": "<img src='images/projects/sergiocalderon/00.jpg' />",
+        "credit_group_collection": [
+                {
+                        "label": "Credits",
+                        "credit_collection": [
+                                {
+                                        "label": "Designer",
+                                        "profiles_id": [ "sergio-calderon" ]
+                                },
+                                {
+                                        "label": "Developer",
+                                        "profiles_id": [ "danilo-figueiredo" ]
+                                }
+                        ]
+                }
+        ],
+        "copy": "<p>Website developed in Coffee Script ( JavaScript ), using Backbone.js framework and jQuery.</p><br/><p>Full description coming soon.</p>",
+        "images": ["images/projects/sergiocalderon/01.jpg", "images/projects/sergiocalderon/02.jpg","images/projects/sergiocalderon/03.jpg","images/projects/sergiocalderon/04.jpg","images/projects/sergiocalderon/05.jpg","images/projects/sergiocalderon/06.jpg","images/projects/sergiocalderon/07.jpg","images/projects/sergiocalderon/08.jpg"],
+        "tags_id": [ "2011", "web", "backbone", "javascript", "portfolio", "sideproject", "design" ],
+        "display_tags_id": [ "portfolio", "javascript", "web", "2011" ] 
+    },
+    {
+        "id": "britishseapower",
+        "tile_size": "medium",
+        "short_title": "British Sea Power",
+        "long_title": "British Sea Power",
+        "headline": "broadcast live of concert filmed with 3 Kinects",
+        "thumbnails": ["images/thumbnails/britishseapower.jpg"],
+        "url": "http://www.youtube.com/watch?v=XEfkvPiETPc",
+        "video": "<iframe class='video' width='990' height='557' src='http://www.youtube.com/embed/XEfkvPiETPc?rel=0&enablejsapi=1&version=3&color=white&theme=dark&showinfo=0&modestbranding=1&iv_load_policy=3' frameborder='0' allowfullscreen></iframe>",
+        "credit_group_collection": [
+                {
+                        "label": "Credits",
+                        "credit_collection": [
+                                {
+                                        "label": "Directors",
+                                        "profiles_id": [ "jamie-roberts", "will-hanke" ]
+                                },
+                                {
+                                        "label": "Executive Producer",
+                                        "profiles_id": [ "conor-roche" ]
+                                },
+                                {
+                                        "label": "Developers",
+                                        "profiles_id": [ "danilo-figueiredo", "silvio-paganini" ]
+                                },
+                                {
+                                        "label": "",
+                                        "profiles_id": [ "bsp-full-credits" ]
+                                }
+                        ]
+                }
+        ],
+        "copy": "<p>Filmed at the The Roundhouse using 3 Kinect cameras, edited and broadcast live on Myspace, as part of the Black Box project British Sea Power perform ‘Once More Now’. Together with Silvio Paganini, I was responsable for the kinect development using openFrameworks. The source code is available on my <a href='https://github.com/grifotv/blackbox' target='_blank'>GitHub for download</a>.</p><br/><p>Full description coming soon.</p>",
+        "images": [""],
+        "tags_id": [ "2011", "installation", "web", "openframeworks", "kinect", "opensource", "sideproject", "music" ],
+        "display_tags_id": [ "music", "opensource", "kinect", "2011" ] 
+    },
+    {
+        "id": "dgsummer2012",
+        "tile_size": "medium",
+        "short_title": "D&G Summer 2012",
+        "long_title": "D&G Summer 2012",
+        "headline": "Catalogue of the Summer 2012 collection",
+        "thumbnails": ["images/thumbnails/dgss12.jpg"],
+        "url": "http://www.dolcegabbana.com/dg/",
+        "video": "<iframe class='video' src='http://player.vimeo.com/video/37236943?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' width='990' height='557' frameborder='0'></iframe>",
+        "credit_group_collection": [
+                {
+                        "label": "Credits",
+                        "credit_collection": [
+                                {
+                                        "label": "Creative Director",
+                                        "profiles_id": [ "florian-schmitt" ]
+                                },
+                                {
+                                        "label": "Producer",
+                                        "profiles_id": [ "nicolas-salzano" ]
+                                },
+                                {
+                                        "label": "Designers",
+                                        "profiles_id": [ "michal-kubacki", "julien-simshauser" ]
+                                },
+                                {
+                                        "label": "Developers",
+                                        "profiles_id": [ "danilo-figueiredo", "theo-tillberg", "henrique-matias" ]
+                                }
+                        ]
+                }
+        ],
+        "copy": "<p>For Dolce&Gabbana’s 2012 spring/summer collection, Hi-ReS! have been asked by the renowned Milanese luxury brand, to enhance the brand DNA and reflect their glorious “Dolce Vita and Italian cinema era inspired”, advertising campaign.</p></br><p>We created a fully flash website focusing on the well executed campaign shot by photographer Giampaolo Sgura. The characters Bianca Balti and Monica Bellucci, soak up the sun in Dolce&Gabbana’s Italian life orientated images. Shot in Southern Italy, the images are all about family with a lively depiction of weekend activities. Wearing Dolce’s kitschy prints, lace detailing and sultry shapes, Monica and Bianca live it up in the picturesque setting.</p><br/><p>Full description coming soon.</p>",
+        "images": [ "images/projects/dgsummer2012/01.jpg", "images/projects/dgsummer2012/02.jpg", "images/projects/dgsummer2012/03.jpg", "images/projects/dgsummer2012/04.jpg", "images/projects/dgsummer2012/05.jpg", "images/projects/dgsummer2012/06.jpg", "images/projects/dgsummer2012/07.jpg", "images/projects/dgsummer2012/08.jpg", "images/projects/dgsummer2012/09.jpg", "images/projects/dgsummer2012/10.jpg", "images/projects/dgsummer2012/11.jpg", "images/projects/dgsummer2012/12.jpg", "images/projects/dgsummer2012/13.jpg", "images/projects/dgsummer2012/14.jpg", "images/projects/dgsummer2012/15.jpg", "images/projects/dgsummer2012/16.jpg" ],
+        "tags_id": [ "2012", "web", "actionscript", "robotlegs", "catalogue", "fashion", "beauty", "hires" ],
+        "display_tags_id": [ "fashion", "catalogue", "web", "2012" ] 
+    },
+    {
+        "id": "snow",
+        "tile_size": "small",
+        "short_title": "Snow",
+        "long_title": "Snow",
+        "headline": "interactive installation",
+        "thumbnails": ["images/thumbnails/snow.jpg"],
+        "url": "http://vimeo.com/17676040",
+        "video": "<iframe class='video' src='http://player.vimeo.com/video/17676040?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' width='990' height='557' frameborder='0'></iframe>",
+        "credit_group_collection": [
+                {
+                        "label": "Credits",
+                        "credit_collection": [
+                                {
+                                        "label": "Designer & Developer",
+                                        "profiles_id": [ "danilo-figueiredo" ]
+                                }
+                        ]
+                }
+        ],
+        "copy": "<p>Snow is an immersive and fun experience where snowclouds follow you around on screen and softly drop snowflakes onto your body.</p><br/><p>The project was developed in one week using openFrameworks (c++) using addons such as ofxOpenCV for image processing, ofxBox2d for the clouds behaviour, ofxKinect and the libfreenect driver for the body tracking. Many thanks to Microsoft for bringing this technology to market, and thanks to the openframeworks and openkinect communities for their support.</p><br/><p>Full description coming soon.</p>",
+        "images": [""],
+        "tags_id": [ "2010", "installation", "openframeworks", "kinect", "rd", "design", "lessrain" ],
+        "display_tags_id": [ "rd", "openframeworks", "installation", "2010" ] 
+    },
+    {
+        "id": "thelandofme",
+        "tile_size": "big",
+        "short_title": "The Land of Me",
+        "long_title": "The Land of Me",
+        "headline": "interactive learning experience",
+        "thumbnails": ["images/thumbnails/thelandofme.jpg"],
+        "url": "http://www.thelandofme.com",
+        "video": "<iframe class='video' src='http://player.vimeo.com/video/17515914?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' width='778' height='557' frameborder='0'></iframe>",
+        "credit_group_collection": [
+                {
+                        "label": "Less Rain Credits",
+                        "credit_collection": [
+                                {
+                                        "label": "Creative Director",
+                                        "profiles_id": [ "vassilios-alexiou" ]
+                                },
+                                {
+                                        "label": "Developers",
+                                        "profiles_id": [ "danilo-figueiredo", "luis-martinez", "romuald-quantin", "james-hunt", "daniel-beattie" ]
+                                },
+                                {
+                                        "label": "UI Designers",
+                                        "profiles_id": [ "lorenzo-dzieduszycki", "lisa-juquet" ]
+                                },
+                                {
+                                        "label": "Producers",
+                                        "profiles_id": [ "owen-wallis", "despina-siahuli", "marta-swannie", "valerie-rabot" ]
+                                }
+                        ]
+                },
+                {
+                        "label": "Full Credits",
+                        "credit_collection": [
+                                {
+                                        "label": "Agency",
+                                        "profiles_id": [ "made-in-me"  ]
+                                },
+                                {
+                                        "label": "Digital Production Partner",
+                                        "profiles_id": [ "less-rain" ]
+                                }
+                        ]  
+                }
+        ],
+        "copy": "<p>Probably my biggest and most <a href='http://www.youtube.com/watch?v=ECwMyK51MD8' target='_blank'>rewarding</a> ever project, I was flash developer on this Less Rain project for Made In Me.</p></br/><p>An interactive learning experience, through six chapters of creative activities for children aged two and up. I'm responsible for every scene composition, managing all characters and animation elements. All together in a very sophisticated AIR app.</p><br/><p>Full description coming soon.</p>",
+        "images": [ "images/projects/thelandofme/01.jpg","images/projects/thelandofme/02.jpg","images/projects/thelandofme/03.jpg","images/projects/thelandofme/04.jpg","images/projects/thelandofme/05.jpg","images/projects/thelandofme/06.jpg","images/projects/thelandofme/07.jpg","images/projects/thelandofme/08.jpg","images/projects/thelandofme/09.jpg","images/projects/thelandofme/10.jpg","images/projects/thelandofme/11.jpg","images/projects/thelandofme/12.jpg","images/projects/thelandofme/13.jpg","images/projects/thelandofme/14.jpg","images/projects/thelandofme/15.jpg","images/projects/thelandofme/16.jpg","images/projects/thelandofme/17.jpg" ],
+        "tags_id": [ "2010", "app", "actionscript", "air", "somacore", "timeline", "product", "storytelling", "educational", "lessrain", "madeinme" ],
+        "display_tags_id": [ "storytelling", "educational", "product", "app", "2010" ]
+    },
+    {
+        "id": "dojosanfrancisco",
+        "tile_size": "small",
+        "short_title": "Dojo S.F.",
+        "long_title": "Dojo San Francisco",
+        "headline": "Agency portfolio website",
+        "thumbnails": ["images/thumbnails/dojo.jpg"],
+        "url": "http://www.dojosf.com",
+        "video": "<img src='images/projects/dojosanfrancisco/00.jpg' />",
+        "credit_group_collection": [
+                {
+                        "label": "Credits",
+                        "credit_collection": [
+                                {
+                                        "label": "Art Director & Illustrator",
+                                        "profiles_id": [ "adhemas-batista" ]
+                                },
+                                {
+                                        "label": "Developer",
+                                        "profiles_id": [ "danilo-figueiredo" ]
+                                },
+                                {
+                                        "label": "Lead Motion Designer",
+                                        "profiles_id": [ "ricardo-martins" ]
+                                },
+                                {
+                                        "label": "Motion Designers",
+                                        "profiles_id": [ "byron-segundo", "lucas-fuse" ]
+                                }
+                        ]
+                }
+        ],
+        "copy": "<p>Dojo is a new born advertising agency founded by creative world awarded partners. My role was the flash development using Soma framework, Tweener, FIVe3d and PV3D together with AS3Mod.</p><br/><p>Full description coming soon.</p>",
+        "images": ["images/projects/dojosanfrancisco/01.jpg","images/projects/dojosanfrancisco/02.jpg","images/projects/dojosanfrancisco/03.jpg","images/projects/dojosanfrancisco/04.jpg","images/projects/dojosanfrancisco/05.jpg","images/projects/dojosanfrancisco/06.jpg","images/projects/dojosanfrancisco/07.jpg","images/projects/dojosanfrancisco/08.jpg","images/projects/dojosanfrancisco/09.jpg"],
+        "tags_id": [ "2010", "web", "actionscript", "3d", "somacore", "aftereffects", "branding", "portfolio", "advertising", "magentala" ],
+        "display_tags_id": [ "advertising", "portfolio", "branding", "web", "2010" ] 
+    },
+    {
+        "id": "costanavarino",
+        "tile_size": "small",
+        "short_title": "Costa Navarino",
+        "long_title": "Costa Navarino",
+        "headline": "Full screen experiential website",
+        "thumbnails": ["images/thumbnails/costanavarino.jpg"],
+        "url": "http://www.costanavarino.com",
+        "video": "<img src='images/projects/costanavarino/00.jpg' />",
+        "credit_group_collection": [
+                {
+                        "label": "Corporate Site Credits",
+                        "credit_collection": [
+                                {
+                                        "label": "Branding",
+                                        "profiles_id": [ "less-rain", "praline" ]
+                                },
+                                {
+                                        "label": "Creative & Art Director",
+                                        "profiles_id": [ "carsten-schneider" ]
+                                },
+                                {
+                                        "label": "Developer",
+                                        "profiles_id": [ "luis-martinez" ]
+                                },
+                                {
+                                        "label": "UI Animator, Designer & Developer",
+                                        "profiles_id": [ "danilo-figueiredo" ]
+                                },
+                                {
+                                        "label": "Designer",
+                                        "profiles_id": [ "lorenzo-dzieduszycki" ]
+                                }
+                        ]
+                },
+                {
+                        "label": "Campaign/Forest Site Credits",
+                        "credit_collection": [
+                                {
+                                        "label": "Creative Director",
+                                        "profiles_id": [ "vassilios-alexiou" ]
+                                },
+                                {
+                                        "label": "Art Director",
+                                        "profiles_id": [ "lorenzo-dzieduszycki" ]
+                                },
+                                {
+                                        "label": "Flash Developers",
+                                        "profiles_id": [ "danilo-figueiredo", "luis-martinez", "james-hunt" ]
+                                },
+                                {
+                                        "label": "Back-end Developer",
+                                        "profiles_id": [ "adrian-callaghan" ]
+                                },
+                                {
+                                        "label": "Producer",
+                                        "profiles_id": [ "despina-siahuli", "owen-wallis" ]
+                                },
+                                {
+                                        "label": "Copywriter",
+                                        "profiles_id": [ "viviana-miliaresi" ]
+                                }
+                        ]  
+                }
+        ],
+        "copy": "<p>Full screen experiential website for Costa Navarino, a prime holiday destination in the Mediterranean. I'm responsible for all the animations, a good mix of AS3 code, timeline based and After Effects.</p><br/><p>Full description coming soon.</p>",
+        "images": ["images/projects/costanavarino/01.jpg","images/projects/costanavarino/02.jpg","images/projects/costanavarino/03.jpg","images/projects/costanavarino/04.jpg","images/projects/costanavarino/05.jpg","images/projects/costanavarino/06.jpg","images/projects/costanavarino/07.jpg","images/projects/costanavarino/08.jpg"],
+        "tags_id": [ "2009", "web", "actionscript", "robotlegs", "timeline", "aftereffects", "branding", "campaign", "tourism", "lessrain" ],
+        "display_tags_id": [ "tourism", "branding", "web", "2009" ] 
+    },
+    {
+        "id": "neoderma",
+        "tile_size": "small",
+        "short_title": "Neoderma",
+        "long_title": "Neoderma",
+        "headline": "Natural skin care website",
+        "thumbnails": ["images/thumbnails/neoderma.jpg"],
+        "url": "http://www.neoderma.com",
+        "video": "<img src='images/projects/neoderma/00.jpg' />",
+        "credit_group_collection": [
+                {
+                        "label": "Credits",
+                        "credit_collection": [
+                                {
+                                        "label": "Producer",
+                                        "profiles_id": [ "marta-swannie" ]
+                                },
+                                {
+                                        "label": "Art Director",
+                                        "profiles_id": [ "mikkel-due-pedersen" ]
+                                },
+                                {
+                                        "label": "Flash Developers",
+                                        "profiles_id": [ "danilo-figueiredo", "romuald-quantin" ]
+                                },
+                                {
+                                        "label": "Designer",
+                                        "profiles_id": [ "lorenzo-dzieduszycki" ]
+                                },
+                                {
+                                        "label": "Back-end Developers",
+                                        "profiles_id": [ "paul-hopton", "raul-alonso" ]
+                                },
+                                {
+                                        "label": "Sound Designer",
+                                        "profiles_id": [ "daniel-beattie" ]
+                                }
+                        ]
+                }
+        ],
+        "copy": "<p>Website for Neoderma, showcasing its natural skin care and make up line through an immersive underwater world full of natural ingredients used in the actual products. I'm responsible for all the animations done mostly in AS3 and After Effects.</p><br/><p>Full description coming soon.</p>",
+        "images": ["images/projects/neoderma/01.jpg","images/projects/neoderma/02.jpg","images/projects/neoderma/03.jpg","images/projects/neoderma/04.jpg","images/projects/neoderma/05.jpg","images/projects/neoderma/06.jpg","images/projects/neoderma/07.jpg","images/projects/neoderma/08.jpg", "images/projects/neoderma/09.jpg","images/projects/neoderma/10.jpg"],
+        "tags_id": [ "2008", "web", "actionscript", "timeline", "somacore", "aftereffects", "branding", "catalogue", "beauty", "lessrain" ],
+        "display_tags_id": [ "beauty", "catalogue", "branding", "web", "2008" ] 
+    },
+    {
+        "id": "dellbmwf1",
+        "tile_size": "medium",
+        "short_title": "Dell & BMW F1",
+        "long_title": "Dell & BMW’s F1 Team",
+        "headline": "Interactive Documentary",
+        "thumbnails": ["images/thumbnails/dellbmw.jpg"],
+        "url": "http://archive.grifo.tv/dellbmw",
+        "video": "<img src='images/projects/dellbmwf1/00.jpg' />",
+        "credit_group_collection": [
+                {
+                        "label": "Credits",
+                        "credit_collection": [
+                                {
+                                        "label": "Creative & Art Director",
+                                        "profiles_id": [ "raphael-campos" ]
+                                },
+                                {
+                                        "label": "Designer & Flash Developer",
+                                        "profiles_id": [ "danilo-figueiredo" ]
+                                },
+                                {
+                                        "label": "Video Production",
+                                        "profiles_id": [ "tern" ]
+                                },
+                                {
+                                        "label": "Video Special Effects",
+                                        "profiles_id": [ "wyld-stallions" ]
+                                },
+                                {
+                                        "label": "Sound Designer",
+                                        "profiles_id": [ "marcelo-baldin" ]
+                                },
+                                {
+                                        "label": "Copywriter",
+                                        "profiles_id": [ "steve-gaythorpe" ]
+                                }
+                        ]
+                }
+        ],
+        "copy": "<p>A stunning online case study that celebrates the support Dell and Intel provide to the BMW Sauber F1 Team. Probably my best project while working in Glasgow. My role was the flash development, interface animation and redesign of some internal pages.</p><br/><p>Full description coming soon.</p>",
+        "images": ["images/projects/dellbmwf1/01.jpg","images/projects/dellbmwf1/02.jpg","images/projects/dellbmwf1/03.jpg","images/projects/dellbmwf1/04.jpg","images/projects/dellbmwf1/05.jpg","images/projects/dellbmwf1/06.jpg","images/projects/dellbmwf1/07.jpg","images/projects/dellbmwf1/08.jpg", "images/projects/dellbmwf1/09.jpg"],
+        "tags_id": [ "2007", "web", "actionscript", "timeline", "campaign", "storytelling", "automotive", "technology", "curiousgroup" ],
+        "display_tags_id": [ "technology", "automotive", "campaign", "web", "2007" ] 
+    },
+    {
+        "id": "valtvodka",
+        "tile_size": "medium",
+        "short_title": "Valt Vodka",
+        "long_title": "Valt Vodka",
+        "headline": "The World’s first Single Malt Scottish Vodka",
+        "thumbnails": ["images/thumbnails/valtvodka.jpg"],
+        "url": "http://archive.grifo.tv/valtvodka",
+        "video": "<img src='images/projects/valtvodka/00.jpg' />",
+        "credit_group_collection": [
+                {
+                        "label": "Credits",
+                        "credit_collection": [
+                                {
+                                        "label": "Branding Designers",
+                                        "profiles_id": [ "greig-anderson", "stephen-paul" ]
+                                },
+                                {
+                                        "label": "Web Designer & Developer",
+                                        "profiles_id": [ "danilo-figueiredo" ]
+                                },
+                                {
+                                        "label": "3D Bottle Illustrator",
+                                        "profiles_id": [ "pedro-figueiredo" ]
+                                }
+                        ]
+                }
+        ],
+        "copy": "<p>This bar was in Manhattan, and two men we’re reminiscing about their homeland. The conversation turned to drink as it so often does in these situations. They came up with the idea of creating a vodka that would be made by Scottish distillers, using only Scottish barley and Scottish mountain water. A vodka so refined and so pure it needed an entirely new method of distillation. A quintuple micro-distillation technique was created especially. In true Scottish style the idea that began in that New York bar became a reality as VALT was first distilled on St. Andrews day and bottled on the anniversary of Robbie Burns’ birthday... The World’s first Single Malt Scottish Vodka was born.</p><br/><p>As expected most of people would associate Scotland to whisky. Following the concept 'Change Your Perspective' I came up with a transition literally changing the perspective. In this one I did pretty much everything but the 3D bottle.</p><br/><p>Full description coming soon.</p>",
+        "images": ["images/projects/valtvodka/01.jpg","images/projects/valtvodka/02.jpg","images/projects/valtvodka/03.jpg","images/projects/valtvodka/04.jpg","images/projects/valtvodka/05.jpg","images/projects/valtvodka/06.jpg","images/projects/valtvodka/07.jpg"],
+        "tags_id": [ "2007", "web", "actionscript", "timeline", "branding", "drink", "curiousgroup" ],
+        "display_tags_id": [ "drink", "branding", "web", "2007" ] 
+    },
+    {
+        "id": "philips",
+        "tile_size": "medium",
+        "short_title": "Philips",
+        "long_title": "Philips",
+        "headline": "Home Entertainment Website",
+        "thumbnails": ["images/thumbnails/philips.jpg"],
+        "url": "http://www.grafikonstruct.com.br/works/philips/helatam/",
+        "video": "<img src='images/projects/philips/00.jpg' />",
+        "credit_group_collection": [              
+                {
+                        "label": "Grafikonstruct Credits",
+                        "credit_collection": [
+                                {
+                                        "label": "Creative Director",
+                                        "profiles_id": [ "rodrigo-teco" ]
+                                },
+                                {
+                                        "label": "Art Director",
+                                        "profiles_id": [ "adriel-nunes" ]
+                                },
+                                {
+                                        "label": "Flash Developer",
+                                        "profiles_id": [ "danilo-figueiredo" ]
+                                },
+                                {
+                                        "label": "Back-end Developer",
+                                        "profiles_id": [ "pedro-moraes" ]
+                                },
+                                {
+                                        "label": "Producer",
+                                        "profiles_id": [ "rachel-palhano" ]
+                                },
+                                {
+                                        "label": "Product Demo Designers & Animators",
+                                        "profiles_id": [ "alexandre-costa", "elano-collaco", "valerio-oliveira", "andre-candeloro" ]
+                                }
+                        ]
+                },
+                {
+                        "label": "Full Credits",
+                        "credit_collection": [
+                                {
+                                        "label": "AD Agency",
+                                        "profiles_id": [ "dm9-ddb" ]
+                                },
+                                {
+                                        "label": "Digital Production Partner",
+                                        "profiles_id": [ "grafikonstruct" ]
+                                }
+                        ]
+                }
+        ],
+        "copy": "<p>Website for Philips showcasing its home entertainment products with a very sleek and minimal approach. The target was the Latin America, all the content is dynamic. I'm responsible for the flash development and all interface animations.</p><br/><p>Full description coming soon.</p>",
+        "images": ["images/projects/philips/01.jpg","images/projects/philips/02.jpg","images/projects/philips/03.jpg","images/projects/philips/04.jpg","images/projects/philips/05.jpg","images/projects/philips/06.jpg","images/projects/philips/07.jpg","images/projects/philips/08.jpg","images/projects/philips/09.jpg", "images/projects/philips/10.jpg"],
+        "tags_id": [ "2006", "web", "actionscript", "timeline", "catalogue", "technology", "grafikonstruct", "dm9ddb" ],
+        "display_tags_id": [ "technology", "catalogue", "web", "2006" ] 
+    },
+    {
+        "id": "cavalerawinter05",
+        "tile_size": "small",
+        "short_title": "Cavalera Winter ’05",
+        "long_title": "Cavalera Winter ’05",
+        "headline": "Catalogue of the Winter 2005 Collection",
+        "thumbnails": ["images/thumbnails/cavalera.jpg"],
+        "url": "http://www.grafikonstruct.com.br/works/cavalera/inverno05/",
+        "video": "<img src='images/projects/cavalerawinter05/00.jpg' />",
+        "credit_group_collection": [
+                {
+                        "label": "Credits",
+                        "credit_collection": [
+                                {
+                                        "label": "Creative Director",
+                                        "profiles_id": [ "rodrigo-teco" ]
+                                },
+                                {
+                                        "label": "Art Director & Flash Developer",
+                                        "profiles_id": [ "danilo-figueiredo" ]
+                                },
+                                {
+                                        "label": "Producer",
+                                        "profiles_id": [ "camila-chaves" ]
+                                },
+                                {
+                                        "label": "Back-end Developer",
+                                        "profiles_id": [ "rafael-matsunaga" ]
+                                },
+                                {
+                                        "label": "Sound Designer",
+                                        "profiles_id": [ "luci-hidaka" ]
+                                }
+                        ]
+                }
+        ],
+        "copy": "<p>Cavalera is a fashion brand from Brazil, well-known for being bold and cheeky. The theme for the winter collection was 'Luxury for all'. The whole idea is about showing the royal family house in a cheap and durty way. I'm responsible for the whole site.</p><br/><p>Full description coming soon.</p>",
+        "images": ["images/projects/cavalerawinter05/01.jpg","images/projects/cavalerawinter05/02.jpg","images/projects/cavalerawinter05/03.jpg","images/projects/cavalerawinter05/04.jpg","images/projects/cavalerawinter05/05.jpg","images/projects/cavalerawinter05/06.jpg","images/projects/cavalerawinter05/07.jpg","images/projects/cavalerawinter05/08.jpg","images/projects/cavalerawinter05/09.jpg", "images/projects/cavalerawinter05/10.jpg", "images/projects/cavalerawinter05/11.jpg"],
+        "tags_id": [ "2005", "web", "actionscript", "timeline", "campaign", "fashion", "grafikonstruct" ],
+        "display_tags_id": [ "fashion", "campaign", "web", "2005" ] 
+    }
+]
