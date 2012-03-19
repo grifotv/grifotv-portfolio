@@ -1,7 +1,7 @@
 [
     {
-        "id": "media",
-        "label": "By Media",
+        "id": "platform",
+        "label": "By Platform",
         "tags_collection": [
             {
                 "id": "app",
@@ -147,11 +147,6 @@
                 "long_title": "Catalogue"
             },
             {
-                "id": "product",
-                "short_title": "Product",
-                "long_title": "Product"
-            },
-            {
                 "id": "portfolio",
                 "short_title": "Portfolio",
                 "long_title": "Portfolio"
@@ -170,6 +165,11 @@
                 "id": "storytelling",
                 "short_title": "Storytelling",
                 "long_title": "Storytelling"
+            },
+            {
+                "id": "toy",
+                "short_title": "Toy",
+                "long_title": "Toy"
             }
         ]
     },

@@ -252,8 +252,8 @@
         ],
         "copy": "<p>Probably my biggest and most <a href='http://www.youtube.com/watch?v=ECwMyK51MD8' target='_blank'>rewarding</a> ever project, I was flash developer on this Less Rain project for Made In Me.</p></br/><p>An interactive learning experience, through six chapters of creative activities for children aged two and up. I'm responsible for every scene composition, managing all characters and animation elements. All together in a very sophisticated AIR app.</p><br/><p>Full description coming soon.</p>",
         "images": [ "images/projects/thelandofme/01.jpg","images/projects/thelandofme/02.jpg","images/projects/thelandofme/03.jpg","images/projects/thelandofme/04.jpg","images/projects/thelandofme/05.jpg","images/projects/thelandofme/06.jpg","images/projects/thelandofme/07.jpg","images/projects/thelandofme/08.jpg","images/projects/thelandofme/09.jpg","images/projects/thelandofme/10.jpg","images/projects/thelandofme/11.jpg","images/projects/thelandofme/12.jpg","images/projects/thelandofme/13.jpg","images/projects/thelandofme/14.jpg","images/projects/thelandofme/15.jpg","images/projects/thelandofme/16.jpg","images/projects/thelandofme/17.jpg" ],
-        "tags_id": [ "2010", "app", "actionscript", "air", "somacore", "timeline", "product", "storytelling", "educational", "lessrain", "madeinme" ],
-        "display_tags_id": [ "storytelling", "educational", "product", "app", "2010" ]
+        "tags_id": [ "2010", "app", "actionscript", "air", "somacore", "timeline", "toy", "storytelling", "educational", "lessrain", "madeinme" ],
+        "display_tags_id": [ "storytelling", "educational", "toy", "app", "2010" ]
     },
     {
         "id": "dojosanfrancisco",
