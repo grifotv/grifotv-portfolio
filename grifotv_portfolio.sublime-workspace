@@ -26,30 +26,6 @@
 				"buffer_size": 39810,
 				"line_ending": "Unix"
 			}
-		},
-		{
-			"file": "bin/index.html",
-			"settings":
-			{
-				"buffer_size": 15492,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "bin/css/style.css",
-			"settings":
-			{
-				"buffer_size": 22432,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scripts/coffee.sh",
-			"settings":
-			{
-				"buffer_size": 255,
-				"line_ending": "Unix"
-			}
 		}
 	],
 	"build_system": "Grifo.tv Portfolio Coffee",
@@ -80,6 +56,9 @@
 	},
 	"file_history":
 	[
+		"/Users/grifotv/devserver/sublime/grifotv-portfolio/bin/index.html",
+		"/Users/grifotv/devserver/sublime/grifotv-portfolio/bin/css/style.css",
+		"/Users/grifotv/devserver/sublime/grifotv-portfolio/scripts/coffee.sh",
 		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/collection/stream/GithubCollection.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/model/stream/GithubModel.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/data/projects.json",
@@ -204,10 +183,7 @@
 		"/Users/grifotv/Library/Application Support/Sublime Text 2/Packages/User/GrifoTvPortfolioCoffee.sublime-build",
 		"/Users/grifotv/devserver/sublime/grifo.tv/_portfolio-20120218/sponge/config/user/project.php",
 		"/Users/grifotv/devserver/sublime/grifo.tv/portfolio/sponge/config/user/project.php",
-		"/Users/grifotv/devserver/sublime/grifo.tv/public/production/js/src/view/AppView.coffee",
-		"/Users/grifotv/devserver/sublime/grifo.tv/public/production/js/src/view/BrandView.coffee",
-		"/Users/grifotv/devserver/sublime/grifo.tv/public/production/js/src/view/CreditGroupView.coffee",
-		"/Users/grifotv/devserver/sublime/grifo.tv/public/production/js/src/view/CreditView.coffee"
+		"/Users/grifotv/devserver/sublime/grifo.tv/public/production/js/src/view/AppView.coffee"
 	],
 	"find":
 	{
@@ -371,7 +347,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -425,86 +401,6 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6111.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "bin/index.html",
-					"settings":
-					{
-						"buffer_size": 15492,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								913,
-								913
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3926.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "bin/css/style.css",
-					"settings":
-					{
-						"buffer_size": 22432,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								20886,
-								20886
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 15651.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "scripts/coffee.sh",
-					"settings":
-					{
-						"buffer_size": 255,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								242,
-								242
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
-						},
-						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
@@ -544,10 +440,6 @@
 		]
 	},
 	"menu_visible": true,
-	"output.exec":
-	{
-		"height": 100.0
-	},
 	"replace":
 	{
 		"height": 62.0
