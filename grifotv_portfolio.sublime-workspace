@@ -11,22 +11,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "src/view/AppView.coffee",
-			"settings":
-			{
-				"buffer_size": 9964,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "bin/data/projects.json",
-			"settings":
-			{
-				"buffer_size": 39810,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "Grifo.tv Portfolio Coffee",
 	"command_palette":
@@ -56,6 +40,11 @@
 	},
 	"file_history":
 	[
+		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/AppConfig.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv-portfolio/bin/js/app.min.js",
+		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/view/AppView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv-portfolio/bin/data/projects.json",
+		"/Users/grifotv/devserver/sublime/grifotv-portfolio/bin/data/tags.json",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/bin/index.html",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/bin/css/style.css",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/scripts/coffee.sh",
@@ -178,12 +167,7 @@
 		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/collection/YoutubeCollection.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/constants/Constants.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/view/Z.coffee",
-		"/Users/grifotv/devserver/sublime/grifotv_portfolio/coffee.sh",
-		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/app.coffee",
-		"/Users/grifotv/Library/Application Support/Sublime Text 2/Packages/User/GrifoTvPortfolioCoffee.sublime-build",
-		"/Users/grifotv/devserver/sublime/grifo.tv/_portfolio-20120218/sponge/config/user/project.php",
-		"/Users/grifotv/devserver/sublime/grifo.tv/portfolio/sponge/config/user/project.php",
-		"/Users/grifotv/devserver/sublime/grifo.tv/public/production/js/src/view/AppView.coffee"
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/coffee.sh"
 	],
 	"find":
 	{
@@ -347,65 +331,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "src/view/AppView.coffee",
-					"settings":
-					{
-						"buffer_size": 9964,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4650,
-								4650
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1258.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "bin/data/projects.json",
-					"settings":
-					{
-						"buffer_size": 39810,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								31387,
-								31387
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 8,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],

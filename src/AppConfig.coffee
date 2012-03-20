@@ -55,7 +55,7 @@ class AppConfig
     USER_ID_FLICKR      : '41688283@N07'
 
     # stream max result
-    MAX_RESULTS_YOUTUBE : 12 # 10
+    MAX_RESULTS_YOUTUBE : 11 # 10
     MAX_RESULTS_TWITTER : 6 # 10
     MAX_RESULTS_GITHUB  : 6 # 10
     MAX_RESULTS_FLICKR  : 10

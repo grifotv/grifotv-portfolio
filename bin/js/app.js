@@ -97,7 +97,7 @@
 
     AppConfig.prototype.USER_ID_FLICKR = '41688283@N07';
 
-    AppConfig.prototype.MAX_RESULTS_YOUTUBE = 12;
+    AppConfig.prototype.MAX_RESULTS_YOUTUBE = 11;
 
     AppConfig.prototype.MAX_RESULTS_TWITTER = 6;
 
@@ -310,6 +310,29 @@
 
   })();
 
+  CreditGroupModel = (function() {
+
+    __extends(CreditGroupModel, Backbone.Model);
+
+    function CreditGroupModel() {
+      CreditGroupModel.__super__.constructor.apply(this, arguments);
+    }
+
+    CreditGroupModel.prototype.defaults = {
+      label: '',
+      credit_collection: null
+    };
+
+    CreditGroupModel.prototype.initialize = function() {
+      return this.set({
+        credit_collection: new CreditCollection(this.get('credit_collection'))
+      });
+    };
+
+    return CreditGroupModel;
+
+  })();
+
   BrandModel = (function() {
 
     __extends(BrandModel, Backbone.Model);
@@ -348,29 +371,6 @@
 
   })();
 
-  CreditGroupModel = (function() {
-
-    __extends(CreditGroupModel, Backbone.Model);
-
-    function CreditGroupModel() {
-      CreditGroupModel.__super__.constructor.apply(this, arguments);
-    }
-
-    CreditGroupModel.prototype.defaults = {
-      label: '',
-      credit_collection: null
-    };
-
-    CreditGroupModel.prototype.initialize = function() {
-      return this.set({
-        credit_collection: new CreditCollection(this.get('credit_collection'))
-      });
-    };
-
-    return CreditGroupModel;
-
-  })();
-
   CreditModel = (function() {
 
     __extends(CreditModel, Backbone.Model);
@@ -386,24 +386,6 @@
     };
 
     return CreditModel;
-
-  })();
-
-  ExperienceGroupModel = (function() {
-
-    __extends(ExperienceGroupModel, Backbone.Model);
-
-    function ExperienceGroupModel() {
-      ExperienceGroupModel.__super__.constructor.apply(this, arguments);
-    }
-
-    ExperienceGroupModel.prototype.defaults = {
-      id: '',
-      label: '',
-      column: 0
-    };
-
-    return ExperienceGroupModel;
 
   })();
 
@@ -441,6 +423,24 @@
 
   })();
 
+  ExperienceGroupModel = (function() {
+
+    __extends(ExperienceGroupModel, Backbone.Model);
+
+    function ExperienceGroupModel() {
+      ExperienceGroupModel.__super__.constructor.apply(this, arguments);
+    }
+
+    ExperienceGroupModel.prototype.defaults = {
+      id: '',
+      label: '',
+      column: 0
+    };
+
+    return ExperienceGroupModel;
+
+  })();
+
   LabelModel = (function() {
 
     __extends(LabelModel, Backbone.Model);
@@ -455,39 +455,6 @@
     };
 
     return LabelModel;
-
-  })();
-
-  ProfileModel = (function() {
-
-    __extends(ProfileModel, Backbone.Model);
-
-    function ProfileModel() {
-      ProfileModel.__super__.constructor.apply(this, arguments);
-    }
-
-    ProfileModel.prototype.defaults = {
-      id: '',
-      label: '',
-      url: '',
-      window: ''
-    };
-
-    ProfileModel.prototype.initialize = function() {
-      if (this.get('url').length > 0.0) {
-        if (this.get('url').indexOf('#') === 0.0) {
-          return this.set({
-            window: '_self'
-          });
-        } else {
-          return this.set({
-            window: '_blank'
-          });
-        }
-      }
-    };
-
-    return ProfileModel;
 
   })();
 
@@ -525,6 +492,39 @@
     };
 
     return ProjectModel;
+
+  })();
+
+  ProfileModel = (function() {
+
+    __extends(ProfileModel, Backbone.Model);
+
+    function ProfileModel() {
+      ProfileModel.__super__.constructor.apply(this, arguments);
+    }
+
+    ProfileModel.prototype.defaults = {
+      id: '',
+      label: '',
+      url: '',
+      window: ''
+    };
+
+    ProfileModel.prototype.initialize = function() {
+      if (this.get('url').length > 0.0) {
+        if (this.get('url').indexOf('#') === 0.0) {
+          return this.set({
+            window: '_self'
+          });
+        } else {
+          return this.set({
+            window: '_blank'
+          });
+        }
+      }
+    };
+
+    return ProfileModel;
 
   })();
 
@@ -610,25 +610,6 @@
 
   })();
 
-  GithubModel = (function() {
-
-    __extends(GithubModel, Backbone.Model);
-
-    function GithubModel() {
-      GithubModel.__super__.constructor.apply(this, arguments);
-    }
-
-    GithubModel.prototype.defaults = {
-      type: '',
-      text: '',
-      date: '',
-      url: ''
-    };
-
-    return GithubModel;
-
-  })();
-
   TwitterModel = (function() {
 
     __extends(TwitterModel, Backbone.Model);
@@ -668,6 +649,25 @@
     };
 
     return YoutubeModel;
+
+  })();
+
+  GithubModel = (function() {
+
+    __extends(GithubModel, Backbone.Model);
+
+    function GithubModel() {
+      GithubModel.__super__.constructor.apply(this, arguments);
+    }
+
+    GithubModel.prototype.defaults = {
+      type: '',
+      text: '',
+      date: '',
+      url: ''
+    };
+
+    return GithubModel;
 
   })();
 
@@ -721,6 +721,20 @@
 
   })();
 
+  CreditGroupCollection = (function() {
+
+    __extends(CreditGroupCollection, Backbone.Collection);
+
+    function CreditGroupCollection() {
+      CreditGroupCollection.__super__.constructor.apply(this, arguments);
+    }
+
+    CreditGroupCollection.prototype.model = CreditGroupModel;
+
+    return CreditGroupCollection;
+
+  })();
+
   ExperienceCollection = (function() {
 
     __extends(ExperienceCollection, Backbone.Collection);
@@ -749,20 +763,6 @@
     };
 
     return ExperienceCollection;
-
-  })();
-
-  CreditGroupCollection = (function() {
-
-    __extends(CreditGroupCollection, Backbone.Collection);
-
-    function CreditGroupCollection() {
-      CreditGroupCollection.__super__.constructor.apply(this, arguments);
-    }
-
-    CreditGroupCollection.prototype.model = CreditGroupModel;
-
-    return CreditGroupCollection;
 
   })();
 
@@ -1793,28 +1793,6 @@
 
   })();
 
-  NavView = (function() {
-
-    __extends(NavView, AbstractView);
-
-    function NavView() {
-      NavView.__super__.constructor.apply(this, arguments);
-    }
-
-    NavView.prototype.id = 'nav';
-
-    NavView.prototype.hasTransition = false;
-
-    NavView.prototype.selectItem = function(pageId_) {
-      if (pageId_ == null) pageId_ = '';
-      $('.menu', this.$el).removeClass('menuSelected');
-      return $('#menu-' + pageId_, this.$el).addClass('menuSelected');
-    };
-
-    return NavView;
-
-  })();
-
   ShareView = (function() {
 
     __extends(ShareView, AbstractView);
@@ -1851,6 +1829,28 @@
 
   })();
 
+  NavView = (function() {
+
+    __extends(NavView, AbstractView);
+
+    function NavView() {
+      NavView.__super__.constructor.apply(this, arguments);
+    }
+
+    NavView.prototype.id = 'nav';
+
+    NavView.prototype.hasTransition = false;
+
+    NavView.prototype.selectItem = function(pageId_) {
+      if (pageId_ == null) pageId_ = '';
+      $('.menu', this.$el).removeClass('menuSelected');
+      return $('#menu-' + pageId_, this.$el).addClass('menuSelected');
+    };
+
+    return NavView;
+
+  })();
+
   AbstractPageView = (function() {
 
     __extends(AbstractPageView, AbstractView);
@@ -1860,204 +1860,6 @@
     }
 
     return AbstractPageView;
-
-  })();
-
-  AboutPageView = (function() {
-
-    __extends(AboutPageView, AbstractPageView);
-
-    function AboutPageView() {
-      this.appendBrandView = __bind(this.appendBrandView, this);
-      this.appendExperienceGroupView = __bind(this.appendExperienceGroupView, this);
-      this.render = __bind(this.render, this);
-      AboutPageView.__super__.constructor.apply(this, arguments);
-    }
-
-    AboutPageView.prototype.id = 'about-page';
-
-    AboutPageView.prototype.overviewTemplate = null;
-
-    AboutPageView.prototype.brandsTemplate = null;
-
-    AboutPageView.prototype.init = function() {
-      this.overviewTemplate = _.template($('#template_overview').html());
-      return this.brandsTemplate = _.template($('#template_brands').html());
-    };
-
-    AboutPageView.prototype.render = function() {
-      var brandModel, experienceGroupModel, _i, _j, _len, _len2, _ref, _ref2;
-      this.$el.append(this.overviewTemplate({
-        label: grifo.labelCollection.get('about-overview').get('label'),
-        image: grifo.labelCollection.get('about-picture').get('label'),
-        headline: grifo.labelCollection.get('about-headline').get('label'),
-        copy: grifo.labelCollection.get('about-copy').get('label')
-      }));
-      this.$el.append($('#template_experiences').html());
-      _ref = grifo.experienceGroupCollection.models;
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        experienceGroupModel = _ref[_i];
-        this.appendExperienceGroupView(experienceGroupModel);
-      }
-      this.$el.append(this.brandsTemplate({
-        label: grifo.labelCollection.get('about-brands').get('label')
-      }));
-      grifo.brandCollection.sort();
-      _ref2 = grifo.brandCollection.models;
-      for (_j = 0, _len2 = _ref2.length; _j < _len2; _j++) {
-        brandModel = _ref2[_j];
-        this.appendBrandView(brandModel);
-      }
-      return this;
-    };
-
-    AboutPageView.prototype.appendExperienceGroupView = function(model_) {
-      var experienceGroupView;
-      if (model_.get('column') === 0.0) {
-        $('#column-0', this.$el).append($('#template_experience_group_gap').html());
-      } else {
-        $('#column-1', this.$el).append($('#template_experience_group_gap').html());
-      }
-      experienceGroupView = new ExperienceGroupView({
-        model: model_
-      });
-      if (model_.get('column') === 0.0) {
-        return $('#column-0', this.$el).append(experienceGroupView.render().el);
-      } else {
-        return $('#column-1', this.$el).append(experienceGroupView.render().el);
-      }
-    };
-
-    AboutPageView.prototype.appendBrandView = function(model_) {
-      var brandView;
-      brandView = new BrandView({
-        model: model_
-      });
-      return $('#brands', this.$el).append(brandView.render().el);
-    };
-
-    AboutPageView.prototype.show = function(delay_, animate_) {
-      if (delay_ == null) delay_ = 0.0;
-      if (animate_ == null) animate_ = true;
-      this.removeChildren();
-      this.render();
-      return AboutPageView.__super__.show.apply(this, arguments).show(delay_, animate_);
-    };
-
-    AboutPageView.prototype.hide = function() {
-      this.removeChildren();
-      return AboutPageView.__super__.hide.apply(this, arguments).hide();
-    };
-
-    return AboutPageView;
-
-  })();
-
-  BrandView = (function() {
-
-    __extends(BrandView, Backbone.View);
-
-    function BrandView() {
-      this.render = __bind(this.render, this);
-      BrandView.__super__.constructor.apply(this, arguments);
-    }
-
-    BrandView.prototype.className = 'brand';
-
-    BrandView.prototype.render = function() {
-      if (this.model.get('url').length > 0.0) {
-        this.template = _.template($('#template_brand_link').html());
-        $(this.el).append(this.template({
-          image: this.model.get('image'),
-          label: this.model.get('label'),
-          url: this.model.get('url'),
-          window: this.model.get('window')
-        }));
-      } else {
-        this.template = _.template($('#template_brand').html());
-        $(this.el).append(this.template({
-          image: this.model.get('image'),
-          label: this.model.get('label')
-        }));
-      }
-      return this;
-    };
-
-    return BrandView;
-
-  })();
-
-  ExperienceGroupView = (function() {
-
-    __extends(ExperienceGroupView, Backbone.View);
-
-    function ExperienceGroupView() {
-      this.appendExperience = __bind(this.appendExperience, this);
-      this.render = __bind(this.render, this);
-      ExperienceGroupView.__super__.constructor.apply(this, arguments);
-    }
-
-    ExperienceGroupView.prototype.className = 'new-row';
-
-    ExperienceGroupView.prototype.numLeftChar = 0.0;
-
-    ExperienceGroupView.prototype.initialize = function() {
-      this.template = _.template($('#template_experience_group').html());
-      this.lineLeftTemplate = _.template($('#template_line_left').html());
-      this.lineRightTemplate = _.template($('#template_line_right').html());
-      this.lineRightPlusTemplate = _.template($('#template_line_right_plus').html());
-      return this.lineGapTemplate = _.template($('#template_line_gap').html());
-    };
-
-    ExperienceGroupView.prototype.render = function() {
-      var experienceModel, _i, _len, _ref;
-      $(this.el).append(this.template({
-        label: this.model.get('label')
-      }));
-      _ref = grifo.experienceCollection.models;
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        experienceModel = _ref[_i];
-        if (experienceModel.get('group') === this.model.get('id')) {
-          this.appendExperience(experienceModel);
-        }
-      }
-      $('.inner-left', this.el).append(this.lineGapTemplate());
-      $('.inner-left', this.el).append(this.lineGapTemplate());
-      $('.inner-right', this.el).append(this.lineGapTemplate());
-      $('.inner-right', this.el).append(this.lineGapTemplate());
-      $('.inner-right', this.el).css('max-width', 478.0 - 29.0 - this.numLeftChar * 7.0);
-      return this;
-    };
-
-    ExperienceGroupView.prototype.appendExperience = function(model_) {
-      if (model_.get('left').split('<')[0].length > this.numLeftChar) {
-        this.numLeftChar = model_.get('left').split('<')[0].length;
-      }
-      if (model_.get('left').length > 0.0) {
-        $('.inner-left', this.el).append(this.lineLeftTemplate({
-          label: model_.get('left')
-        }));
-      } else {
-        $('.inner-left', this.el).append(this.lineGapTemplate());
-      }
-      if (model_.get('right').length > 0.0) {
-        if (model_.get('plus_url').length > 0.0) {
-          return $('.inner-right', this.el).append(this.lineRightPlusTemplate({
-            label: model_.get('right'),
-            url: model_.get('plus_url'),
-            window: model_.get('window')
-          }));
-        } else {
-          return $('.inner-right', this.el).append(this.lineRightTemplate({
-            label: model_.get('right')
-          }));
-        }
-      } else {
-        return $('.inner-right', this.el).append(this.lineGapTemplate());
-      }
-    };
-
-    return ExperienceGroupView;
 
   })();
 
@@ -2794,6 +2596,204 @@
     };
 
     return TagsPageView;
+
+  })();
+
+  AboutPageView = (function() {
+
+    __extends(AboutPageView, AbstractPageView);
+
+    function AboutPageView() {
+      this.appendBrandView = __bind(this.appendBrandView, this);
+      this.appendExperienceGroupView = __bind(this.appendExperienceGroupView, this);
+      this.render = __bind(this.render, this);
+      AboutPageView.__super__.constructor.apply(this, arguments);
+    }
+
+    AboutPageView.prototype.id = 'about-page';
+
+    AboutPageView.prototype.overviewTemplate = null;
+
+    AboutPageView.prototype.brandsTemplate = null;
+
+    AboutPageView.prototype.init = function() {
+      this.overviewTemplate = _.template($('#template_overview').html());
+      return this.brandsTemplate = _.template($('#template_brands').html());
+    };
+
+    AboutPageView.prototype.render = function() {
+      var brandModel, experienceGroupModel, _i, _j, _len, _len2, _ref, _ref2;
+      this.$el.append(this.overviewTemplate({
+        label: grifo.labelCollection.get('about-overview').get('label'),
+        image: grifo.labelCollection.get('about-picture').get('label'),
+        headline: grifo.labelCollection.get('about-headline').get('label'),
+        copy: grifo.labelCollection.get('about-copy').get('label')
+      }));
+      this.$el.append($('#template_experiences').html());
+      _ref = grifo.experienceGroupCollection.models;
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        experienceGroupModel = _ref[_i];
+        this.appendExperienceGroupView(experienceGroupModel);
+      }
+      this.$el.append(this.brandsTemplate({
+        label: grifo.labelCollection.get('about-brands').get('label')
+      }));
+      grifo.brandCollection.sort();
+      _ref2 = grifo.brandCollection.models;
+      for (_j = 0, _len2 = _ref2.length; _j < _len2; _j++) {
+        brandModel = _ref2[_j];
+        this.appendBrandView(brandModel);
+      }
+      return this;
+    };
+
+    AboutPageView.prototype.appendExperienceGroupView = function(model_) {
+      var experienceGroupView;
+      if (model_.get('column') === 0.0) {
+        $('#column-0', this.$el).append($('#template_experience_group_gap').html());
+      } else {
+        $('#column-1', this.$el).append($('#template_experience_group_gap').html());
+      }
+      experienceGroupView = new ExperienceGroupView({
+        model: model_
+      });
+      if (model_.get('column') === 0.0) {
+        return $('#column-0', this.$el).append(experienceGroupView.render().el);
+      } else {
+        return $('#column-1', this.$el).append(experienceGroupView.render().el);
+      }
+    };
+
+    AboutPageView.prototype.appendBrandView = function(model_) {
+      var brandView;
+      brandView = new BrandView({
+        model: model_
+      });
+      return $('#brands', this.$el).append(brandView.render().el);
+    };
+
+    AboutPageView.prototype.show = function(delay_, animate_) {
+      if (delay_ == null) delay_ = 0.0;
+      if (animate_ == null) animate_ = true;
+      this.removeChildren();
+      this.render();
+      return AboutPageView.__super__.show.apply(this, arguments).show(delay_, animate_);
+    };
+
+    AboutPageView.prototype.hide = function() {
+      this.removeChildren();
+      return AboutPageView.__super__.hide.apply(this, arguments).hide();
+    };
+
+    return AboutPageView;
+
+  })();
+
+  BrandView = (function() {
+
+    __extends(BrandView, Backbone.View);
+
+    function BrandView() {
+      this.render = __bind(this.render, this);
+      BrandView.__super__.constructor.apply(this, arguments);
+    }
+
+    BrandView.prototype.className = 'brand';
+
+    BrandView.prototype.render = function() {
+      if (this.model.get('url').length > 0.0) {
+        this.template = _.template($('#template_brand_link').html());
+        $(this.el).append(this.template({
+          image: this.model.get('image'),
+          label: this.model.get('label'),
+          url: this.model.get('url'),
+          window: this.model.get('window')
+        }));
+      } else {
+        this.template = _.template($('#template_brand').html());
+        $(this.el).append(this.template({
+          image: this.model.get('image'),
+          label: this.model.get('label')
+        }));
+      }
+      return this;
+    };
+
+    return BrandView;
+
+  })();
+
+  ExperienceGroupView = (function() {
+
+    __extends(ExperienceGroupView, Backbone.View);
+
+    function ExperienceGroupView() {
+      this.appendExperience = __bind(this.appendExperience, this);
+      this.render = __bind(this.render, this);
+      ExperienceGroupView.__super__.constructor.apply(this, arguments);
+    }
+
+    ExperienceGroupView.prototype.className = 'new-row';
+
+    ExperienceGroupView.prototype.numLeftChar = 0.0;
+
+    ExperienceGroupView.prototype.initialize = function() {
+      this.template = _.template($('#template_experience_group').html());
+      this.lineLeftTemplate = _.template($('#template_line_left').html());
+      this.lineRightTemplate = _.template($('#template_line_right').html());
+      this.lineRightPlusTemplate = _.template($('#template_line_right_plus').html());
+      return this.lineGapTemplate = _.template($('#template_line_gap').html());
+    };
+
+    ExperienceGroupView.prototype.render = function() {
+      var experienceModel, _i, _len, _ref;
+      $(this.el).append(this.template({
+        label: this.model.get('label')
+      }));
+      _ref = grifo.experienceCollection.models;
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        experienceModel = _ref[_i];
+        if (experienceModel.get('group') === this.model.get('id')) {
+          this.appendExperience(experienceModel);
+        }
+      }
+      $('.inner-left', this.el).append(this.lineGapTemplate());
+      $('.inner-left', this.el).append(this.lineGapTemplate());
+      $('.inner-right', this.el).append(this.lineGapTemplate());
+      $('.inner-right', this.el).append(this.lineGapTemplate());
+      $('.inner-right', this.el).css('max-width', 478.0 - 29.0 - this.numLeftChar * 7.0);
+      return this;
+    };
+
+    ExperienceGroupView.prototype.appendExperience = function(model_) {
+      if (model_.get('left').split('<')[0].length > this.numLeftChar) {
+        this.numLeftChar = model_.get('left').split('<')[0].length;
+      }
+      if (model_.get('left').length > 0.0) {
+        $('.inner-left', this.el).append(this.lineLeftTemplate({
+          label: model_.get('left')
+        }));
+      } else {
+        $('.inner-left', this.el).append(this.lineGapTemplate());
+      }
+      if (model_.get('right').length > 0.0) {
+        if (model_.get('plus_url').length > 0.0) {
+          return $('.inner-right', this.el).append(this.lineRightPlusTemplate({
+            label: model_.get('right'),
+            url: model_.get('plus_url'),
+            window: model_.get('window')
+          }));
+        } else {
+          return $('.inner-right', this.el).append(this.lineRightTemplate({
+            label: model_.get('right')
+          }));
+        }
+      } else {
+        return $('.inner-right', this.el).append(this.lineGapTemplate());
+      }
+    };
+
+    return ExperienceGroupView;
 
   })();
 
