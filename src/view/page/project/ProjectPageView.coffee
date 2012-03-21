@@ -31,9 +31,9 @@ class ProjectPageView extends AbstractPageView
             headline  : @model.get 'headline'
             url       : @model.get 'url'
             copy      : @model.get 'copy'
-            prevUrl   : '#' + grifo.appConfig.PAGE_PROJECTS + '/' + prevModel.get( 'id' )
+            prevUrl   : '#/' + grifo.appConfig.PAGE_PROJECTS + '/' + prevModel.get( 'id' ) + '/'
             prevTitle : prevModel.get 'long_title'
-            nextUrl   : '#' + grifo.appConfig.PAGE_PROJECTS + '/' + nextModel.get( 'id' )
+            nextUrl   : '#/' + grifo.appConfig.PAGE_PROJECTS + '/' + nextModel.get( 'id' ) + '/'
             nextTitle : nextModel.get 'long_title'
 
         for tagModel in @model.get( 'tags_model' )

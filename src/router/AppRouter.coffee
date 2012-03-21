@@ -7,11 +7,20 @@ class AppRouter extends Backbone.Router
         ':id'                            : 'hashChanged'
         '/:id'                           : 'hashChanged'
 
+        ':id/'                           : 'hashChanged'
+        '/:id/'                          : 'hashChanged'
+
         ':id/:subid'                     : 'hashChanged'
         '/:id/:subid'                    : 'hashChanged'
 
+        ':id/:subid/'                    : 'hashChanged'
+        '/:id/:subid/'                   : 'hashChanged'
+
         ':id/:subid/:subsubid'           : 'hashChanged'
         '/:id/:subid/:subsubid'          : 'hashChanged'
+
+        ':id/:subid/:subsubid/'          : 'hashChanged'
+        '/:id/:subid/:subsubid/'         : 'hashChanged'
 
         ':id/:subid/:subsubid/*actions'  : 'hashChanged'
         '/:id/:subid/:subsubid/*actions' : 'hashChanged'
@@ -33,19 +42,19 @@ class AppRouter extends Backbone.Router
 
     navigateToProject : ( projectId_ = null )->
         
-        hash = '/' + grifo.appConfig.PAGE_PROJECTS
+        hash = '//' + grifo.appConfig.PAGE_PROJECTS + '/'
         
         if projectId_
-            hash += '/' + projectId_
+            hash += projectId_ + '/'
 
-        @navigate hash, true
+        @navigate hash, {trigger: true}
 
 
     navigateToTag : ( tagId_ = null )->
 
-        hash = '/' + grifo.appConfig.PAGE_TAGS
+        hash = '//' + grifo.appConfig.PAGE_TAGS + '/'
 
         if tagId_
-            hash += '/' + tagId_
+            hash += tagId_ + '/'
 
-        @navigate hash, true
+        @navigate hash, {trigger: true}
