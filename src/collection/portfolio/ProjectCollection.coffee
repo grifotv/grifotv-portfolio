@@ -1,8 +1,8 @@
 class ProjectCollection extends Backbone.Collection
 
     model : ProjectModel
-
-    parseTags : ()->
+    
+    parseProfiles : ()->
 
         i = 0
         for projectModel in @models
@@ -12,28 +12,6 @@ class ProjectCollection extends Backbone.Collection
                 index : i
             i++
 
-            # display tags
-            display_tags_id    = projectModel.get( 'display_tags_id' )
-            display_tags_model = []
-
-            for tagId in display_tags_id
-                display_tags_model[ display_tags_model.length ] = grifo.tagGroupCollection.getTagModel( tagId )
-            
-            # all tags
-            tags_id    = projectModel.get( 'tags_id' )
-            tags_model = []
-
-            for tagId in tags_id
-                tags_model[ tags_model.length ] = grifo.tagGroupCollection.getTagModel( tagId )
-
-            # set models
-            projectModel.set
-                'display_tags_model': display_tags_model
-                'tags_model'        : tags_model
-
-    parseProfiles : ()->
-
-        for projectModel in @models
             creditGroupCollection = projectModel.get( 'credit_group_collection' )
 
             for creditGroupModel in creditGroupCollection.models

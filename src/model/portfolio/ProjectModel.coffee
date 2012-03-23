@@ -16,8 +16,8 @@ class ProjectModel extends Backbone.Model
         images                   : []
         tags_id                  : [] # array of tag id
         display_tags_id          : [] # array of tag id
-        tags_model               : [] # array of tag model
-        display_tags_model       : [] # array of tag model
+        #tags_model               : [] # array of tag model
+        #display_tags_model       : [] # array of tag model
 
     initialize : ->
 

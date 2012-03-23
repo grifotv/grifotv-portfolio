@@ -13,8 +13,9 @@
       profileCollection: null,
       experienceCollection: null,
       experienceGroupCollection: null,
-      projectCollection: null,
       tagGroupCollection: null,
+      tagCollection: null,
+      projectCollection: null,
       youtubeCollection: null,
       twitterCollection: null,
       githubCollection: null,
@@ -55,6 +56,10 @@
 
     AppConfig.prototype.KEY_EXPERIENCE_GROUPS = '0AuMegPFV2btJdGFIMWE1V0VvOUFuUlVpWXp3UXlwQ1E';
 
+    AppConfig.prototype.KEY_TAGS = '0AuMegPFV2btJdGFIMWE1V0VvOUFuUlVpWXp3UXlwQ1E';
+
+    AppConfig.prototype.KEY_TAG_GROUPS = '0AuMegPFV2btJdGFIMWE1V0VvOUFuUlVpWXp3UXlwQ1E';
+
     AppConfig.prototype.WORKSHEET_LABELS = 'od9';
 
     AppConfig.prototype.WORKSHEET_BRANDS = 'od6';
@@ -64,6 +69,10 @@
     AppConfig.prototype.WORKSHEET_EXPERIENCES = 'od8';
 
     AppConfig.prototype.WORKSHEET_EXPERIENCE_GROUPS = 'odb';
+
+    AppConfig.prototype.WORKSHEET_TAGS = 'od4';
+
+    AppConfig.prototype.WORKSHEET_TAG_GROUPS = 'od5';
 
     AppConfig.prototype.URL_LABELS = null;
 
@@ -75,9 +84,11 @@
 
     AppConfig.prototype.URL_EXPERIENCE_GROUPS = null;
 
-    AppConfig.prototype.URL_PROJECTS = 'data/projects.json';
+    AppConfig.prototype.URL_TAGS = null;
 
-    AppConfig.prototype.URL_TAGS = 'data/tags.json';
+    AppConfig.prototype.URL_TAG_GROUPS = null;
+
+    AppConfig.prototype.URL_PROJECTS = 'data/projects.json';
 
     AppConfig.prototype.URL_YOUTUBE = 'http://gdata.youtube.com/feeds/api/videos?alt=json-in-script&author={USER_ID}&orderby=published&start-index=1&max-results={MAX_RESULTS}&callback=?';
 
@@ -122,11 +133,15 @@
       this.URL_PROFILES = this.URL_GDOCS_SS.replace('{KEY}', this.KEY_PROFILES);
       this.URL_EXPERIENCES = this.URL_GDOCS_SS.replace('{KEY}', this.KEY_EXPERIENCES);
       this.URL_EXPERIENCE_GROUPS = this.URL_GDOCS_SS.replace('{KEY}', this.KEY_EXPERIENCE_GROUPS);
+      this.URL_TAGS = this.URL_GDOCS_SS.replace('{KEY}', this.KEY_TAGS);
+      this.URL_TAG_GROUPS = this.URL_GDOCS_SS.replace('{KEY}', this.KEY_TAG_GROUPS);
       this.URL_LABELS = this.URL_LABELS.replace('{WORKSHEET}', this.WORKSHEET_LABELS);
       this.URL_BRANDS = this.URL_BRANDS.replace('{WORKSHEET}', this.WORKSHEET_BRANDS);
       this.URL_PROFILES = this.URL_PROFILES.replace('{WORKSHEET}', this.WORKSHEET_PROFILES);
       this.URL_EXPERIENCES = this.URL_EXPERIENCES.replace('{WORKSHEET}', this.WORKSHEET_EXPERIENCES);
       this.URL_EXPERIENCE_GROUPS = this.URL_EXPERIENCE_GROUPS.replace('{WORKSHEET}', this.WORKSHEET_EXPERIENCE_GROUPS);
+      this.URL_TAGS = this.URL_TAGS.replace('{WORKSHEET}', this.WORKSHEET_TAGS);
+      this.URL_TAG_GROUPS = this.URL_TAG_GROUPS.replace('{WORKSHEET}', this.WORKSHEET_TAG_GROUPS);
       this.URL_YOUTUBE = this.URL_YOUTUBE.replace('{USER_ID}', this.USER_ID_YOUTUBE);
       this.URL_TWITTER = this.URL_TWITTER.replace('{USER_ID}', this.USER_ID_TWITTER);
       this.URL_GITHUB = this.URL_GITHUB.replace('{USER_ID}', this.USER_ID_GITHUB);
@@ -468,6 +483,58 @@
 
   })();
 
+  ProjectModel = (function() {
+
+    __extends(ProjectModel, Backbone.Model);
+
+    function ProjectModel() {
+      ProjectModel.__super__.constructor.apply(this, arguments);
+    }
+
+    ProjectModel.prototype.defaults = {
+      id: '',
+      index: 0,
+      tile_size: 'small',
+      short_title: '',
+      long_title: '',
+      headline: '',
+      thumbnails: [],
+      url: '',
+      video: '',
+      credit_group_collection: null,
+      copy: '',
+      images: [],
+      tags_id: [],
+      display_tags_id: []
+    };
+
+    ProjectModel.prototype.initialize = function() {
+      return this.set({
+        credit_group_collection: new CreditGroupCollection(this.get('credit_group_collection'))
+      });
+    };
+
+    return ProjectModel;
+
+  })();
+
+  TagGroupModel = (function() {
+
+    __extends(TagGroupModel, Backbone.Model);
+
+    function TagGroupModel() {
+      TagGroupModel.__super__.constructor.apply(this, arguments);
+    }
+
+    TagGroupModel.prototype.defaults = {
+      id: '',
+      label: ''
+    };
+
+    return TagGroupModel;
+
+  })();
+
   ProfileModel = (function() {
 
     __extends(ProfileModel, Backbone.Model);
@@ -501,67 +568,6 @@
 
   })();
 
-  ProjectModel = (function() {
-
-    __extends(ProjectModel, Backbone.Model);
-
-    function ProjectModel() {
-      ProjectModel.__super__.constructor.apply(this, arguments);
-    }
-
-    ProjectModel.prototype.defaults = {
-      id: '',
-      index: 0,
-      tile_size: 'small',
-      short_title: '',
-      long_title: '',
-      headline: '',
-      thumbnails: [],
-      url: '',
-      video: '',
-      credit_group_collection: null,
-      copy: '',
-      images: [],
-      tags_id: [],
-      display_tags_id: [],
-      tags_model: [],
-      display_tags_model: []
-    };
-
-    ProjectModel.prototype.initialize = function() {
-      return this.set({
-        credit_group_collection: new CreditGroupCollection(this.get('credit_group_collection'))
-      });
-    };
-
-    return ProjectModel;
-
-  })();
-
-  TagGroupModel = (function() {
-
-    __extends(TagGroupModel, Backbone.Model);
-
-    function TagGroupModel() {
-      TagGroupModel.__super__.constructor.apply(this, arguments);
-    }
-
-    TagGroupModel.prototype.defaults = {
-      id: '',
-      label: '',
-      tags_collection: null
-    };
-
-    TagGroupModel.prototype.initialize = function() {
-      return this.set({
-        tags_collection: new TagCollection(this.get('tags_collection'))
-      });
-    };
-
-    return TagGroupModel;
-
-  })();
-
   TagModel = (function() {
 
     __extends(TagModel, Backbone.Model);
@@ -574,6 +580,7 @@
       id: '',
       short_title: '',
       long_title: '',
+      group: '',
       selected: false
     };
 
@@ -875,8 +882,8 @@
 
     ProjectCollection.prototype.model = ProjectModel;
 
-    ProjectCollection.prototype.parseTags = function() {
-      var display_tags_id, display_tags_model, i, projectModel, tagId, tags_id, tags_model, _i, _j, _k, _len, _len2, _len3, _ref, _results;
+    ProjectCollection.prototype.parseProfiles = function() {
+      var creditCollection, creditGroupCollection, creditGroupModel, creditModel, i, profileId, profiles_id, profiles_model, projectModel, _i, _len, _ref, _results;
       i = 0;
       _ref = this.models;
       _results = [];
@@ -886,32 +893,6 @@
           index: i
         });
         i++;
-        display_tags_id = projectModel.get('display_tags_id');
-        display_tags_model = [];
-        for (_j = 0, _len2 = display_tags_id.length; _j < _len2; _j++) {
-          tagId = display_tags_id[_j];
-          display_tags_model[display_tags_model.length] = grifo.tagGroupCollection.getTagModel(tagId);
-        }
-        tags_id = projectModel.get('tags_id');
-        tags_model = [];
-        for (_k = 0, _len3 = tags_id.length; _k < _len3; _k++) {
-          tagId = tags_id[_k];
-          tags_model[tags_model.length] = grifo.tagGroupCollection.getTagModel(tagId);
-        }
-        _results.push(projectModel.set({
-          'display_tags_model': display_tags_model,
-          'tags_model': tags_model
-        }));
-      }
-      return _results;
-    };
-
-    ProjectCollection.prototype.parseProfiles = function() {
-      var creditCollection, creditGroupCollection, creditGroupModel, creditModel, profileId, profiles_id, profiles_model, projectModel, _i, _len, _ref, _results;
-      _ref = this.models;
-      _results = [];
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        projectModel = _ref[_i];
         creditGroupCollection = projectModel.get('credit_group_collection');
         _results.push((function() {
           var _j, _len2, _ref2, _results2;
@@ -959,6 +940,23 @@
 
     TagCollection.prototype.model = TagModel;
 
+    TagCollection.prototype.parse = function(response_) {
+      var itemEntry, itemModel, modelsArray, _i, _len, _ref;
+      modelsArray = [];
+      _ref = response_['feed']['entry'];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        itemEntry = _ref[_i];
+        itemModel = new TagModel({
+          id: itemEntry['gsx$id']['$t'],
+          short_title: itemEntry['gsx$shorttitle']['$t'],
+          long_title: itemEntry['gsx$longtitle']['$t'],
+          group: itemEntry['gsx$group']['$t']
+        });
+        modelsArray.push(itemModel);
+      }
+      return modelsArray;
+    };
+
     TagCollection.prototype.select = function(id_) {
       var tagModel, _i, _len, _ref, _results;
       _ref = this.models;
@@ -992,25 +990,19 @@
 
     TagGroupCollection.prototype.model = TagGroupModel;
 
-    TagGroupCollection.prototype.select = function(id_) {
-      var tagGroupModel, _i, _len, _ref, _results;
-      _ref = this.models;
-      _results = [];
+    TagGroupCollection.prototype.parse = function(response_) {
+      var itemEntry, itemModel, modelsArray, _i, _len, _ref;
+      modelsArray = [];
+      _ref = response_['feed']['entry'];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        tagGroupModel = _ref[_i];
-        _results.push(tagGroupModel.get('tags_collection').select(id_));
+        itemEntry = _ref[_i];
+        itemModel = new TagGroupModel({
+          id: itemEntry['gsx$id']['$t'],
+          label: itemEntry['gsx$label']['$t']
+        });
+        modelsArray.push(itemModel);
       }
-      return _results;
-    };
-
-    TagGroupCollection.prototype.getTagModel = function(tagId_) {
-      var tagGroupModel, tagModel, _i, _len, _ref;
-      _ref = this.models;
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        tagGroupModel = _ref[_i];
-        tagModel = tagGroupModel.get('tags_collection').get(tagId_);
-        if (tagModel) return tagModel;
-      }
+      return modelsArray;
     };
 
     return TagGroupCollection;
@@ -1399,7 +1391,7 @@
 
     AppView.prototype.loaded = 0.0;
 
-    AppView.prototype.numLoaded = 12.0;
+    AppView.prototype.numLoaded = 13.0;
 
     AppView.prototype.headerView = null;
 
@@ -1437,8 +1429,18 @@
           return _this.onLoad();
         }
       });
+      grifo.tagCollection = new TagCollection();
+      grifo.tagCollection.url = grifo.appConfig.URL_TAGS;
+      grifo.tagCollection.fetch({
+        success: function(model_, response_) {
+          return _this.onLoad();
+        },
+        error: function(model_, response_) {
+          return _this.onLoad();
+        }
+      });
       grifo.tagGroupCollection = new TagGroupCollection();
-      grifo.tagGroupCollection.url = grifo.appConfig.URL_TAGS;
+      grifo.tagGroupCollection.url = grifo.appConfig.URL_TAG_GROUPS;
       grifo.tagGroupCollection.fetch({
         success: function(model_, response_) {
           return _this.onLoad();
@@ -1548,7 +1550,6 @@
     };
 
     AppView.prototype.onLoadComplete = function() {
-      grifo.projectCollection.parseTags();
       grifo.projectCollection.parseProfiles();
       this.render();
       this.show();
@@ -1598,7 +1599,7 @@
         case grifo.appConfig.PAGE_PROJECTS:
           this.aboutPageView.hide();
           this.streamPageView.hide();
-          grifo.tagGroupCollection.select('');
+          grifo.tagCollection.select('');
           this.tagsPageView.hide();
           if (subId_) {
             this.projectsPageView.hide();
@@ -1616,7 +1617,7 @@
           this.streamPageView.hide();
           this.projectsPageView.filter(subId_);
           this.projectsPageView.show();
-          grifo.tagGroupCollection.select(subId_);
+          grifo.tagCollection.select(subId_);
           this.tagsPageView.show();
           if (subId_) top = grifo.appConfig.SNAP_Y_HEADER_BG;
           break;
@@ -2071,6 +2072,217 @@
 
   })();
 
+  ProjectsPageView = (function() {
+
+    __extends(ProjectsPageView, AbstractPageView);
+
+    function ProjectsPageView() {
+      this.appendThumbnail = __bind(this.appendThumbnail, this);
+      this.render = __bind(this.render, this);
+      ProjectsPageView.__super__.constructor.apply(this, arguments);
+    }
+
+    ProjectsPageView.prototype.id = 'projects-page';
+
+    ProjectsPageView.prototype.itemList = [];
+
+    ProjectsPageView.prototype.init = function() {
+      return this.render();
+    };
+
+    ProjectsPageView.prototype.render = function() {
+      var projectModel, _i, _len, _ref;
+      _ref = grifo.projectCollection.models;
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        projectModel = _ref[_i];
+        this.appendThumbnail(projectModel);
+      }
+      this.$el.isotope({
+        itemSelector: '.grid-item',
+        resizable: false,
+        masonry: {
+          columnWidth: 1
+        },
+        animationEngine: 'jquery',
+        animationOptions: {
+          queue: false,
+          duration: 0.0,
+          easing: 'easeOutExpo'
+        }
+      });
+      return this;
+    };
+
+    ProjectsPageView.prototype.relayout = function() {
+      return this.$el.isotope('reLayout');
+    };
+
+    ProjectsPageView.prototype.appendThumbnail = function(model_) {
+      var thumbnailView;
+      thumbnailView = new ThumbnailView({
+        model: model_
+      });
+      this.$el.append(thumbnailView.render().el);
+      return this.itemList[this.itemList.length] = thumbnailView;
+    };
+
+    ProjectsPageView.prototype.filter = function(tagId_) {
+      if (tagId_ == null) tagId_ = '';
+      if (tagId_ === '') {
+        tagId_ = '*';
+      } else {
+        tagId_ = '.' + tagId_;
+      }
+      if (!this.status) {
+        this.$el.isotope({
+          animationOptions: {
+            duration: 0.0
+          }
+        });
+      } else {
+        this.$el.isotope({
+          animationOptions: {
+            duration: 750.0
+          }
+        });
+      }
+      return this.$el.isotope({
+        filter: tagId_
+      });
+    };
+
+    ProjectsPageView.prototype.show = function(delay_, animate_) {
+      var thumbnailStatus, thumbnailView, _i, _len, _ref, _results;
+      if (delay_ == null) delay_ = 0.0;
+      if (animate_ == null) animate_ = false;
+      if (this.status === true) return;
+      ProjectsPageView.__super__.show.apply(this, arguments).show(delay_, animate_);
+      delay_ += 100;
+      this.relayout();
+      if (this.itemList) {
+        _ref = this.itemList;
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          thumbnailView = _ref[_i];
+          thumbnailStatus = thumbnailView.show(delay_);
+          if (thumbnailStatus) {
+            _results.push(delay_ += 50.0);
+          } else {
+            _results.push(void 0);
+          }
+        }
+        return _results;
+      }
+    };
+
+    ProjectsPageView.prototype.hide = function() {
+      if (this.status === false) return;
+      this.status = false;
+      return ProjectsPageView.__super__.hide.apply(this, arguments).hide();
+      /*
+              if @itemList
+                  for thumbnailView in @itemList
+                      thumbnailView.hide()
+      
+              super.hide()
+      */
+    };
+
+    return ProjectsPageView;
+
+  })();
+
+  ThumbnailView = (function() {
+
+    __extends(ThumbnailView, AbstractView);
+
+    function ThumbnailView() {
+      this.onRollOut = __bind(this.onRollOut, this);
+      this.onRollOver = __bind(this.onRollOver, this);
+      this.onClick = __bind(this.onClick, this);
+      this.appendTagView = __bind(this.appendTagView, this);
+      this.render = __bind(this.render, this);
+      ThumbnailView.__super__.constructor.apply(this, arguments);
+    }
+
+    ThumbnailView.prototype.className = 'grid-item';
+
+    ThumbnailView.prototype.template = null;
+
+    ThumbnailView.prototype.model = null;
+
+    ThumbnailView.prototype.events = {
+      'click .grid-item-image': 'onClick',
+      'click .grid-item-name': 'onClick',
+      'click .grid-item-over': 'onClick',
+      'mouseenter': 'onRollOver',
+      'mouseleave': 'onRollOut'
+    };
+
+    ThumbnailView.prototype.init = function() {
+      return this.template = _.template($('#template_thumbnail').html());
+    };
+
+    ThumbnailView.prototype.render = function() {
+      var tagId, tagModel, _i, _len, _ref;
+      this.$el.addClass(this.model.get('tile_size'));
+      this.$el.addClass(this.model.get('tags_id').join(' '));
+      this.$el.append(this.template({
+        image: this.model.get('thumbnails')[0],
+        title: this.model.get('short_title')
+      }));
+      $('.grid-item-image', this.$el).addClass(this.model.get('tile_size'));
+      $('.grid-item-over', this.$el).addClass(this.model.get('tile_size'));
+      $('.grid-item-over', this.$el).css('opacity', 0.0);
+      _ref = this.model.get('display_tags_id');
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        tagId = _ref[_i];
+        tagModel = grifo.tagCollection.get(tagId);
+        this.appendTagView(tagModel);
+      }
+      return this;
+    };
+
+    ThumbnailView.prototype.appendTagView = function(model_) {
+      var tagView;
+      tagView = new TagView({
+        model: model_
+      });
+      tagView.useLongTitle = false;
+      $('.grid-item-tags', this.$el).append(tagView.render().el);
+      return $('.grid-item-tags', this.$el).append(' ');
+    };
+
+    ThumbnailView.prototype.show = function(delay_, animate_) {
+      if (delay_ == null) delay_ = 0.0;
+      if (animate_ == null) animate_ = true;
+      ThumbnailView.__super__.show.apply(this, arguments).show(delay_, animate_);
+      return this.$el.attr('class').indexOf('isotope-hidden') === -1;
+    };
+
+    ThumbnailView.prototype.onClick = function(e_) {
+      e_.preventDefault();
+      return grifo.appRouter.navigateToProject(this.model.get('id'));
+    };
+
+    ThumbnailView.prototype.onRollOver = function(e_) {
+      $('.grid-item-over', this.$el).stop().animate({
+        opacity: 0.2
+      }, 200);
+      return $('.grid-item-name', this.$el).addClass('over');
+    };
+
+    ThumbnailView.prototype.onRollOut = function(e_) {
+      $('.grid-item-over', this.$el).stop().animate({
+        opacity: 0.0
+      }, 200);
+      return $('.grid-item-name', this.$el).removeClass('over');
+    };
+
+    return ThumbnailView;
+
+  })();
+
   CreditGroupView = (function() {
 
     __extends(CreditGroupView, Backbone.View);
@@ -2207,7 +2419,7 @@
     };
 
     ProjectPageView.prototype.render = function() {
-      var creditGroupModel, imageModel, nextModel, prevModel, tagModel, _i, _j, _k, _len, _len2, _len3, _ref, _ref2, _ref3;
+      var creditGroupModel, imageModel, nextModel, prevModel, tagId, tagModel, _i, _j, _k, _len, _len2, _len3, _ref, _ref2, _ref3;
       this.model = grifo.projectCollection.get(grifo.appStatus.currentSubPage);
       prevModel = grifo.projectCollection.at(this.model.get('index') - 1.0);
       nextModel = grifo.projectCollection.at(this.model.get('index') + 1.0);
@@ -2226,9 +2438,10 @@
         nextUrl: '#/' + grifo.appConfig.PAGE_PROJECTS + '/' + nextModel.get('id') + '/',
         nextTitle: nextModel.get('long_title')
       }));
-      _ref = this.model.get('tags_model');
+      _ref = this.model.get('tags_id');
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        tagModel = _ref[_i];
+        tagId = _ref[_i];
+        tagModel = grifo.tagCollection.get(tagId);
         this.appendTagView(tagModel);
       }
       _ref2 = this.model.get('credit_group_collection').models;
@@ -2492,216 +2705,6 @@
 
   })();
 
-  ProjectsPageView = (function() {
-
-    __extends(ProjectsPageView, AbstractPageView);
-
-    function ProjectsPageView() {
-      this.appendThumbnail = __bind(this.appendThumbnail, this);
-      this.render = __bind(this.render, this);
-      ProjectsPageView.__super__.constructor.apply(this, arguments);
-    }
-
-    ProjectsPageView.prototype.id = 'projects-page';
-
-    ProjectsPageView.prototype.itemList = [];
-
-    ProjectsPageView.prototype.init = function() {
-      return this.render();
-    };
-
-    ProjectsPageView.prototype.render = function() {
-      var projectModel, _i, _len, _ref;
-      _ref = grifo.projectCollection.models;
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        projectModel = _ref[_i];
-        this.appendThumbnail(projectModel);
-      }
-      this.$el.isotope({
-        itemSelector: '.grid-item',
-        resizable: false,
-        masonry: {
-          columnWidth: 1
-        },
-        animationEngine: 'jquery',
-        animationOptions: {
-          queue: false,
-          duration: 0.0,
-          easing: 'easeOutExpo'
-        }
-      });
-      return this;
-    };
-
-    ProjectsPageView.prototype.relayout = function() {
-      return this.$el.isotope('reLayout');
-    };
-
-    ProjectsPageView.prototype.appendThumbnail = function(model_) {
-      var thumbnailView;
-      thumbnailView = new ThumbnailView({
-        model: model_
-      });
-      this.$el.append(thumbnailView.render().el);
-      return this.itemList[this.itemList.length] = thumbnailView;
-    };
-
-    ProjectsPageView.prototype.filter = function(tagId_) {
-      if (tagId_ == null) tagId_ = '';
-      if (tagId_ === '') {
-        tagId_ = '*';
-      } else {
-        tagId_ = '.' + tagId_;
-      }
-      if (!this.status) {
-        this.$el.isotope({
-          animationOptions: {
-            duration: 0.0
-          }
-        });
-      } else {
-        this.$el.isotope({
-          animationOptions: {
-            duration: 750.0
-          }
-        });
-      }
-      return this.$el.isotope({
-        filter: tagId_
-      });
-    };
-
-    ProjectsPageView.prototype.show = function(delay_, animate_) {
-      var thumbnailStatus, thumbnailView, _i, _len, _ref, _results;
-      if (delay_ == null) delay_ = 0.0;
-      if (animate_ == null) animate_ = false;
-      if (this.status === true) return;
-      ProjectsPageView.__super__.show.apply(this, arguments).show(delay_, animate_);
-      delay_ += 100;
-      this.relayout();
-      if (this.itemList) {
-        _ref = this.itemList;
-        _results = [];
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          thumbnailView = _ref[_i];
-          thumbnailStatus = thumbnailView.show(delay_);
-          if (thumbnailStatus) {
-            _results.push(delay_ += 50.0);
-          } else {
-            _results.push(void 0);
-          }
-        }
-        return _results;
-      }
-    };
-
-    ProjectsPageView.prototype.hide = function() {
-      if (this.status === false) return;
-      this.status = false;
-      return ProjectsPageView.__super__.hide.apply(this, arguments).hide();
-      /*
-              if @itemList
-                  for thumbnailView in @itemList
-                      thumbnailView.hide()
-      
-              super.hide()
-      */
-    };
-
-    return ProjectsPageView;
-
-  })();
-
-  ThumbnailView = (function() {
-
-    __extends(ThumbnailView, AbstractView);
-
-    function ThumbnailView() {
-      this.onRollOut = __bind(this.onRollOut, this);
-      this.onRollOver = __bind(this.onRollOver, this);
-      this.onClick = __bind(this.onClick, this);
-      this.appendTagView = __bind(this.appendTagView, this);
-      this.render = __bind(this.render, this);
-      ThumbnailView.__super__.constructor.apply(this, arguments);
-    }
-
-    ThumbnailView.prototype.className = 'grid-item';
-
-    ThumbnailView.prototype.template = null;
-
-    ThumbnailView.prototype.model = null;
-
-    ThumbnailView.prototype.events = {
-      'click .grid-item-image': 'onClick',
-      'click .grid-item-name': 'onClick',
-      'click .grid-item-over': 'onClick',
-      'mouseenter': 'onRollOver',
-      'mouseleave': 'onRollOut'
-    };
-
-    ThumbnailView.prototype.init = function() {
-      return this.template = _.template($('#template_thumbnail').html());
-    };
-
-    ThumbnailView.prototype.render = function() {
-      var tagModel, _i, _len, _ref;
-      this.$el.addClass(this.model.get('tile_size'));
-      this.$el.addClass(this.model.get('tags_id').join(' '));
-      this.$el.append(this.template({
-        image: this.model.get('thumbnails')[0],
-        title: this.model.get('short_title')
-      }));
-      $('.grid-item-image', this.$el).addClass(this.model.get('tile_size'));
-      $('.grid-item-over', this.$el).addClass(this.model.get('tile_size'));
-      $('.grid-item-over', this.$el).css('opacity', 0.0);
-      _ref = this.model.get('display_tags_model');
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        tagModel = _ref[_i];
-        this.appendTagView(tagModel);
-      }
-      return this;
-    };
-
-    ThumbnailView.prototype.appendTagView = function(model_) {
-      var tagView;
-      tagView = new TagView({
-        model: model_
-      });
-      tagView.useLongTitle = false;
-      $('.grid-item-tags', this.$el).append(tagView.render().el);
-      return $('.grid-item-tags', this.$el).append(' ');
-    };
-
-    ThumbnailView.prototype.show = function(delay_, animate_) {
-      if (delay_ == null) delay_ = 0.0;
-      if (animate_ == null) animate_ = true;
-      ThumbnailView.__super__.show.apply(this, arguments).show(delay_, animate_);
-      return this.$el.attr('class').indexOf('isotope-hidden') === -1;
-    };
-
-    ThumbnailView.prototype.onClick = function(e_) {
-      e_.preventDefault();
-      return grifo.appRouter.navigateToProject(this.model.get('id'));
-    };
-
-    ThumbnailView.prototype.onRollOver = function(e_) {
-      $('.grid-item-over', this.$el).stop().animate({
-        opacity: 0.2
-      }, 200);
-      return $('.grid-item-name', this.$el).addClass('over');
-    };
-
-    ThumbnailView.prototype.onRollOut = function(e_) {
-      $('.grid-item-over', this.$el).stop().animate({
-        opacity: 0.0
-      }, 200);
-      return $('.grid-item-name', this.$el).removeClass('over');
-    };
-
-    return ThumbnailView;
-
-  })();
-
   TagGroupView = (function() {
 
     __extends(TagGroupView, AbstractView);
@@ -2727,10 +2730,12 @@
       this.$el.append(this.template({
         group: this.model.get('label')
       }));
-      _ref = this.model.get('tags_collection').models;
+      _ref = grifo.tagCollection.models;
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         tagModel = _ref[_i];
-        this.appendTagView(tagModel);
+        if (tagModel.get('group') === this.model.get('id')) {
+          this.appendTagView(tagModel);
+        }
       }
       return this;
     };

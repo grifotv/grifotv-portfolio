@@ -31,7 +31,8 @@ class ThumbnailView extends AbstractView
 
         $( '.grid-item-over', @$el ).css 'opacity', 0.0
 
-        for tagModel in @model.get( 'display_tags_model' )
+        for tagId in @model.get( 'display_tags_id' )
+            tagModel = grifo.tagCollection.get tagId
             @appendTagView tagModel
 
         return @

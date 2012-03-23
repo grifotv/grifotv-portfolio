@@ -5,4 +5,5 @@ class TagModel extends Backbone.Model
         id           : ''
         short_title  : ''
         long_title   : ''
+        group        : ''
         selected     : false

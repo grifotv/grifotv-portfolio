@@ -2,17 +2,16 @@ class TagGroupCollection extends Backbone.Collection
 
     model : TagGroupModel
 
-    select : ( id_ )->
+    parse : ( response_ ) ->
 
-        for tagGroupModel in @models
-            tagGroupModel.get( 'tags_collection' ).select id_
+        modelsArray = []
 
-    getTagModel : ( tagId_ )->
+        for itemEntry in response_[ 'feed' ][ 'entry' ]
 
-        for tagGroupModel in @models
+            itemModel  = new TagGroupModel
+                id       : itemEntry[ 'gsx$id' ][ '$t' ]
+                label    : itemEntry[ 'gsx$label' ][ '$t' ]
 
-            tagModel =  tagGroupModel.get( 'tags_collection' ).get( tagId_ )
-        
-            if tagModel
-            
-                return tagModel
+            modelsArray.push itemModel
+
+        return modelsArray

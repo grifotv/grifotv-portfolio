@@ -15,8 +15,9 @@ class TagGroupView extends AbstractView
         @$el.append @template
             group : @model.get 'label'
 
-        for tagModel in @model.get( 'tags_collection' ).models
-            @appendTagView tagModel
+        for tagModel in grifo.tagCollection.models
+            if tagModel.get( 'group' ) == @model.get('id')
+                @appendTagView tagModel
 
         return @
 

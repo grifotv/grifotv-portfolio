@@ -17,8 +17,8 @@ class AppConfig
     KEY_PROFILES                : '0AuMegPFV2btJdGFIMWE1V0VvOUFuUlVpWXp3UXlwQ1E'
     KEY_EXPERIENCES             : '0AuMegPFV2btJdGFIMWE1V0VvOUFuUlVpWXp3UXlwQ1E'
     KEY_EXPERIENCE_GROUPS       : '0AuMegPFV2btJdGFIMWE1V0VvOUFuUlVpWXp3UXlwQ1E'
-    #KEY_TAGS                    : '0AuMegPFV2btJdGFIMWE1V0VvOUFuUlVpWXp3UXlwQ1E'
-    #KEY_TAG_GROUPS              : '0AuMegPFV2btJdGFIMWE1V0VvOUFuUlVpWXp3UXlwQ1E'
+    KEY_TAGS                    : '0AuMegPFV2btJdGFIMWE1V0VvOUFuUlVpWXp3UXlwQ1E'
+    KEY_TAG_GROUPS              : '0AuMegPFV2btJdGFIMWE1V0VvOUFuUlVpWXp3UXlwQ1E'
     #KEY_PROJECTS                : 'TODO'
  
     # google docs worksheet
@@ -27,8 +27,8 @@ class AppConfig
     WORKSHEET_PROFILES          : 'od7'
     WORKSHEET_EXPERIENCES       : 'od8'
     WORKSHEET_EXPERIENCE_GROUPS : 'odb'
-    #WORKSHEET_TAGS              : 'od4'
-    #WORKSHEET_TAG_GROUPS        : 'od5'
+    WORKSHEET_TAGS              : 'od4'
+    WORKSHEET_TAG_GROUPS        : 'od5'
     #WORKSHEET_PROJECTS          : 'TODO'
 
 
@@ -38,8 +38,9 @@ class AppConfig
     URL_PROFILES          : null
     URL_EXPERIENCES       : null
     URL_EXPERIENCE_GROUPS : null
+    URL_TAGS              : null
+    URL_TAG_GROUPS        : null
     URL_PROJECTS          : 'data/projects.json'
-    URL_TAGS              : 'data/tags.json'
 
     # stream collection url
     URL_YOUTUBE         : 'http://gdata.youtube.com/feeds/api/videos?alt=json-in-script&author={USER_ID}&orderby=published&start-index=1&max-results={MAX_RESULTS}&callback=?'
@@ -81,11 +82,16 @@ class AppConfig
         @URL_PROFILES          = @URL_GDOCS_SS.replace          '{KEY}' , @KEY_PROFILES
         @URL_EXPERIENCES       = @URL_GDOCS_SS.replace          '{KEY}' , @KEY_EXPERIENCES
         @URL_EXPERIENCE_GROUPS = @URL_GDOCS_SS.replace          '{KEY}' , @KEY_EXPERIENCE_GROUPS
+        @URL_TAGS              = @URL_GDOCS_SS.replace          '{KEY}' , @KEY_TAGS
+        @URL_TAG_GROUPS        = @URL_GDOCS_SS.replace          '{KEY}' , @KEY_TAG_GROUPS
+        
         @URL_LABELS            = @URL_LABELS.replace            '{WORKSHEET}' , @WORKSHEET_LABELS  
         @URL_BRANDS            = @URL_BRANDS.replace            '{WORKSHEET}' , @WORKSHEET_BRANDS  
         @URL_PROFILES          = @URL_PROFILES.replace          '{WORKSHEET}' , @WORKSHEET_PROFILES  
         @URL_EXPERIENCES       = @URL_EXPERIENCES.replace       '{WORKSHEET}' , @WORKSHEET_EXPERIENCES 
         @URL_EXPERIENCE_GROUPS = @URL_EXPERIENCE_GROUPS.replace '{WORKSHEET}' , @WORKSHEET_EXPERIENCE_GROUPS  
+        @URL_TAGS              = @URL_TAGS.replace              '{WORKSHEET}' , @WORKSHEET_TAGS 
+        @URL_TAG_GROUPS        = @URL_TAG_GROUPS.replace        '{WORKSHEET}' , @WORKSHEET_TAG_GROUPS  
 
 
         # set stream user id

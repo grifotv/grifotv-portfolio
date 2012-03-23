@@ -5,16 +5,16 @@ $ ->
 	window.grifo =
 
 		# app config
-		appConfig            : null
+		appConfig                 : null
 
 		# app status
-		appStatus            : null
+		appStatus                 : null
 
 		# app view
-		appView              : null
+		appView                   : null
 
 		# app router
-		appRouter            : null
+		appRouter                 : null
 
 		# portfolio collections
 		labelCollection           : null
@@ -22,15 +22,16 @@ $ ->
 		profileCollection         : null
 		experienceCollection      : null
 		experienceGroupCollection : null
-		projectCollection    : null
-		tagGroupCollection   : null
+		tagGroupCollection        : null
+		tagCollection             : null
+		projectCollection         : null
 
 		# stream collections
-		youtubeCollection    : null
-		twitterCollection    : null
-		githubCollection     : null
-		flickrCollection     : null
-		blogCollection       : null
+		youtubeCollection         : null
+		twitterCollection         : null
+		githubCollection          : null
+		flickrCollection          : null
+		blogCollection            : null
 
 
 	# start app
@@ -49,5 +50,6 @@ $ ->
 		grifo.appRouter.on grifo.appRouter.EVENT_HASH_CHANGED , grifo.appView.onHashChanged
 
 		# start history
-		Backbone.history.start() # Backbone.history.start( { pushState: true, root: '/sublime/grifo.tv' } )
+		Backbone.history.start() 
+		#Backbone.history.start( { pushState: true, root: '/grifotv-portfolio/' } )
 
