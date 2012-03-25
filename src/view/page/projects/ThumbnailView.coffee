@@ -20,10 +20,10 @@ class ThumbnailView extends AbstractView
     render : =>
 
         @$el.addClass @model.get( 'tile_size' )
-        @$el.addClass @model.get( 'tags_id' ).join( ' ' )
+        @$el.addClass @model.get( 'tags' ).join( ' ' )
 
         @$el.append @template
-            image : @model.get( 'thumbnails' )[0]
+            image : @model.get( 'thumbnail' )
             title : @model.get( 'short_title' )
 
         $( '.grid-item-image', @$el ).addClass @model.get( 'tile_size' )
@@ -31,7 +31,7 @@ class ThumbnailView extends AbstractView
 
         $( '.grid-item-over', @$el ).css 'opacity', 0.0
 
-        for tagId in @model.get( 'display_tags_id' )
+        for tagId in @model.get( 'display_tags' )
             tagModel = grifo.tagCollection.get tagId
             @appendTagView tagModel
 

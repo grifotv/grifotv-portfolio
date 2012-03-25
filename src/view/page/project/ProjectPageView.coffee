@@ -36,12 +36,13 @@ class ProjectPageView extends AbstractPageView
             nextUrl   : '#/' + grifo.appConfig.PAGE_PROJECTS + '/' + nextModel.get( 'id' ) + '/'
             nextTitle : nextModel.get 'long_title'
 
-        for tagId in @model.get( 'tags_id' )
+        for tagId in @model.get( 'tags' )
             tagModel = grifo.tagCollection.get tagId
             @appendTagView tagModel
 
-        for creditGroupModel in @model.get( 'credit_group_collection' ).models
-            @appendCreditGroupView creditGroupModel
+        for creditGroupModel in grifo.creditGroupCollection.models
+            if creditGroupModel.get( 'project' ) == @model.get( 'id' )
+                @appendCreditGroupView creditGroupModel
 
         for imageModel in @model.get( 'images' )
             @appendProjectImage imageModel

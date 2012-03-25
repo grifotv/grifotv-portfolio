@@ -24,6 +24,8 @@ $ ->
 		experienceGroupCollection : null
 		tagGroupCollection        : null
 		tagCollection             : null
+		creditGroupCollection     : null
+		creditCollection          : null
 		projectCollection         : null
 
 		# stream collections

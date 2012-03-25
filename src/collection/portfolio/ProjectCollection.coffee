@@ -1,31 +1,28 @@
 class ProjectCollection extends Backbone.Collection
 
     model : ProjectModel
-    
-    parseProfiles : ()->
 
-        i = 0
-        for projectModel in @models
+    parse : ( response_ ) ->
 
-            # set index
-            projectModel.set
-                index : i
-            i++
+        modelsArray = []
 
-            creditGroupCollection = projectModel.get( 'credit_group_collection' )
+        for itemEntry in response_[ 'feed' ][ 'entry' ]
 
-            for creditGroupModel in creditGroupCollection.models
-                creditCollection = creditGroupModel.get( 'credit_collection' )
+            itemModel  = new CreditGroupModel
+                id           : itemEntry[ 'gsx$id' ][ '$t' ]
+                index        : modelsArray.length
+                tile_size    : itemEntry[ 'gsx$tilesize' ][ '$t' ]
+                short_title  : itemEntry[ 'gsx$shorttitle' ][ '$t' ]
+                long_title   : itemEntry[ 'gsx$longtitle' ][ '$t' ]
+                headline     : itemEntry[ 'gsx$headline' ][ '$t' ]
+                thumbnail    : itemEntry[ 'gsx$thumbnail' ][ '$t' ]
+                url          : itemEntry[ 'gsx$url' ][ '$t' ]
+                video        : itemEntry[ 'gsx$video' ][ '$t' ]
+                copy         : itemEntry[ 'gsx$copy' ][ '$t' ]
+                images       : itemEntry[ 'gsx$images' ][ '$t' ].split( ',' )
+                tags         : itemEntry[ 'gsx$tags' ][ '$t' ].split( ',' )
+                display_tags : itemEntry[ 'gsx$displaytags' ][ '$t' ].split( ',' )
+            
+            modelsArray.push itemModel
 
-                for creditModel in creditCollection.models
-                    
-                    # profiles
-                    profiles_id    = creditModel.get( 'profiles_id' )
-                    profiles_model = []
-
-                    for profileId in profiles_id
-                        profiles_model[ profiles_model.length ] = grifo.profileCollection.get( profileId )
-
-                    # set models
-                    creditModel.set
-                        'profiles_model': profiles_model
+        return modelsArray

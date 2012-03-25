@@ -12,7 +12,7 @@ class AppView extends Backbone.View
     
     # ints
     loaded               : 0.0
-    numLoaded            : 13.0 # total of 14
+    numLoaded            : 15.0 # total of 16
 
     # header views
     headerView           : null
@@ -59,24 +59,24 @@ class AppView extends Backbone.View
             success : ( model_, response_ ) => @onLoad()
             error   : ( model_, response_ ) => @onLoad()
 
-        # 4 - load tags
+        # 4 - load tag groups
         grifo.tagGroupCollection     = new TagGroupCollection()
         grifo.tagGroupCollection.url = grifo.appConfig.URL_TAG_GROUPS
         grifo.tagGroupCollection.fetch
             success : ( model_, response_ ) => @onLoad()
             error   : ( model_, response_ ) => @onLoad()
 
-        # 5 - load profiles
-        grifo.profileCollection     = new ProfileCollection()
-        grifo.profileCollection.url = grifo.appConfig.URL_PROFILES
-        grifo.profileCollection.fetch
+        # 5 - load credits
+        grifo.creditCollection     = new CreditCollection()
+        grifo.creditCollection.url = grifo.appConfig.URL_CREDITS
+        grifo.creditCollection.fetch
             success : ( model_, response_ ) => @onLoad()
             error   : ( model_, response_ ) => @onLoad()
 
-        # 6 - load brands
-        grifo.brandCollection     = new BrandCollection()
-        grifo.brandCollection.url = grifo.appConfig.URL_BRANDS
-        grifo.brandCollection.fetch
+        # 6 - load credit groups
+        grifo.creditGroupCollection     = new CreditGroupCollection()
+        grifo.creditGroupCollection.url = grifo.appConfig.URL_CREDIT_GROUPS
+        grifo.creditGroupCollection.fetch
             success : ( model_, response_ ) => @onLoad()
             error   : ( model_, response_ ) => @onLoad()
 
@@ -87,52 +87,66 @@ class AppView extends Backbone.View
             success : ( model_, response_ ) => @onLoad()
             error   : ( model_, response_ ) => @onLoad()
 
-        # 8 - load labels
-        grifo.labelCollection     = new LabelCollection()
-        grifo.labelCollection.url = grifo.appConfig.URL_LABELS
-        grifo.labelCollection.fetch
-            success : ( model_, response_ ) => @onLoad()
-            error   : ( model_, response_ ) => @onLoad()
-
-        # 9 - load experience groups
+        # 8 - load experience groups
         grifo.experienceGroupCollection     = new ExperienceGroupCollection()
         grifo.experienceGroupCollection.url = grifo.appConfig.URL_EXPERIENCE_GROUPS
         grifo.experienceGroupCollection.fetch
             success : ( model_, response_ ) => @onLoad()
             error   : ( model_, response_ ) => @onLoad()
 
+        # 9 - load profiles
+        grifo.profileCollection     = new ProfileCollection()
+        grifo.profileCollection.url = grifo.appConfig.URL_PROFILES
+        grifo.profileCollection.fetch
+            success : ( model_, response_ ) => @onLoad()
+            error   : ( model_, response_ ) => @onLoad()
+
+        # 10 - load brands
+        grifo.brandCollection     = new BrandCollection()
+        grifo.brandCollection.url = grifo.appConfig.URL_BRANDS
+        grifo.brandCollection.fetch
+            success : ( model_, response_ ) => @onLoad()
+            error   : ( model_, response_ ) => @onLoad()
+
+        # 11 - load labels
+        grifo.labelCollection     = new LabelCollection()
+        grifo.labelCollection.url = grifo.appConfig.URL_LABELS
+        grifo.labelCollection.fetch
+            success : ( model_, response_ ) => @onLoad()
+            error   : ( model_, response_ ) => @onLoad()
+
 
         # STREAM COLLECTIONS
 
-        # 10 - load youtube
+        # 12 - load youtube
         grifo.youtubeCollection     = new YoutubeCollection()
         grifo.youtubeCollection.url = grifo.appConfig.URL_YOUTUBE
         grifo.youtubeCollection.fetch
             success : ( model_, response_ ) => @onLoad()
             error   : ( model_, response_ ) => @onLoad()
 
-        # 11 - load twitter
+        # 13 - load twitter
         grifo.twitterCollection     = new TwitterCollection()
         grifo.twitterCollection.url = grifo.appConfig.URL_TWITTER
         grifo.twitterCollection.fetch
             success : ( model_, response_ ) => @onLoad()
             error   : ( model_, response_ ) => @onLoad()
 
-        # 12 - load github
+        # 14 - load github
         grifo.githubCollection     = new GithubCollection()
         grifo.githubCollection.url = grifo.appConfig.URL_GITHUB
         grifo.githubCollection.fetch
             success : ( model_, response_ ) => @onLoad()
             error   : ( model_, response_ ) => @onLoad()
 
-        # 13 - load flickr
+        # 15 - load flickr
         grifo.flickrCollection     = new FlickrCollection()
         grifo.flickrCollection.url = grifo.appConfig.URL_FLICKR
         grifo.flickrCollection.fetch
             success : ( model_, response_ ) => @onLoad()
             error   : ( model_, response_ ) => @onLoad()
 
-        # 14 - load blog
+        # 16 - load blog
         grifo.blogCollection     = new BlogCollection()
         grifo.blogCollection.url = grifo.appConfig.URL_BLOG
         grifo.blogCollection.load()
@@ -145,8 +159,6 @@ class AppView extends Backbone.View
                
 
     onLoadComplete: ->
-
-        grifo.projectCollection.parseProfiles()
 
         @render()
         @show()

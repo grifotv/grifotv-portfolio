@@ -14,10 +14,10 @@ class CreditView extends Backbone.View
                label : @model.get 'label'
 
         i = 0.0
-        l = @model.get( 'profiles_model' ).length
+        l = @model.get( 'profiles' ).length
 
-        for profileModel in @model.get( 'profiles_model' )
-
+        for profileId in @model.get( 'profiles' )
+            profileModel = grifo.profileCollection.get( profileId )
             @appendProfileView profileModel
             i++
             $( @el ).append ', ' if i < l

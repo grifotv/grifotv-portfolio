@@ -4,22 +4,14 @@ class ProjectModel extends Backbone.Model
 
         id                       : ''
         index                    : 0
-        tile_size                : 'small'
+        tile_size                : 'small' # small, medium, big
         short_title              : ''
         long_title               : ''
         headline                 : ''
-        thumbnails               : []
+        thumbnail                : ''
         url                      : ''
         video                    : ''
-        credit_group_collection  : null # new CreditGroupCollection()
         copy                     : ''
         images                   : []
-        tags_id                  : [] # array of tag id
-        display_tags_id          : [] # array of tag id
-        #tags_model               : [] # array of tag model
-        #display_tags_model       : [] # array of tag model
-
-    initialize : ->
-
-        @set
-            credit_group_collection : new CreditGroupCollection @get( 'credit_group_collection' )
+        tags                     : [] # array of tag id
+        display_tags             : [] # array of tag id

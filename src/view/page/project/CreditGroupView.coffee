@@ -11,8 +11,9 @@ class CreditGroupView extends Backbone.View
         $( @el ).append @template
             label : @model.get 'label'
 
-        for creditModel in @model.get( 'credit_collection' ).models
-            @appendCreditView creditModel
+        for creditModel in grifo.creditCollection.models
+            if creditModel.get( 'group' ) == @model.get( 'id' )
+                @appendCreditView creditModel
 
         return @
 
