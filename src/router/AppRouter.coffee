@@ -1,6 +1,7 @@
 class AppRouter extends Backbone.Router
 
     EVENT_HASH_CHANGED                   : 'EVENT_HASH_CHANGED'
+    currentPage                          : ''
 
     routes :
 
@@ -32,7 +33,26 @@ class AppRouter extends Backbone.Router
 
         if id_ in [ grifo.appConfig.PAGE_PROJECTS, grifo.appConfig.PAGE_TAGS, grifo.appConfig.PAGE_STREAM, grifo.appConfig.PAGE_ABOUT ]
         
-            @trigger @EVENT_HASH_CHANGED, id_, subId_, subSubId_
+            # check current page
+            currentPage = '/'
+            if id_
+                currentPage += id_
+                currentPage += '/'
+                if subId_
+                    currentPage += subId_
+                    currentPage += '/'
+                    if subSubId_
+                        currentPage += subSubId_
+                        currentPage += '/'
+
+            if currentPage != @currentPage
+                @currentPage = currentPage
+
+                # google analytics tracking
+                _gaq.push ['_trackPageview', @currentPage]
+
+                # trigger event
+                @trigger @EVENT_HASH_CHANGED, id_, subId_, subSubId_
 
 
     default : ( actions_ )->
@@ -41,7 +61,7 @@ class AppRouter extends Backbone.Router
 
 
     navigateToProject : ( projectId_ = null )->
-        
+
         hash = '//' + grifo.appConfig.PAGE_PROJECTS + '/'
         
         if projectId_

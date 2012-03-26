@@ -276,6 +276,8 @@
 
     AppRouter.prototype.EVENT_HASH_CHANGED = 'EVENT_HASH_CHANGED';
 
+    AppRouter.prototype.currentPage = '';
+
     AppRouter.prototype.routes = {
       ':id': 'hashChanged',
       '/:id': 'hashChanged',
@@ -295,12 +297,30 @@
     };
 
     AppRouter.prototype.hashChanged = function(id_, subId_, subSubId_, actions_) {
+      var currentPage;
       if (id_ == null) id_ = null;
       if (subId_ == null) subId_ = null;
       if (subSubId_ == null) subSubId_ = null;
       if (actions_ == null) actions_ = null;
       if (id_ === grifo.appConfig.PAGE_PROJECTS || id_ === grifo.appConfig.PAGE_TAGS || id_ === grifo.appConfig.PAGE_STREAM || id_ === grifo.appConfig.PAGE_ABOUT) {
-        return this.trigger(this.EVENT_HASH_CHANGED, id_, subId_, subSubId_);
+        currentPage = '/';
+        if (id_) {
+          currentPage += id_;
+          currentPage += '/';
+          if (subId_) {
+            currentPage += subId_;
+            currentPage += '/';
+            if (subSubId_) {
+              currentPage += subSubId_;
+              currentPage += '/';
+            }
+          }
+        }
+        if (currentPage !== this.currentPage) {
+          this.currentPage = currentPage;
+          _gaq.push(['_trackPageview', this.currentPage]);
+          return this.trigger(this.EVENT_HASH_CHANGED, id_, subId_, subSubId_);
+        }
       }
     };
 
@@ -329,6 +349,106 @@
     };
 
     return AppRouter;
+
+  })();
+
+  BlogModel = (function() {
+
+    __extends(BlogModel, Backbone.Model);
+
+    function BlogModel() {
+      BlogModel.__super__.constructor.apply(this, arguments);
+    }
+
+    BlogModel.prototype.defaults = {
+      title: '',
+      url: '',
+      description: '',
+      date: ''
+    };
+
+    return BlogModel;
+
+  })();
+
+  FlickrModel = (function() {
+
+    __extends(FlickrModel, Backbone.Model);
+
+    function FlickrModel() {
+      FlickrModel.__super__.constructor.apply(this, arguments);
+    }
+
+    FlickrModel.prototype.defaults = {
+      title: '',
+      url: '',
+      image: '',
+      date: '',
+      is_portrait: false
+    };
+
+    return FlickrModel;
+
+  })();
+
+  GithubModel = (function() {
+
+    __extends(GithubModel, Backbone.Model);
+
+    function GithubModel() {
+      GithubModel.__super__.constructor.apply(this, arguments);
+    }
+
+    GithubModel.prototype.defaults = {
+      type: '',
+      text: '',
+      date: '',
+      url: ''
+    };
+
+    return GithubModel;
+
+  })();
+
+  TwitterModel = (function() {
+
+    __extends(TwitterModel, Backbone.Model);
+
+    function TwitterModel() {
+      TwitterModel.__super__.constructor.apply(this, arguments);
+    }
+
+    TwitterModel.prototype.defaults = {
+      id: '',
+      text: '',
+      date: '',
+      url: ''
+    };
+
+    return TwitterModel;
+
+  })();
+
+  YoutubeModel = (function() {
+
+    __extends(YoutubeModel, Backbone.Model);
+
+    function YoutubeModel() {
+      YoutubeModel.__super__.constructor.apply(this, arguments);
+    }
+
+    YoutubeModel.prototype.defaults = {
+      id: '',
+      url: '',
+      date: '',
+      title: '',
+      content: '',
+      thumbnail_low: '',
+      thumbnail_medium: '',
+      is_portrait: false
+    };
+
+    return YoutubeModel;
 
   })();
 
@@ -570,106 +690,6 @@
     };
 
     return TagModel;
-
-  })();
-
-  BlogModel = (function() {
-
-    __extends(BlogModel, Backbone.Model);
-
-    function BlogModel() {
-      BlogModel.__super__.constructor.apply(this, arguments);
-    }
-
-    BlogModel.prototype.defaults = {
-      title: '',
-      url: '',
-      description: '',
-      date: ''
-    };
-
-    return BlogModel;
-
-  })();
-
-  FlickrModel = (function() {
-
-    __extends(FlickrModel, Backbone.Model);
-
-    function FlickrModel() {
-      FlickrModel.__super__.constructor.apply(this, arguments);
-    }
-
-    FlickrModel.prototype.defaults = {
-      title: '',
-      url: '',
-      image: '',
-      date: '',
-      is_portrait: false
-    };
-
-    return FlickrModel;
-
-  })();
-
-  GithubModel = (function() {
-
-    __extends(GithubModel, Backbone.Model);
-
-    function GithubModel() {
-      GithubModel.__super__.constructor.apply(this, arguments);
-    }
-
-    GithubModel.prototype.defaults = {
-      type: '',
-      text: '',
-      date: '',
-      url: ''
-    };
-
-    return GithubModel;
-
-  })();
-
-  TwitterModel = (function() {
-
-    __extends(TwitterModel, Backbone.Model);
-
-    function TwitterModel() {
-      TwitterModel.__super__.constructor.apply(this, arguments);
-    }
-
-    TwitterModel.prototype.defaults = {
-      id: '',
-      text: '',
-      date: '',
-      url: ''
-    };
-
-    return TwitterModel;
-
-  })();
-
-  YoutubeModel = (function() {
-
-    __extends(YoutubeModel, Backbone.Model);
-
-    function YoutubeModel() {
-      YoutubeModel.__super__.constructor.apply(this, arguments);
-    }
-
-    YoutubeModel.prototype.defaults = {
-      id: '',
-      url: '',
-      date: '',
-      title: '',
-      content: '',
-      thumbnail_low: '',
-      thumbnail_medium: '',
-      is_portrait: false
-    };
-
-    return YoutubeModel;
 
   })();
 
