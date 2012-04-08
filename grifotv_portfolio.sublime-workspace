@@ -40,10 +40,19 @@
 	},
 	"file_history":
 	[
-		"/Users/grifotv/devserver/sublime/grifotv-portfolio/bin/js/app.min.js",
-		"/Users/grifotv/devserver/sublime/grifotv-portfolio/README.markdown",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/bin/index.html",
+		"/Users/grifotv/devserver/sublime/grifotv-portfolio/bin/js/app.min.js",
+		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/view/page/stream/StreamPageView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/view/page/stream/GithubView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/view/page/stream/BlogView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/view/page/stream/FlickrView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/view/page/stream/YoutubeView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/view/page/stream/TwitterView.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/view/AbstractView.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/AppConfig.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/collection/stream/YoutubeCollection.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/router/AppRouter.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv-portfolio/README.markdown",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/App.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/view/AppView.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/collection/portfolio/CreditCollection.coffee",
@@ -73,7 +82,6 @@
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/collection/portfolio/TagCollection2.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/model/portfolio/TagGroupModel2.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/collection/portfolio/TagGroupCollection2.coffee",
-		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/router/AppRouter.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/bin/data/tags.json",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/bin/css/style.css",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/scripts/coffee.sh",
@@ -159,15 +167,7 @@
 		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/App.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/view/AppView.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/view/PageContainerView.coffee",
-		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/view/YoutubeView.coffee",
-		"/Users/grifotv/devserver/sublime/grifotv_portfolio/scripts/compress.sh",
-		"/Users/grifotv/devserver/sublime/grifotv_portfolio/grifotv_portfolio.sublime-project",
-		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/view/ProjectsGridView.coffee",
-		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/model/YoutubeModel.coffee",
-		"/Users/grifotv/devserver/sublime/grifotv_portfolio/scripts/compile.sh",
-		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/Console.coffee",
-		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/view/TagView.coffee",
-		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/view/ProfileView.coffee"
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/coffee/view/YoutubeView.coffee"
 	],
 	"find":
 	{

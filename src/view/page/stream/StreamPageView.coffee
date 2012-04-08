@@ -97,23 +97,27 @@ class StreamPageView extends AbstractPageView
         return @
 
 
-
     appendWordLine: () =>
-        $('#word-grid', @$el).append '<div class="size1of3 word-stream-line"></div>'
+    
+        $('#word-grid', @$el).append _.template $( '#template_stream_word_line' ).html()
 
 
     appendTwitterView: ( model_ ) =>
-        $('#word-grid', @$el).append '<div class="size1of3 word-stream-item"><h5>' + model_.get( 'text' ) + '<br/></h5><!--<br/>-->⇢ ' + model_.get( 'date' ) + ', from <a href="' + model_.get( 'url' ) + '" target="_blank">Twitter</a><!--<hr/>--></div>'
-        
+
+        twitterView = new TwitterView  {model: model_}
+        $('#word-grid', @$el).append twitterView.render().el
+
 
     appendGithubView: ( model_ ) =>
 
-        $('#word-grid', @$el).append '<div class="size1of3 word-stream-item"><h4>' + model_.get( 'text' ) + '<br/></h4><br/><!--<br/>-->⇢ ' + model_.get( 'date' ) + ', from <a href="' + model_.get( 'url' ) + '" target="_blank">Github</a><!--<hr/>--></div>'
+        githubView = new GithubView  {model: model_}
+        $('#word-grid', @$el).append githubView.render().el
 
 
     appendBlogView: ( model_ ) =>
 
-        $('#word-grid', @$el).append '<div class="size1of3 word-stream-item"><h5><a href="' + model_.get( 'url' ) + '" target="_blank">' + model_.get( 'title' ) + '</a><br/></h5><p class="copy">' + model_.get( 'description' ) + '</p>⇢ ' + model_.get( 'date' ) + ', from <a href="' + model_.get( 'url' ) + '" target="_blank">Blog</a><!--<hr/>--></div>'
+        blogView = new BlogView  {model: model_}
+        $('#word-grid', @$el).append blogView.render().el
 
 
     appendYoutubeView: ( model_ ) =>
@@ -124,13 +128,9 @@ class StreamPageView extends AbstractPageView
 
     appendFlickrView: ( model_ ) =>
 
-        if model_.get( 'is_portrait' )
-            style = 'width: 100%;'
-        else
-            style = 'height: 100%;'
+        flickrView = new FlickrView  {model: model_}
+        $('#media-grid', @$el).append flickrView.render().el
 
-        $('#media-grid', @$el).append '<div class="size1of3 media-stream-item"><div class="flickr-stream-item"><a href="' + model_.get( 'url' ) + '" target="_blank"><img src="' + model_.get( 'image' ) + '" style="' + style + '" /></a></div><p>⇢ ' + model_.get( 'date' ) + ', from <a href="' + model_.get( 'url' ) + '" target="_blank">Flickr</a></p></div>'
-       
 
     show: ( delay_ = 0.0, animate_ = true )->
 

@@ -450,12 +450,49 @@
           <a href='<%= url %>' target='<%= window %>' ><img src='<%= image %>' alt='<%= label %>' /></a>
         </script>
 
+
 <!-- TEMPLATE: PROJECT IMAGE -->
         <script type="text/template" id="template_project_image">
           <img class="project-image" src="<%= image %>" />
         </script>
 
-<!-- TEMPLATE: YOUTUBE VIDEO -->
+
+<!-- TEMPLATE: STREAM WORD LINE -->
+        <script type="text/template" id="template_stream_word_line">
+            <div class="size1of3 word-stream-line"></div>
+        </script>
+
+
+<!-- TEMPLATE: TWITTER -->
+        <script type="text/template" id="template_twitter">
+            <h5><%= label %><br/></h5>
+            ⇢ <%= date %>, from <a href="<%= url %>" target="_blank">Twitter</a>
+        </script>
+
+
+<!-- TEMPLATE: GITHUB -->
+        <script type="text/template" id="template_github">
+            <h4><%= label %><br/></h4><br/>
+            ⇢ <%= date %>, from <a href="<%= url %>" target="_blank">Github</a>
+        </script>
+
+
+<!-- TEMPLATE: BLOG -->
+        <script type="text/template" id="template_blog">
+            <h5><a href="<%= url %>" target="_blank"><%= title %></a><br/></h5>
+            <p class="copy"><%= description %></p>
+            ⇢ <%= date %>, from <a href="<%= url %>" target="_blank">Blog</a>
+        </script>
+
+
+<!-- TEMPLATE: YOUTUBE -->
+        <script type="text/template" id="template_youtube_portrait">
+            <div style="width:306px;height:408px;margin-left:-119px;">
+              <a href="<%= url %>" target="_blank"><img src="<%= image %>" height="100%"/></a>
+            </div>
+            <p>⇢ <%= date %>, from <a href="<%= url %>" target="_blank">Youtube</a></p>
+        </script>
+
         <script type="text/template" id="template_youtube_landscape">
             <div style="width:306px;height:229px;">
               <a href="<%= url %>" target="_blank"><img src="<%= image %>" width="100%" /></a>
@@ -463,11 +500,16 @@
             <p>⇢ <%= date %>, from <a href="<%= url %>" target="_blank">Youtube</a></p>
         </script>
 
-        <script type="text/template" id="template_youtube_portrait">
-            <div style="width:306px;height:408px;margin-left:-119px;">
-              <a href="<%= url %>" target="_blank"><img src="<%= image %>" height="100%"/></a>
-            </div>
-            <p>⇢ <%= date %>, from <a href="<%= url %>" target="_blank">Youtube</a></p>
+
+<!-- TEMPLATE: FLICKR -->
+        <script type="text/template" id="template_flickr_portrait">
+            <div class="flickr-stream-item"><a href="<%= url %>" target="_blank"><img src="<%= image %>" style="width: 100%;" /></a></div>
+            <p>⇢ <%= date %>, from <a href="<%= url %>" target="_blank">Flickr</a></p>
+        </script>
+
+        <script type="text/template" id="template_flickr_landscape">
+            <div class="flickr-stream-item"><a href="<%= url %>" target="_blank"><img src="<%= image %>" style="height: 100%;" /></a></div>
+            <p>⇢ <%= date %>, from <a href="<%= url %>" target="_blank">Flickr</a></p>
         </script>
 
 
@@ -480,8 +522,10 @@
         <script src="js/lib/jquery-ui-1.8.6.custom.min.js"></script>
         <script src="js/lib/paper.min.js" type="text/javascript"></script>
 
+
 <!-- BG PS -->
         <script src="js/bg.min.js" type="text/paperscript" canvas="draw"></script>
+
 
 <!-- APP JS -->
         <script src="js/app.min.js" type="text/javascript"></script>

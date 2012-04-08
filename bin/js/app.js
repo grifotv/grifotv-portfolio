@@ -1,5 +1,5 @@
 (function() {
-  var AboutPageView, AbstractPageView, AbstractView, AppConfig, AppRouter, AppStatus, AppView, BlogCollection, BlogModel, BrandCollection, BrandModel, BrandView, CreditCollection, CreditGroupCollection, CreditGroupModel, CreditGroupView, CreditModel, CreditView, ExperienceCollection, ExperienceGroupCollection, ExperienceGroupModel, ExperienceGroupView, ExperienceModel, FlickrCollection, FlickrModel, GithubCollection, GithubModel, HeaderBgView, HeaderView, LabelCollection, LabelModel, NavView, ProfileCollection, ProfileModel, ProfileView, ProjectCollection, ProjectModel, ProjectPageView, ProjectsPageView, ShareView, StreamPageView, TagCollection, TagGroupCollection, TagGroupModel, TagGroupView, TagModel, TagView, TagsPageView, ThumbnailView, TwitterCollection, TwitterModel, Utils, YoutubeCollection, YoutubeModel, YoutubeView;
+  var AboutPageView, AbstractPageView, AbstractView, AppConfig, AppRouter, AppStatus, AppView, BlogCollection, BlogModel, BlogView, BrandCollection, BrandModel, BrandView, CreditCollection, CreditGroupCollection, CreditGroupModel, CreditGroupView, CreditModel, CreditView, ExperienceCollection, ExperienceGroupCollection, ExperienceGroupModel, ExperienceGroupView, ExperienceModel, FlickrCollection, FlickrModel, FlickrView, GithubCollection, GithubModel, GithubView, HeaderBgView, HeaderView, LabelCollection, LabelModel, NavView, ProfileCollection, ProfileModel, ProfileView, ProjectCollection, ProjectModel, ProjectPageView, ProjectsPageView, ShareView, StreamPageView, TagCollection, TagGroupCollection, TagGroupModel, TagGroupView, TagModel, TagView, TagsPageView, ThumbnailView, TwitterCollection, TwitterModel, TwitterView, Utils, YoutubeCollection, YoutubeModel, YoutubeView;
   var __hasProp = Object.prototype.hasOwnProperty, __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype; return child; }, __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   $(function() {
@@ -108,7 +108,7 @@
 
     AppConfig.prototype.USER_ID_FLICKR = '41688283@N07';
 
-    AppConfig.prototype.MAX_RESULTS_YOUTUBE = 11;
+    AppConfig.prototype.MAX_RESULTS_YOUTUBE = 10;
 
     AppConfig.prototype.MAX_RESULTS_TWITTER = 6;
 
@@ -352,106 +352,6 @@
 
   })();
 
-  BlogModel = (function() {
-
-    __extends(BlogModel, Backbone.Model);
-
-    function BlogModel() {
-      BlogModel.__super__.constructor.apply(this, arguments);
-    }
-
-    BlogModel.prototype.defaults = {
-      title: '',
-      url: '',
-      description: '',
-      date: ''
-    };
-
-    return BlogModel;
-
-  })();
-
-  FlickrModel = (function() {
-
-    __extends(FlickrModel, Backbone.Model);
-
-    function FlickrModel() {
-      FlickrModel.__super__.constructor.apply(this, arguments);
-    }
-
-    FlickrModel.prototype.defaults = {
-      title: '',
-      url: '',
-      image: '',
-      date: '',
-      is_portrait: false
-    };
-
-    return FlickrModel;
-
-  })();
-
-  GithubModel = (function() {
-
-    __extends(GithubModel, Backbone.Model);
-
-    function GithubModel() {
-      GithubModel.__super__.constructor.apply(this, arguments);
-    }
-
-    GithubModel.prototype.defaults = {
-      type: '',
-      text: '',
-      date: '',
-      url: ''
-    };
-
-    return GithubModel;
-
-  })();
-
-  TwitterModel = (function() {
-
-    __extends(TwitterModel, Backbone.Model);
-
-    function TwitterModel() {
-      TwitterModel.__super__.constructor.apply(this, arguments);
-    }
-
-    TwitterModel.prototype.defaults = {
-      id: '',
-      text: '',
-      date: '',
-      url: ''
-    };
-
-    return TwitterModel;
-
-  })();
-
-  YoutubeModel = (function() {
-
-    __extends(YoutubeModel, Backbone.Model);
-
-    function YoutubeModel() {
-      YoutubeModel.__super__.constructor.apply(this, arguments);
-    }
-
-    YoutubeModel.prototype.defaults = {
-      id: '',
-      url: '',
-      date: '',
-      title: '',
-      content: '',
-      thumbnail_low: '',
-      thumbnail_medium: '',
-      is_portrait: false
-    };
-
-    return YoutubeModel;
-
-  })();
-
   BrandModel = (function() {
 
     __extends(BrandModel, Backbone.Model);
@@ -690,6 +590,106 @@
     };
 
     return TagModel;
+
+  })();
+
+  BlogModel = (function() {
+
+    __extends(BlogModel, Backbone.Model);
+
+    function BlogModel() {
+      BlogModel.__super__.constructor.apply(this, arguments);
+    }
+
+    BlogModel.prototype.defaults = {
+      title: '',
+      url: '',
+      description: '',
+      date: ''
+    };
+
+    return BlogModel;
+
+  })();
+
+  FlickrModel = (function() {
+
+    __extends(FlickrModel, Backbone.Model);
+
+    function FlickrModel() {
+      FlickrModel.__super__.constructor.apply(this, arguments);
+    }
+
+    FlickrModel.prototype.defaults = {
+      title: '',
+      url: '',
+      image: '',
+      date: '',
+      is_portrait: false
+    };
+
+    return FlickrModel;
+
+  })();
+
+  GithubModel = (function() {
+
+    __extends(GithubModel, Backbone.Model);
+
+    function GithubModel() {
+      GithubModel.__super__.constructor.apply(this, arguments);
+    }
+
+    GithubModel.prototype.defaults = {
+      type: '',
+      text: '',
+      date: '',
+      url: ''
+    };
+
+    return GithubModel;
+
+  })();
+
+  TwitterModel = (function() {
+
+    __extends(TwitterModel, Backbone.Model);
+
+    function TwitterModel() {
+      TwitterModel.__super__.constructor.apply(this, arguments);
+    }
+
+    TwitterModel.prototype.defaults = {
+      id: '',
+      text: '',
+      date: '',
+      url: ''
+    };
+
+    return TwitterModel;
+
+  })();
+
+  YoutubeModel = (function() {
+
+    __extends(YoutubeModel, Backbone.Model);
+
+    function YoutubeModel() {
+      YoutubeModel.__super__.constructor.apply(this, arguments);
+    }
+
+    YoutubeModel.prototype.defaults = {
+      id: '',
+      url: '',
+      date: '',
+      title: '',
+      content: '',
+      thumbnail_low: '',
+      thumbnail_medium: '',
+      is_portrait: false
+    };
+
+    return YoutubeModel;
 
   })();
 
@@ -2110,6 +2110,217 @@
 
   })();
 
+  ProjectsPageView = (function() {
+
+    __extends(ProjectsPageView, AbstractPageView);
+
+    function ProjectsPageView() {
+      this.appendThumbnail = __bind(this.appendThumbnail, this);
+      this.render = __bind(this.render, this);
+      ProjectsPageView.__super__.constructor.apply(this, arguments);
+    }
+
+    ProjectsPageView.prototype.id = 'projects-page';
+
+    ProjectsPageView.prototype.itemList = [];
+
+    ProjectsPageView.prototype.init = function() {
+      return this.render();
+    };
+
+    ProjectsPageView.prototype.render = function() {
+      var projectModel, _i, _len, _ref;
+      _ref = grifo.projectCollection.models;
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        projectModel = _ref[_i];
+        this.appendThumbnail(projectModel);
+      }
+      this.$el.isotope({
+        itemSelector: '.grid-item',
+        resizable: false,
+        masonry: {
+          columnWidth: 1
+        },
+        animationEngine: 'jquery',
+        animationOptions: {
+          queue: false,
+          duration: 0.0,
+          easing: 'easeOutExpo'
+        }
+      });
+      return this;
+    };
+
+    ProjectsPageView.prototype.relayout = function() {
+      return this.$el.isotope('reLayout');
+    };
+
+    ProjectsPageView.prototype.appendThumbnail = function(model_) {
+      var thumbnailView;
+      thumbnailView = new ThumbnailView({
+        model: model_
+      });
+      this.$el.append(thumbnailView.render().el);
+      return this.itemList[this.itemList.length] = thumbnailView;
+    };
+
+    ProjectsPageView.prototype.filter = function(tagId_) {
+      if (tagId_ == null) tagId_ = '';
+      if (tagId_ === '') {
+        tagId_ = '*';
+      } else {
+        tagId_ = '.' + tagId_;
+      }
+      if (!this.status) {
+        this.$el.isotope({
+          animationOptions: {
+            duration: 0.0
+          }
+        });
+      } else {
+        this.$el.isotope({
+          animationOptions: {
+            duration: 750.0
+          }
+        });
+      }
+      return this.$el.isotope({
+        filter: tagId_
+      });
+    };
+
+    ProjectsPageView.prototype.show = function(delay_, animate_) {
+      var thumbnailStatus, thumbnailView, _i, _len, _ref, _results;
+      if (delay_ == null) delay_ = 0.0;
+      if (animate_ == null) animate_ = false;
+      if (this.status === true) return;
+      ProjectsPageView.__super__.show.apply(this, arguments).show(delay_, animate_);
+      delay_ += 100;
+      this.relayout();
+      if (this.itemList) {
+        _ref = this.itemList;
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          thumbnailView = _ref[_i];
+          thumbnailStatus = thumbnailView.show(delay_);
+          if (thumbnailStatus) {
+            _results.push(delay_ += 50.0);
+          } else {
+            _results.push(void 0);
+          }
+        }
+        return _results;
+      }
+    };
+
+    ProjectsPageView.prototype.hide = function() {
+      if (this.status === false) return;
+      this.status = false;
+      return ProjectsPageView.__super__.hide.apply(this, arguments).hide();
+      /*
+              if @itemList
+                  for thumbnailView in @itemList
+                      thumbnailView.hide()
+      
+              super.hide()
+      */
+    };
+
+    return ProjectsPageView;
+
+  })();
+
+  ThumbnailView = (function() {
+
+    __extends(ThumbnailView, AbstractView);
+
+    function ThumbnailView() {
+      this.onRollOut = __bind(this.onRollOut, this);
+      this.onRollOver = __bind(this.onRollOver, this);
+      this.onClick = __bind(this.onClick, this);
+      this.appendTagView = __bind(this.appendTagView, this);
+      this.render = __bind(this.render, this);
+      ThumbnailView.__super__.constructor.apply(this, arguments);
+    }
+
+    ThumbnailView.prototype.className = 'grid-item';
+
+    ThumbnailView.prototype.template = null;
+
+    ThumbnailView.prototype.model = null;
+
+    ThumbnailView.prototype.events = {
+      'click .grid-item-image': 'onClick',
+      'click .grid-item-name': 'onClick',
+      'click .grid-item-over': 'onClick',
+      'mouseenter': 'onRollOver',
+      'mouseleave': 'onRollOut'
+    };
+
+    ThumbnailView.prototype.init = function() {
+      return this.template = _.template($('#template_thumbnail').html());
+    };
+
+    ThumbnailView.prototype.render = function() {
+      var tagId, tagModel, _i, _len, _ref;
+      this.$el.addClass(this.model.get('tile_size'));
+      this.$el.addClass(this.model.get('tags').join(' '));
+      this.$el.append(this.template({
+        image: this.model.get('thumbnail'),
+        title: this.model.get('short_title')
+      }));
+      $('.grid-item-image', this.$el).addClass(this.model.get('tile_size'));
+      $('.grid-item-over', this.$el).addClass(this.model.get('tile_size'));
+      $('.grid-item-over', this.$el).css('opacity', 0.0);
+      _ref = this.model.get('display_tags');
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        tagId = _ref[_i];
+        tagModel = grifo.tagCollection.get(tagId);
+        this.appendTagView(tagModel);
+      }
+      return this;
+    };
+
+    ThumbnailView.prototype.appendTagView = function(model_) {
+      var tagView;
+      tagView = new TagView({
+        model: model_
+      });
+      tagView.useLongTitle = false;
+      $('.grid-item-tags', this.$el).append(tagView.render().el);
+      return $('.grid-item-tags', this.$el).append(' ');
+    };
+
+    ThumbnailView.prototype.show = function(delay_, animate_) {
+      if (delay_ == null) delay_ = 0.0;
+      if (animate_ == null) animate_ = true;
+      ThumbnailView.__super__.show.apply(this, arguments).show(delay_, animate_);
+      return this.$el.attr('class').indexOf('isotope-hidden') === -1;
+    };
+
+    ThumbnailView.prototype.onClick = function(e_) {
+      e_.preventDefault();
+      return grifo.appRouter.navigateToProject(this.model.get('id'));
+    };
+
+    ThumbnailView.prototype.onRollOver = function(e_) {
+      $('.grid-item-over', this.$el).stop().animate({
+        opacity: 0.2
+      }, 200);
+      return $('.grid-item-name', this.$el).addClass('over');
+    };
+
+    ThumbnailView.prototype.onRollOut = function(e_) {
+      $('.grid-item-over', this.$el).stop().animate({
+        opacity: 0.0
+      }, 200);
+      return $('.grid-item-name', this.$el).removeClass('over');
+    };
+
+    return ThumbnailView;
+
+  })();
+
   CreditGroupView = (function() {
 
     __extends(CreditGroupView, Backbone.View);
@@ -2329,214 +2540,98 @@
 
   })();
 
-  ProjectsPageView = (function() {
+  BlogView = (function() {
 
-    __extends(ProjectsPageView, AbstractPageView);
+    __extends(BlogView, Backbone.View);
 
-    function ProjectsPageView() {
-      this.appendThumbnail = __bind(this.appendThumbnail, this);
+    function BlogView() {
       this.render = __bind(this.render, this);
-      ProjectsPageView.__super__.constructor.apply(this, arguments);
+      BlogView.__super__.constructor.apply(this, arguments);
     }
 
-    ProjectsPageView.prototype.id = 'projects-page';
+    BlogView.prototype.className = 'word-stream-item size1of3';
 
-    ProjectsPageView.prototype.itemList = [];
+    BlogView.prototype.template = null;
 
-    ProjectsPageView.prototype.init = function() {
-      return this.render();
+    BlogView.prototype.initialize = function() {
+      return this.template = _.template($('#template_blog').html());
     };
 
-    ProjectsPageView.prototype.render = function() {
-      var projectModel, _i, _len, _ref;
-      _ref = grifo.projectCollection.models;
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        projectModel = _ref[_i];
-        this.appendThumbnail(projectModel);
-      }
-      this.$el.isotope({
-        itemSelector: '.grid-item',
-        resizable: false,
-        masonry: {
-          columnWidth: 1
-        },
-        animationEngine: 'jquery',
-        animationOptions: {
-          queue: false,
-          duration: 0.0,
-          easing: 'easeOutExpo'
-        }
-      });
+    BlogView.prototype.render = function() {
+      $(this.el).append(this.template({
+        title: this.model.get('title'),
+        description: this.model.get('description'),
+        date: this.model.get('date'),
+        url: this.model.get('url')
+      }));
       return this;
     };
 
-    ProjectsPageView.prototype.relayout = function() {
-      return this.$el.isotope('reLayout');
-    };
-
-    ProjectsPageView.prototype.appendThumbnail = function(model_) {
-      var thumbnailView;
-      thumbnailView = new ThumbnailView({
-        model: model_
-      });
-      this.$el.append(thumbnailView.render().el);
-      return this.itemList[this.itemList.length] = thumbnailView;
-    };
-
-    ProjectsPageView.prototype.filter = function(tagId_) {
-      if (tagId_ == null) tagId_ = '';
-      if (tagId_ === '') {
-        tagId_ = '*';
-      } else {
-        tagId_ = '.' + tagId_;
-      }
-      if (!this.status) {
-        this.$el.isotope({
-          animationOptions: {
-            duration: 0.0
-          }
-        });
-      } else {
-        this.$el.isotope({
-          animationOptions: {
-            duration: 750.0
-          }
-        });
-      }
-      return this.$el.isotope({
-        filter: tagId_
-      });
-    };
-
-    ProjectsPageView.prototype.show = function(delay_, animate_) {
-      var thumbnailStatus, thumbnailView, _i, _len, _ref, _results;
-      if (delay_ == null) delay_ = 0.0;
-      if (animate_ == null) animate_ = false;
-      if (this.status === true) return;
-      ProjectsPageView.__super__.show.apply(this, arguments).show(delay_, animate_);
-      delay_ += 100;
-      this.relayout();
-      if (this.itemList) {
-        _ref = this.itemList;
-        _results = [];
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          thumbnailView = _ref[_i];
-          thumbnailStatus = thumbnailView.show(delay_);
-          if (thumbnailStatus) {
-            _results.push(delay_ += 50.0);
-          } else {
-            _results.push(void 0);
-          }
-        }
-        return _results;
-      }
-    };
-
-    ProjectsPageView.prototype.hide = function() {
-      if (this.status === false) return;
-      this.status = false;
-      return ProjectsPageView.__super__.hide.apply(this, arguments).hide();
-      /*
-              if @itemList
-                  for thumbnailView in @itemList
-                      thumbnailView.hide()
-      
-              super.hide()
-      */
-    };
-
-    return ProjectsPageView;
+    return BlogView;
 
   })();
 
-  ThumbnailView = (function() {
+  FlickrView = (function() {
 
-    __extends(ThumbnailView, AbstractView);
+    __extends(FlickrView, Backbone.View);
 
-    function ThumbnailView() {
-      this.onRollOut = __bind(this.onRollOut, this);
-      this.onRollOver = __bind(this.onRollOver, this);
-      this.onClick = __bind(this.onClick, this);
-      this.appendTagView = __bind(this.appendTagView, this);
+    function FlickrView() {
       this.render = __bind(this.render, this);
-      ThumbnailView.__super__.constructor.apply(this, arguments);
+      FlickrView.__super__.constructor.apply(this, arguments);
     }
 
-    ThumbnailView.prototype.className = 'grid-item';
+    FlickrView.prototype.className = 'media-stream-item size1of3';
 
-    ThumbnailView.prototype.template = null;
+    FlickrView.prototype.template = null;
 
-    ThumbnailView.prototype.model = null;
-
-    ThumbnailView.prototype.events = {
-      'click .grid-item-image': 'onClick',
-      'click .grid-item-name': 'onClick',
-      'click .grid-item-over': 'onClick',
-      'mouseenter': 'onRollOver',
-      'mouseleave': 'onRollOut'
-    };
-
-    ThumbnailView.prototype.init = function() {
-      return this.template = _.template($('#template_thumbnail').html());
-    };
-
-    ThumbnailView.prototype.render = function() {
-      var tagId, tagModel, _i, _len, _ref;
-      this.$el.addClass(this.model.get('tile_size'));
-      this.$el.addClass(this.model.get('tags').join(' '));
-      this.$el.append(this.template({
-        image: this.model.get('thumbnail'),
-        title: this.model.get('short_title')
-      }));
-      $('.grid-item-image', this.$el).addClass(this.model.get('tile_size'));
-      $('.grid-item-over', this.$el).addClass(this.model.get('tile_size'));
-      $('.grid-item-over', this.$el).css('opacity', 0.0);
-      _ref = this.model.get('display_tags');
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        tagId = _ref[_i];
-        tagModel = grifo.tagCollection.get(tagId);
-        this.appendTagView(tagModel);
+    FlickrView.prototype.initialize = function() {
+      if (this.model.get('is_portrait')) {
+        return this.template = _.template($('#template_flickr_portrait').html());
+      } else {
+        return this.template = _.template($('#template_flickr_landscape').html());
       }
+    };
+
+    FlickrView.prototype.render = function() {
+      $(this.el).append(this.template({
+        image: this.model.get('image'),
+        date: this.model.get('date'),
+        url: this.model.get('url')
+      }));
       return this;
     };
 
-    ThumbnailView.prototype.appendTagView = function(model_) {
-      var tagView;
-      tagView = new TagView({
-        model: model_
-      });
-      tagView.useLongTitle = false;
-      $('.grid-item-tags', this.$el).append(tagView.render().el);
-      return $('.grid-item-tags', this.$el).append(' ');
+    return FlickrView;
+
+  })();
+
+  GithubView = (function() {
+
+    __extends(GithubView, Backbone.View);
+
+    function GithubView() {
+      this.render = __bind(this.render, this);
+      GithubView.__super__.constructor.apply(this, arguments);
+    }
+
+    GithubView.prototype.className = 'word-stream-item size1of3';
+
+    GithubView.prototype.template = null;
+
+    GithubView.prototype.initialize = function() {
+      return this.template = _.template($('#template_github').html());
     };
 
-    ThumbnailView.prototype.show = function(delay_, animate_) {
-      if (delay_ == null) delay_ = 0.0;
-      if (animate_ == null) animate_ = true;
-      ThumbnailView.__super__.show.apply(this, arguments).show(delay_, animate_);
-      return this.$el.attr('class').indexOf('isotope-hidden') === -1;
+    GithubView.prototype.render = function() {
+      $(this.el).append(this.template({
+        label: this.model.get('text'),
+        date: this.model.get('date'),
+        url: this.model.get('url')
+      }));
+      return this;
     };
 
-    ThumbnailView.prototype.onClick = function(e_) {
-      e_.preventDefault();
-      return grifo.appRouter.navigateToProject(this.model.get('id'));
-    };
-
-    ThumbnailView.prototype.onRollOver = function(e_) {
-      $('.grid-item-over', this.$el).stop().animate({
-        opacity: 0.2
-      }, 200);
-      return $('.grid-item-name', this.$el).addClass('over');
-    };
-
-    ThumbnailView.prototype.onRollOut = function(e_) {
-      $('.grid-item-over', this.$el).stop().animate({
-        opacity: 0.0
-      }, 200);
-      return $('.grid-item-name', this.$el).removeClass('over');
-    };
-
-    return ThumbnailView;
+    return GithubView;
 
   })();
 
@@ -2655,19 +2750,31 @@
     };
 
     StreamPageView.prototype.appendWordLine = function() {
-      return $('#word-grid', this.$el).append('<div class="size1of3 word-stream-line"></div>');
+      return $('#word-grid', this.$el).append(_.template($('#template_stream_word_line').html()));
     };
 
     StreamPageView.prototype.appendTwitterView = function(model_) {
-      return $('#word-grid', this.$el).append('<div class="size1of3 word-stream-item"><h5>' + model_.get('text') + '<br/></h5><!--<br/>-->⇢ ' + model_.get('date') + ', from <a href="' + model_.get('url') + '" target="_blank">Twitter</a><!--<hr/>--></div>');
+      var twitterView;
+      twitterView = new TwitterView({
+        model: model_
+      });
+      return $('#word-grid', this.$el).append(twitterView.render().el);
     };
 
     StreamPageView.prototype.appendGithubView = function(model_) {
-      return $('#word-grid', this.$el).append('<div class="size1of3 word-stream-item"><h4>' + model_.get('text') + '<br/></h4><br/><!--<br/>-->⇢ ' + model_.get('date') + ', from <a href="' + model_.get('url') + '" target="_blank">Github</a><!--<hr/>--></div>');
+      var githubView;
+      githubView = new GithubView({
+        model: model_
+      });
+      return $('#word-grid', this.$el).append(githubView.render().el);
     };
 
     StreamPageView.prototype.appendBlogView = function(model_) {
-      return $('#word-grid', this.$el).append('<div class="size1of3 word-stream-item"><h5><a href="' + model_.get('url') + '" target="_blank">' + model_.get('title') + '</a><br/></h5><p class="copy">' + model_.get('description') + '</p>⇢ ' + model_.get('date') + ', from <a href="' + model_.get('url') + '" target="_blank">Blog</a><!--<hr/>--></div>');
+      var blogView;
+      blogView = new BlogView({
+        model: model_
+      });
+      return $('#word-grid', this.$el).append(blogView.render().el);
     };
 
     StreamPageView.prototype.appendYoutubeView = function(model_) {
@@ -2679,13 +2786,11 @@
     };
 
     StreamPageView.prototype.appendFlickrView = function(model_) {
-      var style;
-      if (model_.get('is_portrait')) {
-        style = 'width: 100%;';
-      } else {
-        style = 'height: 100%;';
-      }
-      return $('#media-grid', this.$el).append('<div class="size1of3 media-stream-item"><div class="flickr-stream-item"><a href="' + model_.get('url') + '" target="_blank"><img src="' + model_.get('image') + '" style="' + style + '" /></a></div><p>⇢ ' + model_.get('date') + ', from <a href="' + model_.get('url') + '" target="_blank">Flickr</a></p></div>');
+      var flickrView;
+      flickrView = new FlickrView({
+        model: model_
+      });
+      return $('#media-grid', this.$el).append(flickrView.render().el);
     };
 
     StreamPageView.prototype.show = function(delay_, animate_) {
@@ -2708,6 +2813,36 @@
 
   })();
 
+  TwitterView = (function() {
+
+    __extends(TwitterView, Backbone.View);
+
+    function TwitterView() {
+      this.render = __bind(this.render, this);
+      TwitterView.__super__.constructor.apply(this, arguments);
+    }
+
+    TwitterView.prototype.className = 'word-stream-item size1of3';
+
+    TwitterView.prototype.template = null;
+
+    TwitterView.prototype.initialize = function() {
+      return this.template = _.template($('#template_twitter').html());
+    };
+
+    TwitterView.prototype.render = function() {
+      $(this.el).append(this.template({
+        label: this.model.get('text'),
+        date: this.model.get('date'),
+        url: this.model.get('url')
+      }));
+      return this;
+    };
+
+    return TwitterView;
+
+  })();
+
   YoutubeView = (function() {
 
     __extends(YoutubeView, Backbone.View);
@@ -2721,26 +2856,21 @@
 
     YoutubeView.prototype.template = null;
 
-    YoutubeView.prototype.render = function() {
+    YoutubeView.prototype.initialize = function() {
       if (this.model.get('is_portrait')) {
-        $(this.el).addClass('video-item-portrait');
-        this.template = _.template($('#template_youtube_portrait').html());
-        $(this.el).append(this.template({
-          id: this.model.get('id'),
-          image: this.model.get('thumbnail_medium'),
-          date: this.model.get('date'),
-          url: this.model.get('url')
-        }));
+        return this.template = _.template($('#template_youtube_portrait').html());
       } else {
-        $(this.el).addClass('video-item-landscape');
-        this.template = _.template($('#template_youtube_landscape').html());
-        $(this.el).append(this.template({
-          id: this.model.get('id'),
-          image: this.model.get('thumbnail_medium'),
-          date: this.model.get('date'),
-          url: this.model.get('url')
-        }));
+        return this.template = _.template($('#template_youtube_landscape').html());
       }
+    };
+
+    YoutubeView.prototype.render = function() {
+      $(this.el).append(this.template({
+        id: this.model.get('id'),
+        image: this.model.get('thumbnail_medium'),
+        date: this.model.get('date'),
+        url: this.model.get('url')
+      }));
       return this;
     };
 
