@@ -1,10 +1,10 @@
-class BlogView extends Backbone.View
+class BlogView extends AbstractView
 
-    className : 'word-stream-item size1of3'
-    template  : null
+    className     : 'word-stream-item size1of3'
+    template      : null
 
 
-    initialize: ->
+    init: ->
 
         @template = _.template $( '#template_blog' ).html()
 

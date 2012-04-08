@@ -1,9 +1,9 @@
-class ExperienceGroupView extends Backbone.View
+class ExperienceGroupView extends AbstractView
 
-    className   : 'new-row'
-    numLeftChar : 0.0
+    className     : 'new-row'
+    numLeftChar   : 0.0
 
-    initialize : ->
+    init : ->
 
         @template               = _.template $( '#template_experience_group' ).html()
 

@@ -98,50 +98,72 @@ class StreamPageView extends AbstractPageView
 
 
     appendWordLine: () =>
-    
-        $('#word-grid', @$el).append _.template $( '#template_stream_word_line' ).html()
+
+        wordLineView = new WordStreamLineView()
+        $('#word-grid', @$el).append wordLineView.render().el
+        @wordItemList[ @wordItemList.length ] = wordLineView
 
 
     appendTwitterView: ( model_ ) =>
 
         twitterView = new TwitterView  {model: model_}
         $('#word-grid', @$el).append twitterView.render().el
+        @wordItemList[ @wordItemList.length ] = twitterView
 
 
     appendGithubView: ( model_ ) =>
 
         githubView = new GithubView  {model: model_}
         $('#word-grid', @$el).append githubView.render().el
+        @wordItemList[ @wordItemList.length ] = githubView
 
 
     appendBlogView: ( model_ ) =>
 
         blogView = new BlogView  {model: model_}
         $('#word-grid', @$el).append blogView.render().el
+        @wordItemList[ @wordItemList.length ] = blogView
 
 
     appendYoutubeView: ( model_ ) =>
 
         youtubeView = new YoutubeView  {model: model_}
         $('#media-grid', @$el).append youtubeView.render().el
+        @mediaItemList[ @mediaItemList.length ] = youtubeView
 
 
     appendFlickrView: ( model_ ) =>
 
         flickrView = new FlickrView  {model: model_}
         $('#media-grid', @$el).append flickrView.render().el
+        @mediaItemList[ @mediaItemList.length ] = flickrView
 
 
     show: ( delay_ = 0.0, animate_ = true )->
 
+        @wordItemList = []
+        @mediaItemList = []
         @removeChildren()
+
         super.show( delay_, animate_ )
         @render()
+
+        if @wordItemList
+            for wordItemView in @wordItemList
+                wordItemView.show delay_
+                delay_ += 25.0
+
+        delay_ = 0.0
+
+        if @mediaItemList
+            for mediaItemView in @mediaItemList
+                mediaItemView.show delay_
+                delay_ += 50.0
 
 
     hide: ()->
 
-        wordItemList = []
-        mediaItemList = []
+        @wordItemList = []
+        @mediaItemList = []
         @removeChildren()
         super.hide()

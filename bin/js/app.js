@@ -1,5 +1,5 @@
 (function() {
-  var AboutPageView, AbstractPageView, AbstractView, AppConfig, AppRouter, AppStatus, AppView, BlogCollection, BlogModel, BlogView, BrandCollection, BrandModel, BrandView, CreditCollection, CreditGroupCollection, CreditGroupModel, CreditGroupView, CreditModel, CreditView, ExperienceCollection, ExperienceGroupCollection, ExperienceGroupModel, ExperienceGroupView, ExperienceModel, FlickrCollection, FlickrModel, FlickrView, GithubCollection, GithubModel, GithubView, HeaderBgView, HeaderView, LabelCollection, LabelModel, NavView, ProfileCollection, ProfileModel, ProfileView, ProjectCollection, ProjectModel, ProjectPageView, ProjectsPageView, ShareView, StreamPageView, TagCollection, TagGroupCollection, TagGroupModel, TagGroupView, TagModel, TagView, TagsPageView, ThumbnailView, TwitterCollection, TwitterModel, TwitterView, Utils, YoutubeCollection, YoutubeModel, YoutubeView;
+  var AboutPageView, AbstractPageView, AbstractView, AppConfig, AppRouter, AppStatus, AppView, BlogCollection, BlogModel, BlogView, BrandCollection, BrandModel, BrandView, CreditCollection, CreditGroupCollection, CreditGroupModel, CreditGroupView, CreditModel, CreditView, ExperienceCollection, ExperienceGroupCollection, ExperienceGroupModel, ExperienceGroupView, ExperienceModel, FlickrCollection, FlickrModel, FlickrView, GithubCollection, GithubModel, GithubView, HeaderBgView, HeaderView, LabelCollection, LabelModel, NavView, ProfileCollection, ProfileModel, ProfileView, ProjectCollection, ProjectModel, ProjectPageView, ProjectsPageView, ShareView, StreamPageView, TagCollection, TagGroupCollection, TagGroupModel, TagGroupView, TagModel, TagView, TagsPageView, ThumbnailView, TwitterCollection, TwitterModel, TwitterView, Utils, WordStreamLineView, YoutubeCollection, YoutubeModel, YoutubeView;
   var __hasProp = Object.prototype.hasOwnProperty, __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype; return child; }, __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   $(function() {
@@ -1715,7 +1715,7 @@
 
   TagView = (function() {
 
-    __extends(TagView, Backbone.View);
+    __extends(TagView, AbstractView);
 
     function TagView() {
       this.onClick = __bind(this.onClick, this);
@@ -1728,11 +1728,13 @@
 
     TagView.prototype.tagName = 'a';
 
+    TagView.prototype.hasTransition = false;
+
     TagView.prototype.events = {
       'click': 'onClick'
     };
 
-    TagView.prototype.initialize = function() {
+    TagView.prototype.init = function() {
       this.model.bind('change', this.render, this);
       return this.model.bind('destroy', this.remove, this);
     };
@@ -1912,6 +1914,40 @@
 
   })();
 
+  BrandView = (function() {
+
+    __extends(BrandView, AbstractView);
+
+    function BrandView() {
+      this.render = __bind(this.render, this);
+      BrandView.__super__.constructor.apply(this, arguments);
+    }
+
+    BrandView.prototype.className = 'brand';
+
+    BrandView.prototype.render = function() {
+      if (this.model.get('url').length > 0.0) {
+        this.template = _.template($('#template_brand_link').html());
+        $(this.el).append(this.template({
+          image: this.model.get('image'),
+          label: this.model.get('label'),
+          url: this.model.get('url'),
+          window: this.model.get('window')
+        }));
+      } else {
+        this.template = _.template($('#template_brand').html());
+        $(this.el).append(this.template({
+          image: this.model.get('image'),
+          label: this.model.get('label')
+        }));
+      }
+      return this;
+    };
+
+    return BrandView;
+
+  })();
+
   AboutPageView = (function() {
 
     __extends(AboutPageView, AbstractPageView);
@@ -1928,6 +1964,8 @@
     AboutPageView.prototype.overviewTemplate = null;
 
     AboutPageView.prototype.brandsTemplate = null;
+
+    AboutPageView.prototype.itemList = [];
 
     AboutPageView.prototype.init = function() {
       this.overviewTemplate = _.template($('#template_overview').html());
@@ -1971,10 +2009,11 @@
         model: model_
       });
       if (model_.get('column') === 0.0) {
-        return $('#column-0', this.$el).append(experienceGroupView.render().el);
+        $('#column-0', this.$el).append(experienceGroupView.render().el);
       } else {
-        return $('#column-1', this.$el).append(experienceGroupView.render().el);
+        $('#column-1', this.$el).append(experienceGroupView.render().el);
       }
+      return this.itemList[this.itemList.length] = experienceGroupView;
     };
 
     AboutPageView.prototype.appendBrandView = function(model_) {
@@ -1982,18 +2021,33 @@
       brandView = new BrandView({
         model: model_
       });
-      return $('#brands', this.$el).append(brandView.render().el);
+      $('#brands', this.$el).append(brandView.render().el);
+      return this.itemList[this.itemList.length] = brandView;
     };
 
     AboutPageView.prototype.show = function(delay_, animate_) {
+      var itemView, _i, _len, _ref, _results;
       if (delay_ == null) delay_ = 0.0;
       if (animate_ == null) animate_ = true;
+      this.itemList = [];
       this.removeChildren();
       this.render();
-      return AboutPageView.__super__.show.apply(this, arguments).show(delay_, animate_);
+      AboutPageView.__super__.show.apply(this, arguments).show(delay_, animate_);
+      delay_ += 50.0;
+      if (this.itemList) {
+        _ref = this.itemList;
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          itemView = _ref[_i];
+          itemView.show(delay_);
+          _results.push(delay_ += 25.0);
+        }
+        return _results;
+      }
     };
 
     AboutPageView.prototype.hide = function() {
+      this.itemList = [];
       this.removeChildren();
       return AboutPageView.__super__.hide.apply(this, arguments).hide();
     };
@@ -2002,43 +2056,9 @@
 
   })();
 
-  BrandView = (function() {
-
-    __extends(BrandView, Backbone.View);
-
-    function BrandView() {
-      this.render = __bind(this.render, this);
-      BrandView.__super__.constructor.apply(this, arguments);
-    }
-
-    BrandView.prototype.className = 'brand';
-
-    BrandView.prototype.render = function() {
-      if (this.model.get('url').length > 0.0) {
-        this.template = _.template($('#template_brand_link').html());
-        $(this.el).append(this.template({
-          image: this.model.get('image'),
-          label: this.model.get('label'),
-          url: this.model.get('url'),
-          window: this.model.get('window')
-        }));
-      } else {
-        this.template = _.template($('#template_brand').html());
-        $(this.el).append(this.template({
-          image: this.model.get('image'),
-          label: this.model.get('label')
-        }));
-      }
-      return this;
-    };
-
-    return BrandView;
-
-  })();
-
   ExperienceGroupView = (function() {
 
-    __extends(ExperienceGroupView, Backbone.View);
+    __extends(ExperienceGroupView, AbstractView);
 
     function ExperienceGroupView() {
       this.appendExperience = __bind(this.appendExperience, this);
@@ -2050,7 +2070,7 @@
 
     ExperienceGroupView.prototype.numLeftChar = 0.0;
 
-    ExperienceGroupView.prototype.initialize = function() {
+    ExperienceGroupView.prototype.init = function() {
       this.template = _.template($('#template_experience_group').html());
       this.lineLeftTemplate = _.template($('#template_line_left').html());
       this.lineRightTemplate = _.template($('#template_line_right').html());
@@ -2110,220 +2130,9 @@
 
   })();
 
-  ProjectsPageView = (function() {
-
-    __extends(ProjectsPageView, AbstractPageView);
-
-    function ProjectsPageView() {
-      this.appendThumbnail = __bind(this.appendThumbnail, this);
-      this.render = __bind(this.render, this);
-      ProjectsPageView.__super__.constructor.apply(this, arguments);
-    }
-
-    ProjectsPageView.prototype.id = 'projects-page';
-
-    ProjectsPageView.prototype.itemList = [];
-
-    ProjectsPageView.prototype.init = function() {
-      return this.render();
-    };
-
-    ProjectsPageView.prototype.render = function() {
-      var projectModel, _i, _len, _ref;
-      _ref = grifo.projectCollection.models;
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        projectModel = _ref[_i];
-        this.appendThumbnail(projectModel);
-      }
-      this.$el.isotope({
-        itemSelector: '.grid-item',
-        resizable: false,
-        masonry: {
-          columnWidth: 1
-        },
-        animationEngine: 'jquery',
-        animationOptions: {
-          queue: false,
-          duration: 0.0,
-          easing: 'easeOutExpo'
-        }
-      });
-      return this;
-    };
-
-    ProjectsPageView.prototype.relayout = function() {
-      return this.$el.isotope('reLayout');
-    };
-
-    ProjectsPageView.prototype.appendThumbnail = function(model_) {
-      var thumbnailView;
-      thumbnailView = new ThumbnailView({
-        model: model_
-      });
-      this.$el.append(thumbnailView.render().el);
-      return this.itemList[this.itemList.length] = thumbnailView;
-    };
-
-    ProjectsPageView.prototype.filter = function(tagId_) {
-      if (tagId_ == null) tagId_ = '';
-      if (tagId_ === '') {
-        tagId_ = '*';
-      } else {
-        tagId_ = '.' + tagId_;
-      }
-      if (!this.status) {
-        this.$el.isotope({
-          animationOptions: {
-            duration: 0.0
-          }
-        });
-      } else {
-        this.$el.isotope({
-          animationOptions: {
-            duration: 750.0
-          }
-        });
-      }
-      return this.$el.isotope({
-        filter: tagId_
-      });
-    };
-
-    ProjectsPageView.prototype.show = function(delay_, animate_) {
-      var thumbnailStatus, thumbnailView, _i, _len, _ref, _results;
-      if (delay_ == null) delay_ = 0.0;
-      if (animate_ == null) animate_ = false;
-      if (this.status === true) return;
-      ProjectsPageView.__super__.show.apply(this, arguments).show(delay_, animate_);
-      delay_ += 100;
-      this.relayout();
-      if (this.itemList) {
-        _ref = this.itemList;
-        _results = [];
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          thumbnailView = _ref[_i];
-          thumbnailStatus = thumbnailView.show(delay_);
-          if (thumbnailStatus) {
-            _results.push(delay_ += 50.0);
-          } else {
-            _results.push(void 0);
-          }
-        }
-        return _results;
-      }
-    };
-
-    ProjectsPageView.prototype.hide = function() {
-      if (this.status === false) return;
-      this.status = false;
-      return ProjectsPageView.__super__.hide.apply(this, arguments).hide();
-      /*
-              if @itemList
-                  for thumbnailView in @itemList
-                      thumbnailView.hide()
-      
-              super.hide()
-      */
-    };
-
-    return ProjectsPageView;
-
-  })();
-
-  ThumbnailView = (function() {
-
-    __extends(ThumbnailView, AbstractView);
-
-    function ThumbnailView() {
-      this.onRollOut = __bind(this.onRollOut, this);
-      this.onRollOver = __bind(this.onRollOver, this);
-      this.onClick = __bind(this.onClick, this);
-      this.appendTagView = __bind(this.appendTagView, this);
-      this.render = __bind(this.render, this);
-      ThumbnailView.__super__.constructor.apply(this, arguments);
-    }
-
-    ThumbnailView.prototype.className = 'grid-item';
-
-    ThumbnailView.prototype.template = null;
-
-    ThumbnailView.prototype.model = null;
-
-    ThumbnailView.prototype.events = {
-      'click .grid-item-image': 'onClick',
-      'click .grid-item-name': 'onClick',
-      'click .grid-item-over': 'onClick',
-      'mouseenter': 'onRollOver',
-      'mouseleave': 'onRollOut'
-    };
-
-    ThumbnailView.prototype.init = function() {
-      return this.template = _.template($('#template_thumbnail').html());
-    };
-
-    ThumbnailView.prototype.render = function() {
-      var tagId, tagModel, _i, _len, _ref;
-      this.$el.addClass(this.model.get('tile_size'));
-      this.$el.addClass(this.model.get('tags').join(' '));
-      this.$el.append(this.template({
-        image: this.model.get('thumbnail'),
-        title: this.model.get('short_title')
-      }));
-      $('.grid-item-image', this.$el).addClass(this.model.get('tile_size'));
-      $('.grid-item-over', this.$el).addClass(this.model.get('tile_size'));
-      $('.grid-item-over', this.$el).css('opacity', 0.0);
-      _ref = this.model.get('display_tags');
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        tagId = _ref[_i];
-        tagModel = grifo.tagCollection.get(tagId);
-        this.appendTagView(tagModel);
-      }
-      return this;
-    };
-
-    ThumbnailView.prototype.appendTagView = function(model_) {
-      var tagView;
-      tagView = new TagView({
-        model: model_
-      });
-      tagView.useLongTitle = false;
-      $('.grid-item-tags', this.$el).append(tagView.render().el);
-      return $('.grid-item-tags', this.$el).append(' ');
-    };
-
-    ThumbnailView.prototype.show = function(delay_, animate_) {
-      if (delay_ == null) delay_ = 0.0;
-      if (animate_ == null) animate_ = true;
-      ThumbnailView.__super__.show.apply(this, arguments).show(delay_, animate_);
-      return this.$el.attr('class').indexOf('isotope-hidden') === -1;
-    };
-
-    ThumbnailView.prototype.onClick = function(e_) {
-      e_.preventDefault();
-      return grifo.appRouter.navigateToProject(this.model.get('id'));
-    };
-
-    ThumbnailView.prototype.onRollOver = function(e_) {
-      $('.grid-item-over', this.$el).stop().animate({
-        opacity: 0.2
-      }, 200);
-      return $('.grid-item-name', this.$el).addClass('over');
-    };
-
-    ThumbnailView.prototype.onRollOut = function(e_) {
-      $('.grid-item-over', this.$el).stop().animate({
-        opacity: 0.0
-      }, 200);
-      return $('.grid-item-name', this.$el).removeClass('over');
-    };
-
-    return ThumbnailView;
-
-  })();
-
   CreditGroupView = (function() {
 
-    __extends(CreditGroupView, Backbone.View);
+    __extends(CreditGroupView, AbstractView);
 
     function CreditGroupView() {
       this.appendCreditView = __bind(this.appendCreditView, this);
@@ -2333,7 +2142,9 @@
 
     CreditGroupView.prototype.className = 'new-row';
 
-    CreditGroupView.prototype.initialize = function() {
+    CreditGroupView.prototype.hasTransition = false;
+
+    CreditGroupView.prototype.init = function() {
       return this.template = _.template($('#template_credit_group').html());
     };
 
@@ -2366,7 +2177,7 @@
 
   CreditView = (function() {
 
-    __extends(CreditView, Backbone.View);
+    __extends(CreditView, AbstractView);
 
     function CreditView() {
       this.appendProfileView = __bind(this.appendProfileView, this);
@@ -2376,7 +2187,9 @@
 
     CreditView.prototype.tagName = 'p';
 
-    CreditView.prototype.initialize = function() {
+    CreditView.prototype.hasTransition = false;
+
+    CreditView.prototype.init = function() {
       return this.template = _.template($('#template_credit').html());
     };
 
@@ -2414,7 +2227,7 @@
 
   ProfileView = (function() {
 
-    __extends(ProfileView, Backbone.View);
+    __extends(ProfileView, AbstractView);
 
     function ProfileView() {
       this.render = __bind(this.render, this);
@@ -2422,6 +2235,8 @@
     }
 
     ProfileView.prototype.tagName = 'a';
+
+    ProfileView.prototype.hasTransition = false;
 
     ProfileView.prototype.render = function() {
       $(this.el).html(this.model.get('label'));
@@ -2540,9 +2355,218 @@
 
   })();
 
+  ProjectsPageView = (function() {
+
+    __extends(ProjectsPageView, AbstractPageView);
+
+    function ProjectsPageView() {
+      this.appendThumbnail = __bind(this.appendThumbnail, this);
+      this.render = __bind(this.render, this);
+      ProjectsPageView.__super__.constructor.apply(this, arguments);
+    }
+
+    ProjectsPageView.prototype.id = 'projects-page';
+
+    ProjectsPageView.prototype.itemList = [];
+
+    ProjectsPageView.prototype.init = function() {
+      return this.render();
+    };
+
+    ProjectsPageView.prototype.render = function() {
+      var projectModel, _i, _len, _ref;
+      _ref = grifo.projectCollection.models;
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        projectModel = _ref[_i];
+        this.appendThumbnail(projectModel);
+      }
+      this.$el.isotope({
+        itemSelector: '.grid-item',
+        resizable: false,
+        masonry: {
+          columnWidth: 1
+        },
+        animationEngine: 'jquery',
+        animationOptions: {
+          queue: false,
+          duration: 0.0,
+          easing: 'easeOutExpo'
+        }
+      });
+      return this;
+    };
+
+    ProjectsPageView.prototype.relayout = function() {
+      return this.$el.isotope('reLayout');
+    };
+
+    ProjectsPageView.prototype.appendThumbnail = function(model_) {
+      var thumbnailView;
+      thumbnailView = new ThumbnailView({
+        model: model_
+      });
+      this.$el.append(thumbnailView.render().el);
+      return this.itemList[this.itemList.length] = thumbnailView;
+    };
+
+    ProjectsPageView.prototype.filter = function(tagId_) {
+      if (tagId_ == null) tagId_ = '';
+      if (tagId_ === '') {
+        tagId_ = '*';
+      } else {
+        tagId_ = '.' + tagId_;
+      }
+      if (!this.status) {
+        this.$el.isotope({
+          animationOptions: {
+            duration: 0.0
+          }
+        });
+      } else {
+        this.$el.isotope({
+          animationOptions: {
+            duration: 750.0
+          }
+        });
+      }
+      return this.$el.isotope({
+        filter: tagId_
+      });
+    };
+
+    ProjectsPageView.prototype.show = function(delay_, animate_) {
+      var thumbnailStatus, thumbnailView, _i, _len, _ref, _results;
+      if (delay_ == null) delay_ = 0.0;
+      if (animate_ == null) animate_ = false;
+      if (this.status === true) return;
+      ProjectsPageView.__super__.show.apply(this, arguments).show(delay_, animate_);
+      delay_ += 100;
+      this.relayout();
+      if (this.itemList) {
+        _ref = this.itemList;
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          thumbnailView = _ref[_i];
+          thumbnailStatus = thumbnailView.show(delay_);
+          if (thumbnailStatus) {
+            _results.push(delay_ += 50.0);
+          } else {
+            _results.push(void 0);
+          }
+        }
+        return _results;
+      }
+    };
+
+    ProjectsPageView.prototype.hide = function() {
+      if (this.status === false) return;
+      this.status = false;
+      /*
+              if @itemList
+                  for thumbnailView in @itemList
+                      thumbnailView.hide()
+      */
+      return ProjectsPageView.__super__.hide.apply(this, arguments).hide();
+    };
+
+    return ProjectsPageView;
+
+  })();
+
+  ThumbnailView = (function() {
+
+    __extends(ThumbnailView, AbstractView);
+
+    function ThumbnailView() {
+      this.onRollOut = __bind(this.onRollOut, this);
+      this.onRollOver = __bind(this.onRollOver, this);
+      this.onClick = __bind(this.onClick, this);
+      this.appendTagView = __bind(this.appendTagView, this);
+      this.render = __bind(this.render, this);
+      ThumbnailView.__super__.constructor.apply(this, arguments);
+    }
+
+    ThumbnailView.prototype.className = 'grid-item';
+
+    ThumbnailView.prototype.template = null;
+
+    ThumbnailView.prototype.model = null;
+
+    ThumbnailView.prototype.events = {
+      'click .grid-item-image': 'onClick',
+      'click .grid-item-name': 'onClick',
+      'click .grid-item-over': 'onClick',
+      'mouseenter': 'onRollOver',
+      'mouseleave': 'onRollOut'
+    };
+
+    ThumbnailView.prototype.init = function() {
+      return this.template = _.template($('#template_thumbnail').html());
+    };
+
+    ThumbnailView.prototype.render = function() {
+      var tagId, tagModel, _i, _len, _ref;
+      this.$el.addClass(this.model.get('tile_size'));
+      this.$el.addClass(this.model.get('tags').join(' '));
+      this.$el.append(this.template({
+        image: this.model.get('thumbnail'),
+        title: this.model.get('short_title')
+      }));
+      $('.grid-item-image', this.$el).addClass(this.model.get('tile_size'));
+      $('.grid-item-over', this.$el).addClass(this.model.get('tile_size'));
+      $('.grid-item-over', this.$el).css('opacity', 0.0);
+      _ref = this.model.get('display_tags');
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        tagId = _ref[_i];
+        tagModel = grifo.tagCollection.get(tagId);
+        this.appendTagView(tagModel);
+      }
+      return this;
+    };
+
+    ThumbnailView.prototype.appendTagView = function(model_) {
+      var tagView;
+      tagView = new TagView({
+        model: model_
+      });
+      tagView.useLongTitle = false;
+      $('.grid-item-tags', this.$el).append(tagView.render().el);
+      return $('.grid-item-tags', this.$el).append(' ');
+    };
+
+    ThumbnailView.prototype.show = function(delay_, animate_) {
+      if (delay_ == null) delay_ = 0.0;
+      if (animate_ == null) animate_ = true;
+      ThumbnailView.__super__.show.apply(this, arguments).show(delay_, animate_);
+      return this.$el.attr('class').indexOf('isotope-hidden') === -1;
+    };
+
+    ThumbnailView.prototype.onClick = function(e_) {
+      e_.preventDefault();
+      return grifo.appRouter.navigateToProject(this.model.get('id'));
+    };
+
+    ThumbnailView.prototype.onRollOver = function(e_) {
+      $('.grid-item-over', this.$el).stop().animate({
+        opacity: 0.2
+      }, 200);
+      return $('.grid-item-name', this.$el).addClass('over');
+    };
+
+    ThumbnailView.prototype.onRollOut = function(e_) {
+      $('.grid-item-over', this.$el).stop().animate({
+        opacity: 0.0
+      }, 200);
+      return $('.grid-item-name', this.$el).removeClass('over');
+    };
+
+    return ThumbnailView;
+
+  })();
+
   BlogView = (function() {
 
-    __extends(BlogView, Backbone.View);
+    __extends(BlogView, AbstractView);
 
     function BlogView() {
       this.render = __bind(this.render, this);
@@ -2553,7 +2577,7 @@
 
     BlogView.prototype.template = null;
 
-    BlogView.prototype.initialize = function() {
+    BlogView.prototype.init = function() {
       return this.template = _.template($('#template_blog').html());
     };
 
@@ -2573,7 +2597,7 @@
 
   FlickrView = (function() {
 
-    __extends(FlickrView, Backbone.View);
+    __extends(FlickrView, AbstractView);
 
     function FlickrView() {
       this.render = __bind(this.render, this);
@@ -2584,7 +2608,7 @@
 
     FlickrView.prototype.template = null;
 
-    FlickrView.prototype.initialize = function() {
+    FlickrView.prototype.init = function() {
       if (this.model.get('is_portrait')) {
         return this.template = _.template($('#template_flickr_portrait').html());
       } else {
@@ -2607,7 +2631,7 @@
 
   GithubView = (function() {
 
-    __extends(GithubView, Backbone.View);
+    __extends(GithubView, AbstractView);
 
     function GithubView() {
       this.render = __bind(this.render, this);
@@ -2618,7 +2642,7 @@
 
     GithubView.prototype.template = null;
 
-    GithubView.prototype.initialize = function() {
+    GithubView.prototype.init = function() {
       return this.template = _.template($('#template_github').html());
     };
 
@@ -2750,7 +2774,10 @@
     };
 
     StreamPageView.prototype.appendWordLine = function() {
-      return $('#word-grid', this.$el).append(_.template($('#template_stream_word_line').html()));
+      var wordLineView;
+      wordLineView = new WordStreamLineView();
+      $('#word-grid', this.$el).append(wordLineView.render().el);
+      return this.wordItemList[this.wordItemList.length] = wordLineView;
     };
 
     StreamPageView.prototype.appendTwitterView = function(model_) {
@@ -2758,7 +2785,8 @@
       twitterView = new TwitterView({
         model: model_
       });
-      return $('#word-grid', this.$el).append(twitterView.render().el);
+      $('#word-grid', this.$el).append(twitterView.render().el);
+      return this.wordItemList[this.wordItemList.length] = twitterView;
     };
 
     StreamPageView.prototype.appendGithubView = function(model_) {
@@ -2766,7 +2794,8 @@
       githubView = new GithubView({
         model: model_
       });
-      return $('#word-grid', this.$el).append(githubView.render().el);
+      $('#word-grid', this.$el).append(githubView.render().el);
+      return this.wordItemList[this.wordItemList.length] = githubView;
     };
 
     StreamPageView.prototype.appendBlogView = function(model_) {
@@ -2774,7 +2803,8 @@
       blogView = new BlogView({
         model: model_
       });
-      return $('#word-grid', this.$el).append(blogView.render().el);
+      $('#word-grid', this.$el).append(blogView.render().el);
+      return this.wordItemList[this.wordItemList.length] = blogView;
     };
 
     StreamPageView.prototype.appendYoutubeView = function(model_) {
@@ -2782,7 +2812,8 @@
       youtubeView = new YoutubeView({
         model: model_
       });
-      return $('#media-grid', this.$el).append(youtubeView.render().el);
+      $('#media-grid', this.$el).append(youtubeView.render().el);
+      return this.mediaItemList[this.mediaItemList.length] = youtubeView;
     };
 
     StreamPageView.prototype.appendFlickrView = function(model_) {
@@ -2790,21 +2821,43 @@
       flickrView = new FlickrView({
         model: model_
       });
-      return $('#media-grid', this.$el).append(flickrView.render().el);
+      $('#media-grid', this.$el).append(flickrView.render().el);
+      return this.mediaItemList[this.mediaItemList.length] = flickrView;
     };
 
     StreamPageView.prototype.show = function(delay_, animate_) {
+      var mediaItemView, wordItemView, _i, _j, _len, _len2, _ref, _ref2, _results;
       if (delay_ == null) delay_ = 0.0;
       if (animate_ == null) animate_ = true;
+      this.wordItemList = [];
+      this.mediaItemList = [];
       this.removeChildren();
       StreamPageView.__super__.show.apply(this, arguments).show(delay_, animate_);
-      return this.render();
+      this.render();
+      if (this.wordItemList) {
+        _ref = this.wordItemList;
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          wordItemView = _ref[_i];
+          wordItemView.show(delay_);
+          delay_ += 25.0;
+        }
+      }
+      delay_ = 0.0;
+      if (this.mediaItemList) {
+        _ref2 = this.mediaItemList;
+        _results = [];
+        for (_j = 0, _len2 = _ref2.length; _j < _len2; _j++) {
+          mediaItemView = _ref2[_j];
+          mediaItemView.show(delay_);
+          _results.push(delay_ += 50.0);
+        }
+        return _results;
+      }
     };
 
     StreamPageView.prototype.hide = function() {
-      var mediaItemList, wordItemList;
-      wordItemList = [];
-      mediaItemList = [];
+      this.wordItemList = [];
+      this.mediaItemList = [];
       this.removeChildren();
       return StreamPageView.__super__.hide.apply(this, arguments).hide();
     };
@@ -2815,7 +2868,7 @@
 
   TwitterView = (function() {
 
-    __extends(TwitterView, Backbone.View);
+    __extends(TwitterView, AbstractView);
 
     function TwitterView() {
       this.render = __bind(this.render, this);
@@ -2826,7 +2879,7 @@
 
     TwitterView.prototype.template = null;
 
-    TwitterView.prototype.initialize = function() {
+    TwitterView.prototype.init = function() {
       return this.template = _.template($('#template_twitter').html());
     };
 
@@ -2843,9 +2896,28 @@
 
   })();
 
+  WordStreamLineView = (function() {
+
+    __extends(WordStreamLineView, AbstractView);
+
+    function WordStreamLineView() {
+      this.render = __bind(this.render, this);
+      WordStreamLineView.__super__.constructor.apply(this, arguments);
+    }
+
+    WordStreamLineView.prototype.className = 'word-stream-line size1of3';
+
+    WordStreamLineView.prototype.render = function() {
+      return this;
+    };
+
+    return WordStreamLineView;
+
+  })();
+
   YoutubeView = (function() {
 
-    __extends(YoutubeView, Backbone.View);
+    __extends(YoutubeView, AbstractView);
 
     function YoutubeView() {
       this.render = __bind(this.render, this);
@@ -2856,7 +2928,7 @@
 
     YoutubeView.prototype.template = null;
 
-    YoutubeView.prototype.initialize = function() {
+    YoutubeView.prototype.init = function() {
       if (this.model.get('is_portrait')) {
         return this.template = _.template($('#template_youtube_portrait').html());
       } else {
@@ -2971,14 +3043,16 @@
       if (animate_ == null) animate_ = true;
       if (this.status === true) return;
       TagsPageView.__super__.show.apply(this, arguments).show(delay_, animate_);
-      _ref = this.itemList;
-      _results = [];
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        tagGroupView = _ref[_i];
-        tagGroupView.show(delay_);
-        _results.push(delay_ += 50.0);
+      if (this.itemList) {
+        _ref = this.itemList;
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          tagGroupView = _ref[_i];
+          tagGroupView.show(delay_);
+          _results.push(delay_ += 50.0);
+        }
+        return _results;
       }
-      return _results;
     };
 
     return TagsPageView;

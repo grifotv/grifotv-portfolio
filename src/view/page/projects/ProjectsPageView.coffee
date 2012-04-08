@@ -75,18 +75,16 @@ class ProjectsPageView extends AbstractPageView
         
         @status = false
 
-        # TODO: fix error "Uncaught TypeError: Property 'true' of object #<Object> is not a function"
-        super.hide()
-
-        #@$el.css 'height', 0.0 # hack
-        
         ###
         if @itemList
             for thumbnailView in @itemList
                 thumbnailView.hide()
-
-        super.hide()
         ###
+        
+        # TODO: fix error "Uncaught TypeError: Property 'true' of object #<Object> is not a function"
+        super.hide()
+
+        #@$el.css 'height', 0.0 # hack
 
         
 

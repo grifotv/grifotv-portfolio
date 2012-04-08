@@ -1,12 +1,13 @@
-class TagView extends Backbone.View
+class TagView extends AbstractView
 
-    useLongTitle : true
-    tagName      : 'a'
+    useLongTitle  : true
+    tagName       : 'a'
+    hasTransition : false
 
     events :
         'click' : 'onClick'
 
-    initialize : ->
+    init : ->
 
         @model.bind 'change'  , @render, @
         @model.bind 'destroy' , @remove, @

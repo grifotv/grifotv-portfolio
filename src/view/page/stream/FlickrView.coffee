@@ -1,9 +1,10 @@
-class FlickrView extends Backbone.View
+class FlickrView extends AbstractView
 
-    className : 'media-stream-item size1of3'
-    template  : null
+    className     : 'media-stream-item size1of3'
+    template      : null
 
-    initialize: ->
+
+    init: ->
 
         if @model.get( 'is_portrait' )
             @template = _.template $( '#template_flickr_portrait' ).html()

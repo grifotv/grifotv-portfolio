@@ -1,9 +1,10 @@
-class YoutubeView extends Backbone.View
+class YoutubeView extends AbstractView
 
-    className : 'media-stream-item size1of3'
-    template  : null
+    className     : 'media-stream-item size1of3'
+    template      : null
 
-    initialize: ->
+
+    init: ->
 
         if @model.get( 'is_portrait' )
             @template = _.template $( '#template_youtube_portrait' ).html()

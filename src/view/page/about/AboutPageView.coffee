@@ -3,7 +3,7 @@ class AboutPageView extends AbstractPageView
     id               : 'about-page'
     overviewTemplate : null
     brandsTemplate   : null
-    #itemList : []
+    itemList : []
     
     init: ->
 
@@ -52,23 +52,34 @@ class AboutPageView extends AbstractPageView
         else
             $( '#column-1' , @$el ).append experienceGroupView.render().el
 
+        @itemList[ @itemList.length ] = experienceGroupView
+
 
     appendBrandView: ( model_ ) =>
 
         brandView = new BrandView  { model: model_ }
         $( '#brands', @$el ).append brandView.render().el
 
+        @itemList[ @itemList.length ] = brandView
+
 
     show: ( delay_ = 0.0, animate_ = true )->
 
+        @itemList = []
         @removeChildren()
         @render()
         super.show( delay_, animate_ )
 
+        delay_ += 50.0
+
+        if @itemList
+            for itemView in @itemList
+                itemView.show delay_
+                delay_ += 25.0
+
 
     hide: ()->
 
-        #itemList = []
+        @itemList = []
         @removeChildren()
         super.hide()
-    

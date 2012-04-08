@@ -1,8 +1,9 @@
-class CreditView extends Backbone.View
+class CreditView extends AbstractView
 
-    tagName : 'p'
+    tagName       : 'p'
+    hasTransition : false
 
-    initialize : ->
+    init : ->
 
         @template = _.template $( '#template_credit' ).html()
 

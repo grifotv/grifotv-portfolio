@@ -1,8 +1,9 @@
-class CreditGroupView extends Backbone.View
+class CreditGroupView extends AbstractView
 
-    className : 'new-row'
+    className     : 'new-row'
+    hasTransition : false
 
-    initialize: ->
+    init: ->
 
         @template = _.template $( '#template_credit_group' ).html()
 

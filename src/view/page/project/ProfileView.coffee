@@ -1,6 +1,7 @@
-class ProfileView extends Backbone.View
+class ProfileView extends AbstractView
 
-    tagName : 'a'
+    tagName       : 'a'
+    hasTransition : false
 
     render : =>
 

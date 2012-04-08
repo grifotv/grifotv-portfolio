@@ -1,6 +1,6 @@
-class BrandView extends Backbone.View
+class BrandView extends AbstractView
 
-    className : 'brand'
+    className     : 'brand'
 
     render : =>
     

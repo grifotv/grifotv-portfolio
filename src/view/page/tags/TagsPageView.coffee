@@ -32,6 +32,7 @@ class TagsPageView extends AbstractPageView
 
         super.show( delay_, animate_ )
 
-        for tagGroupView in @itemList
-            tagGroupView.show delay_
-            delay_ += 50.0
+        if @itemList
+            for tagGroupView in @itemList
+                tagGroupView.show delay_
+                delay_ += 50.0
