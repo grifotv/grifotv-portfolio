@@ -108,7 +108,7 @@
 
     AppConfig.prototype.USER_ID_FLICKR = '41688283@N07';
 
-    AppConfig.prototype.MAX_RESULTS_YOUTUBE = 10;
+    AppConfig.prototype.MAX_RESULTS_YOUTUBE = 9;
 
     AppConfig.prototype.MAX_RESULTS_TWITTER = 6;
 
@@ -1294,7 +1294,7 @@
         itemId = itemUrl.replace('http://www.youtube.com/watch?v=', '');
         itemTags = itemEntry['media$group']['media$keywords']['$t'];
         isPortrait = false;
-        if (itemTags.indexOf('vertical') !== -1 || itemTags.indexOf('portrait') !== -1) {
+        if (itemTags.toLowerCase().indexOf('vertical') !== -1 || itemTags.toLowerCase().indexOf('v') !== -1 || itemTags.toLowerCase().indexOf('portrait') !== -1) {
           isPortrait = true;
         }
         itemModel = new YoutubeModel({
@@ -1914,40 +1914,6 @@
 
   })();
 
-  BrandView = (function() {
-
-    __extends(BrandView, AbstractView);
-
-    function BrandView() {
-      this.render = __bind(this.render, this);
-      BrandView.__super__.constructor.apply(this, arguments);
-    }
-
-    BrandView.prototype.className = 'brand';
-
-    BrandView.prototype.render = function() {
-      if (this.model.get('url').length > 0.0) {
-        this.template = _.template($('#template_brand_link').html());
-        $(this.el).append(this.template({
-          image: this.model.get('image'),
-          label: this.model.get('label'),
-          url: this.model.get('url'),
-          window: this.model.get('window')
-        }));
-      } else {
-        this.template = _.template($('#template_brand').html());
-        $(this.el).append(this.template({
-          image: this.model.get('image'),
-          label: this.model.get('label')
-        }));
-      }
-      return this;
-    };
-
-    return BrandView;
-
-  })();
-
   AboutPageView = (function() {
 
     __extends(AboutPageView, AbstractPageView);
@@ -2053,6 +2019,40 @@
     };
 
     return AboutPageView;
+
+  })();
+
+  BrandView = (function() {
+
+    __extends(BrandView, AbstractView);
+
+    function BrandView() {
+      this.render = __bind(this.render, this);
+      BrandView.__super__.constructor.apply(this, arguments);
+    }
+
+    BrandView.prototype.className = 'brand';
+
+    BrandView.prototype.render = function() {
+      if (this.model.get('url').length > 0.0) {
+        this.template = _.template($('#template_brand_link').html());
+        $(this.el).append(this.template({
+          image: this.model.get('image'),
+          label: this.model.get('label'),
+          url: this.model.get('url'),
+          window: this.model.get('window')
+        }));
+      } else {
+        this.template = _.template($('#template_brand').html());
+        $(this.el).append(this.template({
+          image: this.model.get('image'),
+          label: this.model.get('label')
+        }));
+      }
+      return this;
+    };
+
+    return BrandView;
 
   })();
 

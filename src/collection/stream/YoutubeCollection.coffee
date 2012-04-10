@@ -15,7 +15,7 @@ class YoutubeCollection extends Backbone.Collection
             itemTags   = itemEntry[ 'media$group' ][ 'media$keywords' ][ '$t' ]
             isPortrait = false
             
-            if itemTags.indexOf( 'vertical' ) != -1 || itemTags.indexOf( 'portrait' ) != -1
+            if itemTags.toLowerCase().indexOf( 'vertical' ) != -1 || itemTags.toLowerCase().indexOf( 'v' ) != -1 || itemTags.toLowerCase().indexOf( 'portrait' ) != -1
                 isPortrait = true
 
             itemModel  = new YoutubeModel

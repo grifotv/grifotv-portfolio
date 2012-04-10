@@ -11,6 +11,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "bin/index.html",
+			"settings":
+			{
+				"buffer_size": 17291,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "Grifo.tv Portfolio Coffee",
 	"command_palette":
@@ -40,15 +48,16 @@
 	},
 	"file_history":
 	[
+		"/Users/grifotv/devserver/sublime/grifotv-portfolio/bin/js/app.min.js",
+		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/AppConfig.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/collection/stream/YoutubeCollection.coffee",
+		"/Users/grifotv/devserver/sublime/grifotv-portfolio/bin/index.html",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/view/page/tags/TagsPageView.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/view/page/about/AboutPageView.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/view/page/stream/StreamPageView.coffee",
-		"/Users/grifotv/devserver/sublime/grifotv-portfolio/bin/index.html",
-		"/Users/grifotv/devserver/sublime/grifotv-portfolio/bin/js/app.min.js",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/view/page/about/BrandView.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/view/page/about/ExperienceGroupView.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/view/page/stream/WordStreamLineView.coffee",
-		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/AppConfig.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/view/page/stream/BlogView.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/view/page/stream/FlickrView.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/view/page/stream/GithubView.coffee",
@@ -64,7 +73,6 @@
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/view/page/project/CreditView.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/view/page/project/ProfileView.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/view/page/project/ProjectPageView.coffee",
-		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/collection/stream/YoutubeCollection.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/router/AppRouter.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/README.markdown",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/App.coffee",
@@ -331,8 +339,37 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "bin/index.html",
+					"settings":
+					{
+						"buffer_size": 17291,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								17239,
+								17242
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 6815.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
