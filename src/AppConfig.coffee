@@ -96,5 +96,5 @@ class AppConfig
 
         # set stream max result
         @URL_YOUTUBE         = @URL_YOUTUBE.replace '{MAX_RESULTS}' , @MAX_RESULTS_YOUTUBE
-        @URL_TWITTER         = @URL_TWITTER.replace '{MAX_RESULTS}' , @MAX_RESULTS_TWITTER
+        @URL_TWITTER         = @URL_TWITTER.replace '{MAX_RESULTS}' , @MAX_RESULTS_TWITTER * 2.0
         

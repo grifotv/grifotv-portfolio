@@ -5,7 +5,7 @@ class TwitterCollection extends Backbone.Collection
     parse : ( response_ ) ->
         
         modelsArray = []
-
+        
         for itemEntry in response_
 
             itemId    = itemEntry['id_str']
@@ -36,5 +36,8 @@ class TwitterCollection extends Backbone.Collection
                 url  : itemUrl
 
             modelsArray.push itemModel
+
+            if modelsArray.length == grifo.appConfig.MAX_RESULTS_TWITTER
+                return modelsArray
        
         return modelsArray

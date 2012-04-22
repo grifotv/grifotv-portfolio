@@ -144,7 +144,7 @@
       this.URL_GITHUB = this.URL_GITHUB.replace('{USER_ID}', this.USER_ID_GITHUB);
       this.URL_FLICKR = this.URL_FLICKR.replace('{USER_ID}', this.USER_ID_FLICKR);
       this.URL_YOUTUBE = this.URL_YOUTUBE.replace('{MAX_RESULTS}', this.MAX_RESULTS_YOUTUBE);
-      this.URL_TWITTER = this.URL_TWITTER.replace('{MAX_RESULTS}', this.MAX_RESULTS_TWITTER);
+      this.URL_TWITTER = this.URL_TWITTER.replace('{MAX_RESULTS}', this.MAX_RESULTS_TWITTER * 2.0);
     }
 
     return AppConfig;
@@ -949,6 +949,35 @@
 
   })();
 
+  TagGroupCollection = (function() {
+
+    __extends(TagGroupCollection, Backbone.Collection);
+
+    function TagGroupCollection() {
+      TagGroupCollection.__super__.constructor.apply(this, arguments);
+    }
+
+    TagGroupCollection.prototype.model = TagGroupModel;
+
+    TagGroupCollection.prototype.parse = function(response_) {
+      var itemEntry, itemModel, modelsArray, _i, _len, _ref;
+      modelsArray = [];
+      _ref = response_['feed']['entry'];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        itemEntry = _ref[_i];
+        itemModel = new TagGroupModel({
+          id: itemEntry['gsx$id']['$t'],
+          label: itemEntry['gsx$label']['$t']
+        });
+        modelsArray.push(itemModel);
+      }
+      return modelsArray;
+    };
+
+    return TagGroupCollection;
+
+  })();
+
   TagCollection = (function() {
 
     __extends(TagCollection, Backbone.Collection);
@@ -996,35 +1025,6 @@
     };
 
     return TagCollection;
-
-  })();
-
-  TagGroupCollection = (function() {
-
-    __extends(TagGroupCollection, Backbone.Collection);
-
-    function TagGroupCollection() {
-      TagGroupCollection.__super__.constructor.apply(this, arguments);
-    }
-
-    TagGroupCollection.prototype.model = TagGroupModel;
-
-    TagGroupCollection.prototype.parse = function(response_) {
-      var itemEntry, itemModel, modelsArray, _i, _len, _ref;
-      modelsArray = [];
-      _ref = response_['feed']['entry'];
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        itemEntry = _ref[_i];
-        itemModel = new TagGroupModel({
-          id: itemEntry['gsx$id']['$t'],
-          label: itemEntry['gsx$label']['$t']
-        });
-        modelsArray.push(itemModel);
-      }
-      return modelsArray;
-    };
-
-    return TagGroupCollection;
 
   })();
 
@@ -1264,6 +1264,9 @@
           url: itemUrl
         });
         modelsArray.push(itemModel);
+        if (modelsArray.length === grifo.appConfig.MAX_RESULTS_TWITTER) {
+          return modelsArray;
+        }
       }
       return modelsArray;
     };
@@ -2564,6 +2567,115 @@
 
   })();
 
+  TagGroupView = (function() {
+
+    __extends(TagGroupView, AbstractView);
+
+    function TagGroupView() {
+      this.appendTagView = __bind(this.appendTagView, this);
+      this.render = __bind(this.render, this);
+      TagGroupView.__super__.constructor.apply(this, arguments);
+    }
+
+    TagGroupView.prototype.className = 'size1of6';
+
+    TagGroupView.prototype.template = null;
+
+    TagGroupView.prototype.model = null;
+
+    TagGroupView.prototype.init = function() {
+      return this.template = _.template($('#template_tag_group').html());
+    };
+
+    TagGroupView.prototype.render = function() {
+      var tagModel, _i, _len, _ref;
+      this.$el.append(this.template({
+        group: this.model.get('label')
+      }));
+      _ref = grifo.tagCollection.models;
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        tagModel = _ref[_i];
+        if (tagModel.get('group') === this.model.get('id')) {
+          this.appendTagView(tagModel);
+        }
+      }
+      return this;
+    };
+
+    TagGroupView.prototype.appendTagView = function(model_) {
+      var tagView;
+      tagView = new TagView({
+        model: model_
+      });
+      tagView.useLongTitle = true;
+      this.$el.append(tagView.render().el);
+      return this.$el.append(' ');
+    };
+
+    return TagGroupView;
+
+  })();
+
+  TagsPageView = (function() {
+
+    __extends(TagsPageView, AbstractPageView);
+
+    function TagsPageView() {
+      this.appendTagGroup = __bind(this.appendTagGroup, this);
+      this.render = __bind(this.render, this);
+      TagsPageView.__super__.constructor.apply(this, arguments);
+    }
+
+    TagsPageView.prototype.id = 'tags-page';
+
+    TagsPageView.prototype.itemList = [];
+
+    TagsPageView.prototype.init = function() {
+      return this.render();
+    };
+
+    TagsPageView.prototype.render = function() {
+      var tagGroupModel, _i, _len, _ref;
+      _ref = grifo.tagGroupCollection.models;
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        tagGroupModel = _ref[_i];
+        this.appendTagGroup(tagGroupModel);
+      }
+      this.$el.append('<div class="new-row"><br/><hr/></div>');
+      return this;
+    };
+
+    TagsPageView.prototype.appendTagGroup = function(model_) {
+      var tagGroupView;
+      tagGroupView = new TagGroupView({
+        model: model_
+      });
+      this.$el.append(tagGroupView.render().el);
+      return this.itemList[this.itemList.length] = tagGroupView;
+    };
+
+    TagsPageView.prototype.show = function(delay_, animate_) {
+      var tagGroupView, _i, _len, _ref, _results;
+      if (delay_ == null) delay_ = 0.0;
+      if (animate_ == null) animate_ = true;
+      if (this.status === true) return;
+      TagsPageView.__super__.show.apply(this, arguments).show(delay_, animate_);
+      if (this.itemList) {
+        _ref = this.itemList;
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          tagGroupView = _ref[_i];
+          tagGroupView.show(delay_);
+          _results.push(delay_ += 50.0);
+        }
+        return _results;
+      }
+    };
+
+    return TagsPageView;
+
+  })();
+
   BlogView = (function() {
 
     __extends(BlogView, AbstractView);
@@ -2947,115 +3059,6 @@
     };
 
     return YoutubeView;
-
-  })();
-
-  TagGroupView = (function() {
-
-    __extends(TagGroupView, AbstractView);
-
-    function TagGroupView() {
-      this.appendTagView = __bind(this.appendTagView, this);
-      this.render = __bind(this.render, this);
-      TagGroupView.__super__.constructor.apply(this, arguments);
-    }
-
-    TagGroupView.prototype.className = 'size1of6';
-
-    TagGroupView.prototype.template = null;
-
-    TagGroupView.prototype.model = null;
-
-    TagGroupView.prototype.init = function() {
-      return this.template = _.template($('#template_tag_group').html());
-    };
-
-    TagGroupView.prototype.render = function() {
-      var tagModel, _i, _len, _ref;
-      this.$el.append(this.template({
-        group: this.model.get('label')
-      }));
-      _ref = grifo.tagCollection.models;
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        tagModel = _ref[_i];
-        if (tagModel.get('group') === this.model.get('id')) {
-          this.appendTagView(tagModel);
-        }
-      }
-      return this;
-    };
-
-    TagGroupView.prototype.appendTagView = function(model_) {
-      var tagView;
-      tagView = new TagView({
-        model: model_
-      });
-      tagView.useLongTitle = true;
-      this.$el.append(tagView.render().el);
-      return this.$el.append(' ');
-    };
-
-    return TagGroupView;
-
-  })();
-
-  TagsPageView = (function() {
-
-    __extends(TagsPageView, AbstractPageView);
-
-    function TagsPageView() {
-      this.appendTagGroup = __bind(this.appendTagGroup, this);
-      this.render = __bind(this.render, this);
-      TagsPageView.__super__.constructor.apply(this, arguments);
-    }
-
-    TagsPageView.prototype.id = 'tags-page';
-
-    TagsPageView.prototype.itemList = [];
-
-    TagsPageView.prototype.init = function() {
-      return this.render();
-    };
-
-    TagsPageView.prototype.render = function() {
-      var tagGroupModel, _i, _len, _ref;
-      _ref = grifo.tagGroupCollection.models;
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        tagGroupModel = _ref[_i];
-        this.appendTagGroup(tagGroupModel);
-      }
-      this.$el.append('<div class="new-row"><br/><hr/></div>');
-      return this;
-    };
-
-    TagsPageView.prototype.appendTagGroup = function(model_) {
-      var tagGroupView;
-      tagGroupView = new TagGroupView({
-        model: model_
-      });
-      this.$el.append(tagGroupView.render().el);
-      return this.itemList[this.itemList.length] = tagGroupView;
-    };
-
-    TagsPageView.prototype.show = function(delay_, animate_) {
-      var tagGroupView, _i, _len, _ref, _results;
-      if (delay_ == null) delay_ = 0.0;
-      if (animate_ == null) animate_ = true;
-      if (this.status === true) return;
-      TagsPageView.__super__.show.apply(this, arguments).show(delay_, animate_);
-      if (this.itemList) {
-        _ref = this.itemList;
-        _results = [];
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          tagGroupView = _ref[_i];
-          tagGroupView.show(delay_);
-          _results.push(delay_ += 50.0);
-        }
-        return _results;
-      }
-    };
-
-    return TagsPageView;
 
   })();
 
