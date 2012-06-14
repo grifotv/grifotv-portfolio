@@ -1,7 +1,7 @@
-Grifo.tv Portfolio
+GRIFO Portfolio
 ==================
 
-Developed using Sublime Text 2, Coffee Script, Backbone.js, Paper.js and Google Docs spreadsheet as CMS.
+Developed using Sublime, CoffeeScript, Backbone.js, jQuery Isotope, Paper.js and Google Docs spreadsheet as CMS.
 https://docs.google.com/spreadsheet/pub?key=0AuMegPFV2btJdGFIMWE1V0VvOUFuUlVpWXp3UXlwQ1E&output=html
 
 ***Work in progress***
