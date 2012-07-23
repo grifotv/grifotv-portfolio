@@ -1,8 +1,8 @@
 class AppView extends Backbone.View
 
     # events
-    EVENT_DATA_LOADED    : 'EVENT_DATA_LOADED'
-    EVENT_REALIGNED      : 'EVENT_REALIGNED'
+    @EVENT_DATA_LOADED   : 'EVENT_DATA_LOADED'
+    @EVENT_REALIGNED     : 'EVENT_REALIGNED'
 
     # el
     el                   : 'body'
@@ -163,7 +163,7 @@ class AppView extends Backbone.View
         @render()
         @show()
 
-        @trigger @EVENT_DATA_LOADED
+        @trigger AppView.EVENT_DATA_LOADED
 
 
     render: =>
@@ -208,7 +208,7 @@ class AppView extends Backbone.View
         @realign()
 
         return @
-
+ 
 
     show: =>
 
@@ -222,13 +222,13 @@ class AppView extends Backbone.View
             return
 
         # store in status
-        grifo.appStatus.previousPage       = grifo.appStatus.currentPage
-        grifo.appStatus.previousSubPage    = grifo.appStatus.currentSubPage
-        grifo.appStatus.previousSubSubPage = grifo.appStatus.currentSubSubPage
+        grifo.appState.previousPage       = grifo.appState.currentPage
+        grifo.appState.previousSubPage    = grifo.appState.currentSubPage
+        grifo.appState.previousSubSubPage = grifo.appState.currentSubSubPage
 
-        grifo.appStatus.currentPage        = id_
-        grifo.appStatus.currentSubPage     = subId_
-        grifo.appStatus.currentSubSubPage  = subSubId_
+        grifo.appState.currentPage        = id_
+        grifo.appState.currentSubPage     = subId_
+        grifo.appState.currentSubSubPage  = subSubId_
 
         # select item in header
         @headerView.selectItem id_
@@ -336,7 +336,7 @@ class AppView extends Backbone.View
         @headerBgView.setOpacity headerBgOpacity
 
         # done
-        @trigger @EVENT_REALIGNED
+        @trigger AppView.EVENT_REALIGNED
 
             
             

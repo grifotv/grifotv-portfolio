@@ -1,5 +1,5 @@
 class AppConfig
-
+    
     # page id
     PAGE_PROJECTS               : 'projects'
     PAGE_TAGS                   : 'tags'
@@ -13,7 +13,7 @@ class AppConfig
     
     # google docs key
     KEY_GDOCS_SS                : '0AuMegPFV2btJdGFIMWE1V0VvOUFuUlVpWXp3UXlwQ1E'
- 
+    
     # google docs worksheet id ( http://damolab.blogspot.co.uk/2011/03/od6-and-finding-other-worksheet-ids.html )
     WORKSHEET_LABELS            : 'od9'
     WORKSHEET_BRANDS            : 'od6'
@@ -70,7 +70,7 @@ class AppConfig
     constructor : ->
 
         # set default page
-        @PAGE_DEFAULT        = @PAGE_PROJECTS
+        @PAGE_DEFAULT          = @PAGE_PROJECTS
 
 
         # set google docs properties
@@ -89,12 +89,12 @@ class AppConfig
 
 
         # set stream user id
-        @URL_YOUTUBE         = @URL_YOUTUBE.replace '{USER_ID}' , @USER_ID_YOUTUBE
-        @URL_TWITTER         = @URL_TWITTER.replace '{USER_ID}' , @USER_ID_TWITTER
-        @URL_GITHUB          = @URL_GITHUB.replace  '{USER_ID}' , @USER_ID_GITHUB
-        @URL_FLICKR          = @URL_FLICKR.replace  '{USER_ID}' , @USER_ID_FLICKR
+        @URL_YOUTUBE           = @URL_YOUTUBE.replace '{USER_ID}' , @USER_ID_YOUTUBE
+        @URL_TWITTER           = @URL_TWITTER.replace '{USER_ID}' , @USER_ID_TWITTER
+        @URL_GITHUB            = @URL_GITHUB.replace  '{USER_ID}' , @USER_ID_GITHUB
+        @URL_FLICKR            = @URL_FLICKR.replace  '{USER_ID}' , @USER_ID_FLICKR
 
         # set stream max result
-        @URL_YOUTUBE         = @URL_YOUTUBE.replace '{MAX_RESULTS}' , @MAX_RESULTS_YOUTUBE
-        @URL_TWITTER         = @URL_TWITTER.replace '{MAX_RESULTS}' , @MAX_RESULTS_TWITTER * 2.0
+        @URL_YOUTUBE           = @URL_YOUTUBE.replace '{MAX_RESULTS}' , @MAX_RESULTS_YOUTUBE
+        @URL_TWITTER           = @URL_TWITTER.replace '{MAX_RESULTS}' , @MAX_RESULTS_TWITTER * 2.0
         

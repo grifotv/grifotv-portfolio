@@ -14,7 +14,7 @@ class ProjectPageView extends AbstractPageView
 
     render: =>
 
-        @model    = grifo.projectCollection.get( grifo.appStatus.currentSubPage )
+        @model    = grifo.projectCollection.get( grifo.appState.currentSubPage )
 
         prevModel = grifo.projectCollection.at( @model.get( 'index' ) - 1.0 )
         nextModel = grifo.projectCollection.at( @model.get( 'index' ) + 1.0 )

@@ -1,6 +1,6 @@
 class AppRouter extends Backbone.Router
 
-    EVENT_HASH_CHANGED                   : 'EVENT_HASH_CHANGED'
+    @EVENT_HASH_CHANGED                  : 'EVENT_HASH_CHANGED'
     currentPage                          : ''
 
     routes :
@@ -29,6 +29,13 @@ class AppRouter extends Backbone.Router
         '*actions'                       : 'default'
 
 
+    start : ->
+        
+        # start history
+        Backbone.history.start() 
+        #Backbone.history.start( { pushState: true, root: '/grifotv-portfolio/' } )
+
+
     hashChanged : ( id_ = null, subId_ = null, subSubId_ = null, actions_ = null )->
 
         if id_ in [ grifo.appConfig.PAGE_PROJECTS, grifo.appConfig.PAGE_TAGS, grifo.appConfig.PAGE_STREAM, grifo.appConfig.PAGE_ABOUT ]
@@ -52,7 +59,7 @@ class AppRouter extends Backbone.Router
                 _gaq.push ['_trackPageview', @currentPage]
 
                 # trigger event
-                @trigger @EVENT_HASH_CHANGED, id_, subId_, subSubId_
+                @trigger AppRouter.EVENT_HASH_CHANGED, id_, subId_, subSubId_
 
 
     default : ( actions_ )->

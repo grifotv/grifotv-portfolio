@@ -4,11 +4,11 @@ $ ->
 	# only global property
 	window.grifo =
 
+		# app status
+		appState                  : null
+
 		# app config
 		appConfig                 : null
-
-		# app status
-		appStatus                 : null
 
 		# app view
 		appView                   : null
@@ -37,21 +37,28 @@ $ ->
 
 
 	# start app
+	grifo.appState  = new AppState()
 	grifo.appConfig = new AppConfig()
-	grifo.appStatus = new AppStatus()
 	grifo.appView   = new AppView()
 	
 	
 	# on data loaded
-	grifo.appView.on grifo.appView.EVENT_DATA_LOADED, ->
+	grifo.appView.on AppView.EVENT_DATA_LOADED, ->
 
 		# start router
 		grifo.appRouter = new AppRouter()
 
 		# bind router event to view callback
-		grifo.appRouter.on grifo.appRouter.EVENT_HASH_CHANGED , grifo.appView.onHashChanged
+		grifo.appRouter.on AppRouter.EVENT_HASH_CHANGED , grifo.appView.onHashChanged
 
-		# start history
-		Backbone.history.start() 
-		#Backbone.history.start( { pushState: true, root: '/grifotv-portfolio/' } )
+		# bootstrap
+		grifo.appRouter.start()
 
+
+# adding fake console to browsers that doesn't have it
+unless window[ 'console' ]
+    window.console =
+        log: ( a ) ->
+            return a
+        dir: ( a ) ->
+            return a
