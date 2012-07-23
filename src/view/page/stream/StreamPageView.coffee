@@ -2,12 +2,15 @@ class StreamPageView extends AbstractPageView
 
     id            : 'stream-page'
     template      : null
-    wordItemList  : []
-    mediaItemList : []
+    wordItemList  : null
+    mediaItemList : null
 
 
     init : ->
     
+        @wordItemList  = []
+        @mediaItemList = []
+        
         @template = _.template $( '#template_page_stream' ).html()
 
 

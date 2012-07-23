@@ -1,11 +1,12 @@
 class ProjectsPageView extends AbstractPageView
 
     id       : 'projects-page'
-    itemList : []
+    itemList : null
 
 
     init: ->
 
+        @itemList = []
         @render()
 
 

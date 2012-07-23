@@ -1,11 +1,12 @@
 class TagsPageView extends AbstractPageView
 
     id       : 'tags-page'
-    itemList : []
+    itemList : null
 
 
     init: ->
 
+        @itemList = []
         @render()
 
 

@@ -2043,9 +2043,10 @@
 
     AboutPageView.prototype.brandsTemplate = null;
 
-    AboutPageView.prototype.itemList = [];
+    AboutPageView.prototype.itemList = null;
 
     AboutPageView.prototype.init = function() {
+      this.itemList = [];
       this.overviewTemplate = _.template($('#template_overview').html());
       return this.brandsTemplate = _.template($('#template_brands').html());
     };
@@ -2498,9 +2499,10 @@
 
     ProjectsPageView.prototype.id = 'projects-page';
 
-    ProjectsPageView.prototype.itemList = [];
+    ProjectsPageView.prototype.itemList = null;
 
     ProjectsPageView.prototype.init = function() {
+      this.itemList = [];
       return this.render();
     };
 
@@ -2834,11 +2836,13 @@
 
     StreamPageView.prototype.template = null;
 
-    StreamPageView.prototype.wordItemList = [];
+    StreamPageView.prototype.wordItemList = null;
 
-    StreamPageView.prototype.mediaItemList = [];
+    StreamPageView.prototype.mediaItemList = null;
 
     StreamPageView.prototype.init = function() {
+      this.wordItemList = [];
+      this.mediaItemList = [];
       return this.template = _.template($('#template_page_stream').html());
     };
 
@@ -3175,9 +3179,10 @@
 
     TagsPageView.prototype.id = 'tags-page';
 
-    TagsPageView.prototype.itemList = [];
+    TagsPageView.prototype.itemList = null;
 
     TagsPageView.prototype.init = function() {
+      this.itemList = [];
       return this.render();
     };
 

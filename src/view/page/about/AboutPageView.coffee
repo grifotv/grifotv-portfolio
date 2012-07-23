@@ -3,10 +3,11 @@ class AboutPageView extends AbstractPageView
     id               : 'about-page'
     overviewTemplate : null
     brandsTemplate   : null
-    itemList : []
+    itemList         : null
     
     init: ->
 
+        @itemList = []
         @overviewTemplate = _.template $( '#template_overview' ).html()
         @brandsTemplate   = _.template $( '#template_brands' ).html()
 
