@@ -31,15 +31,7 @@
 			"file": "src/view/page/project/ProjectPageView.coffee",
 			"settings":
 			{
-				"buffer_size": 2451,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/view/AppView.coffee",
-			"settings":
-			{
-				"buffer_size": 10808,
+				"buffer_size": 2500,
 				"line_ending": "Unix"
 			}
 		},
@@ -47,7 +39,15 @@
 			"file": "scripts/coffee.sh",
 			"settings":
 			{
-				"buffer_size": 514,
+				"buffer_size": 513,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bin/css/style.css",
+			"settings":
+			{
+				"buffer_size": 22269,
 				"line_ending": "Unix"
 			}
 		},
@@ -55,7 +55,15 @@
 			"file": "bin/index.php",
 			"settings":
 			{
-				"buffer_size": 17348,
+				"buffer_size": 17384,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/view/AppView.coffee",
+			"settings":
+			{
+				"buffer_size": 11032,
 				"line_ending": "Unix"
 			}
 		}
@@ -379,7 +387,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -442,15 +450,15 @@
 					"file": "src/view/page/project/ProjectPageView.coffee",
 					"settings":
 					{
-						"buffer_size": 2451,
+						"buffer_size": 2500,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								395,
-								395
+								1064,
+								1064
 							]
 						],
 						"settings":
@@ -467,46 +475,18 @@
 				},
 				{
 					"buffer": 3,
-					"file": "src/view/AppView.coffee",
-					"settings":
-					{
-						"buffer_size": 10808,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								10765,
-								10770
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "scripts/coffee.sh",
 					"settings":
 					{
-						"buffer_size": 514,
+						"buffer_size": 513,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								459,
-								459
+								513,
+								513
 							]
 						],
 						"settings":
@@ -520,19 +500,46 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "bin/index.php",
+					"buffer": 4,
+					"file": "bin/css/style.css",
 					"settings":
 					{
-						"buffer_size": 17348,
+						"buffer_size": 22269,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								17082,
-								17082
+								20292,
+								20292
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 13719.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "bin/index.php",
+					"settings":
+					{
+						"buffer_size": 17384,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								17213,
+								17213
 							]
 						],
 						"settings":
@@ -542,7 +549,40 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 7242.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"sheets":
+			[
+				{
+					"buffer": 6,
+					"file": "src/view/AppView.coffee",
+					"settings":
+					{
+						"buffer_size": 11032,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5810,
+								5810
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1989.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -567,11 +607,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":

@@ -44,7 +44,7 @@
       }
       </script>
 
-      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/style.min.css">
   		
       <!-- GOOGLE ANALYTICS -->
       <script type="text/javascript">
@@ -66,9 +66,7 @@
     </head>
   	
     <body>
-      
-      <canvas id="draw" width="100%" height="100%" resize="true"></canvas>
-
+        <canvas id="draw" width="100%" height="100%" resize="true"></canvas>
     </body>
 
 
@@ -388,6 +386,7 @@
             <br/><br/>
           </div>
 
+          <% if(showArrows){ %>
           <a href="<%= prevUrl %>" class="prev-project pagination">
             <div class="arrow animated">Previous</div>
           </a>
@@ -395,6 +394,7 @@
           <a href="<%= nextUrl %>" class="next-project pagination">
             <div class="arrow animated">Next</div>
           </a>
+          <% } %>
 
         </script>
 			
@@ -509,21 +509,19 @@
 
 <!-- LIBS JS -->
         <script src="js/lib/jquery.min.js"></script>
-        <script src="js/lib/json2.min.js"></script>
         <script src="js/lib/underscore.min.js"></script>
         <script src="js/lib/backbone.min.js"></script>
         <script src="js/lib/jquery.isotope.min.js"></script>
         <script src="js/lib/jquery-ui-1.8.6.custom.min.js"></script>
 <!--        <script src="js/lib/modernizr-2.5.3.js"></script>-->
 
-
 <!-- BG JS -->
-        <script src="js/lib/paper.min.js" type="text/javascript"></script>
-        <script src="js/bg.js" type="text/paperscript" canvas="draw"></script>
-
+        <script src="js/lib/paper.min.js" type="text/javascript" id="paperJs"></script>
+        <script src="js/bg.min.js" type="text/paperscript" canvas="draw" id="bgJs"></script>
+          
 
 <!-- APP JS -->
-        <script src="js/app.js" type="text/javascript"></script>
+        <script src="js/app.min.js" type="text/javascript"></script>
 
 
 

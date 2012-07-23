@@ -28,9 +28,9 @@ class AppView extends Backbone.View
 
     initialize: ->
 
-        @$el      = $( @el )
-        @$window  = $( window )
-        @template = _.template $( '#template_app' ).html()
+        @$el         = $( @el )
+        @$window     = $( window )
+        @template    = _.template $( '#template_app' ).html()
 
         @$window.scroll @realign
         @$window.resize @realign
@@ -168,7 +168,18 @@ class AppView extends Backbone.View
 
     render: =>
 
-        # add template
+        # BG
+        
+        # remove bg if mobile
+        if grifo.appState.isMobile
+            $('#draw').remove()
+            $('#paperJs').remove()
+            $('#bgJs').remove()
+
+
+        # APP
+
+        # add app template
         @$el.append @template
             footer1_title : grifo.labelCollection.get( 'footer1-title' ).get( 'label' )
             footer1_copy  : grifo.labelCollection.get( 'footer1-copy' ).get( 'label' )
@@ -177,6 +188,7 @@ class AppView extends Backbone.View
             footer3_title : grifo.labelCollection.get( 'footer3-title' ).get( 'label' )
             footer3_copy  : grifo.labelCollection.get( 'footer3-copy' ).get( 'label' )
 
+        
         # HEADER
 
         # init header
