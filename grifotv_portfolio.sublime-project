@@ -8,10 +8,10 @@
     "build_systems":
     [
         {
-            "name": "Grifo.tv Portfolio Coffee",
+            "name": "GRIFO Coffee",
             "cmd": ["${project_path}/scripts/coffee.sh"],
             "working_dir" : "${project_path}",
-            "path" : "/usr/local/bin/"
+            "path" : "/usr/bin/:/usr/local/bin/"
         }
     ],
    "settings":
