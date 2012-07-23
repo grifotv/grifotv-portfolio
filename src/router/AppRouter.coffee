@@ -1,6 +1,7 @@
 class AppRouter extends Backbone.Router
 
     @EVENT_HASH_CHANGED                  : 'EVENT_HASH_CHANGED'
+    
     currentPage                          : ''
 
     routes :

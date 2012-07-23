@@ -181,7 +181,7 @@ class AppView extends Backbone.View
 
         # init header
         @headerView        = new HeaderView()
-        @headerView.on @headerView.EVENT_ARROW_TOP_CLICKED, @scrollToTop
+        @headerView.on HeaderView.EVENT_ARROW_TOP_CLICKED, @scrollToTop
 
         # init header bg
         @headerBgView      = new HeaderBgView()

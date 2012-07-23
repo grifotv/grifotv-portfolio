@@ -1,11 +1,11 @@
 class HeaderView extends AbstractView
 
-    EVENT_ARROW_TOP_CLICKED : 'EVENT_ARROW_TOP_CLICKED'
+    @EVENT_ARROW_TOP_CLICKED : 'EVENT_ARROW_TOP_CLICKED'
 
-    id                      : 'container-header'
+    id                       : 'container-header'
 
-    navView                 : null
-    shareView               : null
+    navView                  : null
+    shareView                : null
 
 
     events:
@@ -24,7 +24,7 @@ class HeaderView extends AbstractView
     onArrowTopClick: ( e_ )=>
 
         e_.preventDefault()
-        @trigger @EVENT_ARROW_TOP_CLICKED
+        @trigger HeaderView.EVENT_ARROW_TOP_CLICKED
 
 
     selectItem: ( pageId_ ) ->

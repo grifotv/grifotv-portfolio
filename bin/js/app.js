@@ -1621,7 +1621,7 @@
         footer3_copy: grifo.labelCollection.get('footer3-copy').get('label')
       }));
       this.headerView = new HeaderView();
-      this.headerView.on(this.headerView.EVENT_ARROW_TOP_CLICKED, this.scrollToTop);
+      this.headerView.on(HeaderView.EVENT_ARROW_TOP_CLICKED, this.scrollToTop);
       this.headerBgView = new HeaderBgView();
       this.tagsPageView = new TagsPageView();
       this.projectsPageView = new ProjectsPageView();
@@ -1912,7 +1912,7 @@
       return HeaderView.__super__.constructor.apply(this, arguments);
     }
 
-    HeaderView.prototype.EVENT_ARROW_TOP_CLICKED = 'EVENT_ARROW_TOP_CLICKED';
+    HeaderView.EVENT_ARROW_TOP_CLICKED = 'EVENT_ARROW_TOP_CLICKED';
 
     HeaderView.prototype.id = 'container-header';
 
@@ -1931,7 +1931,7 @@
 
     HeaderView.prototype.onArrowTopClick = function(e_) {
       e_.preventDefault();
-      return this.trigger(this.EVENT_ARROW_TOP_CLICKED);
+      return this.trigger(HeaderView.EVENT_ARROW_TOP_CLICKED);
     };
 
     HeaderView.prototype.selectItem = function(pageId_) {
