@@ -514,15 +514,16 @@
         <script src="js/lib/backbone.min.js"></script>
         <script src="js/lib/jquery.isotope.min.js"></script>
         <script src="js/lib/jquery-ui-1.8.6.custom.min.js"></script>
+<!--        <script src="js/lib/modernizr-2.5.3.js"></script>-->
+
+
+<!-- BG JS -->
         <script src="js/lib/paper.min.js" type="text/javascript"></script>
-
-
-<!-- BG PS -->
-        <script src="js/bg.min.js" type="text/paperscript" canvas="draw"></script>
+        <script src="js/bg.js" type="text/paperscript" canvas="draw"></script>
 
 
 <!-- APP JS -->
-        <script src="js/app.min.js" type="text/javascript"></script>
+        <script src="js/app.js" type="text/javascript"></script>
 
 
 
