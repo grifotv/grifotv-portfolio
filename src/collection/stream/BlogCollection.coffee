@@ -7,7 +7,7 @@ class BlogCollection extends Backbone.Collection
 
     parseAndAdd : ( response_ ) =>
         @add @parse( response_ )
-        grifo.appView.onLoad()
+        grifo.view.onLoad()
 
     parse : ( response_ ) ->
         
@@ -30,7 +30,7 @@ class BlogCollection extends Backbone.Collection
 
             modelsArray.push itemModel
 
-            if modelsArray.length == grifo.appConfig.MAX_RESULTS_BLOG
+            if modelsArray.length == grifo.config.MAX_RESULTS_BLOG
                 return modelsArray
 
         return modelsArray

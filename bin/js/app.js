@@ -4,10 +4,10 @@
 
   $(function() {
     window.grifo = {
-      appState: null,
-      appConfig: null,
-      appView: null,
-      appRouter: null,
+      state: null,
+      config: null,
+      view: null,
+      router: null,
       labelCollection: null,
       brandCollection: null,
       profileCollection: null,
@@ -24,13 +24,13 @@
       flickrCollection: null,
       blogCollection: null
     };
-    grifo.appState = new AppState();
-    grifo.appConfig = new AppConfig();
-    grifo.appView = new AppView();
-    return grifo.appView.on(AppView.EVENT_DATA_LOADED, function() {
-      grifo.appRouter = new AppRouter();
-      grifo.appRouter.on(AppRouter.EVENT_HASH_CHANGED, grifo.appView.onHashChanged);
-      return grifo.appRouter.start();
+    grifo.state = new AppState();
+    grifo.config = new AppConfig();
+    grifo.view = new AppView();
+    return grifo.view.on(AppView.EVENT_DATA_LOADED, function() {
+      grifo.router = new AppRouter();
+      grifo.router.on(AppRouter.EVENT_HASH_CHANGED, grifo.view.onHashChanged);
+      return grifo.router.start();
     });
   });
 
@@ -76,15 +76,14 @@
       test = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
       if (test.exec(navigator.userAgent)) {
         ieVersion = parseFloat(RegExp.$1);
-        $html.addClass('ie' + ieVersion);
-        /*
-                    if ieVersion <= 8
-                        $html.addClass 'oldie'
-                    else
-                        $html.addClass 'newie'
-        */
+        $html.addClass('ie-' + ieVersion);
+        if (ieVersion <= 8) {
+          $html.addClass('old-ie');
+        } else {
+          $html.addClass('new-ie');
+        }
       } else {
-        $html.addClass('nonie');
+        $html.addClass('non-ie');
       }
     }
 
@@ -344,7 +343,7 @@
       if (subId_ == null) subId_ = null;
       if (subSubId_ == null) subSubId_ = null;
       if (actions_ == null) actions_ = null;
-      if (id_ === grifo.appConfig.PAGE_PROJECTS || id_ === grifo.appConfig.PAGE_TAGS || id_ === grifo.appConfig.PAGE_STREAM || id_ === grifo.appConfig.PAGE_ABOUT) {
+      if (id_ === grifo.config.PAGE_PROJECTS || id_ === grifo.config.PAGE_TAGS || id_ === grifo.config.PAGE_STREAM || id_ === grifo.config.PAGE_ABOUT) {
         currentPage = '/';
         if (id_) {
           currentPage += id_;
@@ -367,13 +366,13 @@
     };
 
     AppRouter.prototype["default"] = function(actions_) {
-      return this.hashChanged(grifo.appConfig.PAGE_DEFAULT);
+      return this.hashChanged(grifo.config.PAGE_DEFAULT);
     };
 
     AppRouter.prototype.navigateToProject = function(projectId_) {
       var hash;
       if (projectId_ == null) projectId_ = null;
-      hash = '//' + grifo.appConfig.PAGE_PROJECTS + '/';
+      hash = '//' + grifo.config.PAGE_PROJECTS + '/';
       if (projectId_) hash += projectId_ + '/';
       return this.navigate(hash, {
         trigger: true
@@ -383,7 +382,7 @@
     AppRouter.prototype.navigateToTag = function(tagId_) {
       var hash;
       if (tagId_ == null) tagId_ = null;
-      hash = '//' + grifo.appConfig.PAGE_TAGS + '/';
+      hash = '//' + grifo.config.PAGE_TAGS + '/';
       if (tagId_) hash += tagId_ + '/';
       return this.navigate(hash, {
         trigger: true
@@ -391,6 +390,106 @@
     };
 
     return AppRouter;
+
+  })();
+
+  BlogModel = (function() {
+
+    __extends(BlogModel, Backbone.Model);
+
+    function BlogModel() {
+      BlogModel.__super__.constructor.apply(this, arguments);
+    }
+
+    BlogModel.prototype.defaults = {
+      title: '',
+      url: '',
+      description: '',
+      date: ''
+    };
+
+    return BlogModel;
+
+  })();
+
+  FlickrModel = (function() {
+
+    __extends(FlickrModel, Backbone.Model);
+
+    function FlickrModel() {
+      FlickrModel.__super__.constructor.apply(this, arguments);
+    }
+
+    FlickrModel.prototype.defaults = {
+      title: '',
+      url: '',
+      image: '',
+      date: '',
+      is_portrait: false
+    };
+
+    return FlickrModel;
+
+  })();
+
+  GithubModel = (function() {
+
+    __extends(GithubModel, Backbone.Model);
+
+    function GithubModel() {
+      GithubModel.__super__.constructor.apply(this, arguments);
+    }
+
+    GithubModel.prototype.defaults = {
+      type: '',
+      text: '',
+      date: '',
+      url: ''
+    };
+
+    return GithubModel;
+
+  })();
+
+  TwitterModel = (function() {
+
+    __extends(TwitterModel, Backbone.Model);
+
+    function TwitterModel() {
+      TwitterModel.__super__.constructor.apply(this, arguments);
+    }
+
+    TwitterModel.prototype.defaults = {
+      id: '',
+      text: '',
+      date: '',
+      url: ''
+    };
+
+    return TwitterModel;
+
+  })();
+
+  YoutubeModel = (function() {
+
+    __extends(YoutubeModel, Backbone.Model);
+
+    function YoutubeModel() {
+      YoutubeModel.__super__.constructor.apply(this, arguments);
+    }
+
+    YoutubeModel.prototype.defaults = {
+      id: '',
+      url: '',
+      date: '',
+      title: '',
+      content: '',
+      thumbnail_low: '',
+      thumbnail_medium: '',
+      is_portrait: false
+    };
+
+    return YoutubeModel;
 
   })();
 
@@ -635,397 +734,6 @@
 
   })();
 
-  BlogModel = (function() {
-
-    __extends(BlogModel, Backbone.Model);
-
-    function BlogModel() {
-      BlogModel.__super__.constructor.apply(this, arguments);
-    }
-
-    BlogModel.prototype.defaults = {
-      title: '',
-      url: '',
-      description: '',
-      date: ''
-    };
-
-    return BlogModel;
-
-  })();
-
-  FlickrModel = (function() {
-
-    __extends(FlickrModel, Backbone.Model);
-
-    function FlickrModel() {
-      FlickrModel.__super__.constructor.apply(this, arguments);
-    }
-
-    FlickrModel.prototype.defaults = {
-      title: '',
-      url: '',
-      image: '',
-      date: '',
-      is_portrait: false
-    };
-
-    return FlickrModel;
-
-  })();
-
-  GithubModel = (function() {
-
-    __extends(GithubModel, Backbone.Model);
-
-    function GithubModel() {
-      GithubModel.__super__.constructor.apply(this, arguments);
-    }
-
-    GithubModel.prototype.defaults = {
-      type: '',
-      text: '',
-      date: '',
-      url: ''
-    };
-
-    return GithubModel;
-
-  })();
-
-  TwitterModel = (function() {
-
-    __extends(TwitterModel, Backbone.Model);
-
-    function TwitterModel() {
-      TwitterModel.__super__.constructor.apply(this, arguments);
-    }
-
-    TwitterModel.prototype.defaults = {
-      id: '',
-      text: '',
-      date: '',
-      url: ''
-    };
-
-    return TwitterModel;
-
-  })();
-
-  YoutubeModel = (function() {
-
-    __extends(YoutubeModel, Backbone.Model);
-
-    function YoutubeModel() {
-      YoutubeModel.__super__.constructor.apply(this, arguments);
-    }
-
-    YoutubeModel.prototype.defaults = {
-      id: '',
-      url: '',
-      date: '',
-      title: '',
-      content: '',
-      thumbnail_low: '',
-      thumbnail_medium: '',
-      is_portrait: false
-    };
-
-    return YoutubeModel;
-
-  })();
-
-  BlogCollection = (function() {
-
-    __extends(BlogCollection, Backbone.Collection);
-
-    function BlogCollection() {
-      this.parseAndAdd = __bind(this.parseAndAdd, this);
-      BlogCollection.__super__.constructor.apply(this, arguments);
-    }
-
-    BlogCollection.prototype.model = BlogModel;
-
-    BlogCollection.prototype.load = function() {
-      return $.get(this.url, this.parseAndAdd);
-    };
-
-    BlogCollection.prototype.parseAndAdd = function(response_) {
-      this.add(this.parse(response_));
-      return grifo.appView.onLoad();
-    };
-
-    BlogCollection.prototype.parse = function(response_) {
-      var modelsArray;
-      modelsArray = [];
-      $(response_).find('item').each(function() {
-        var $item, itemDate, itemDescription, itemModel, itemTitle, itemUrl;
-        $item = $(this);
-        itemTitle = $item.find('title').text();
-        itemUrl = $item.find('link').text();
-        itemDescription = $item.find('description').text();
-        itemDate = Utils.relativeTime($item.find('pubDate').text());
-        itemModel = new BlogModel({
-          title: itemTitle,
-          url: itemUrl,
-          description: itemDescription,
-          date: itemDate
-        });
-        modelsArray.push(itemModel);
-        if (modelsArray.length === grifo.appConfig.MAX_RESULTS_BLOG) {
-          return modelsArray;
-        }
-      });
-      return modelsArray;
-    };
-
-    return BlogCollection;
-
-  })();
-
-  FlickrCollection = (function() {
-
-    __extends(FlickrCollection, Backbone.Collection);
-
-    function FlickrCollection() {
-      FlickrCollection.__super__.constructor.apply(this, arguments);
-    }
-
-    FlickrCollection.prototype.model = FlickrModel;
-
-    FlickrCollection.prototype.parse = function(response_) {
-      var isPortrait, itemDate, itemDescription, itemEntry, itemHeight, itemImage, itemModel, itemTitle, itemUrl, itemWidth, modelsArray, _i, _len, _ref;
-      modelsArray = [];
-      _ref = response_['items'];
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        itemEntry = _ref[_i];
-        isPortrait = false;
-        itemDescription = itemEntry['description'];
-        if (itemDescription) {
-          itemWidth = Utils.getWidth(itemDescription);
-          itemHeight = Utils.getHeight(itemDescription);
-          if (itemHeight > itemWidth) isPortrait = true;
-        }
-        itemTitle = itemEntry['title'];
-        itemUrl = itemEntry['link'];
-        itemImage = itemEntry['media']['m'].replace('_m.jpg', '.jpg');
-        itemDate = Utils.relativeTime(itemEntry['published']);
-        itemModel = new FlickrModel({
-          title: itemTitle,
-          url: itemUrl,
-          image: itemImage,
-          date: itemDate,
-          is_portrait: isPortrait
-        });
-        modelsArray.push(itemModel);
-        if (modelsArray.length === grifo.appConfig.MAX_RESULTS_FLICKR) {
-          return modelsArray;
-        }
-      }
-      return modelsArray;
-    };
-
-    FlickrCollection.prototype.parseAndAdd = function(response_) {
-      return this.add(this.parse(response_));
-    };
-
-    return FlickrCollection;
-
-  })();
-
-  window.jsonFlickrFeed = function(data_) {
-    grifo.flickrCollection.reset();
-    return grifo.flickrCollection.parseAndAdd(data_);
-  };
-
-  GithubCollection = (function() {
-
-    __extends(GithubCollection, Backbone.Collection);
-
-    function GithubCollection() {
-      GithubCollection.__super__.constructor.apply(this, arguments);
-    }
-
-    GithubCollection.prototype.model = GithubModel;
-
-    GithubCollection.prototype.parse = function(response_) {
-      var itemDate, itemEntry, itemModel, itemPublic, itemText, itemType, itemUrl, modelsArray, _i, _len;
-      modelsArray = [];
-      for (_i = 0, _len = response_.length; _i < _len; _i++) {
-        itemEntry = response_[_i];
-        itemPublic = itemEntry['public'];
-        itemType = itemEntry['type'];
-        itemDate = Utils.relativeTime(itemEntry['created_at']);
-        itemUrl = itemEntry['url'];
-        itemText = null;
-        switch (itemType) {
-          case 'PushEvent':
-            if (itemEntry['repository']) {
-              if (!itemEntry['repository']['private']) {
-                itemText = 'pushed to <a target="_blank" href="' + itemUrl + '">' + itemEntry['repository']['name'] + '</a>';
-              }
-            }
-            break;
-          case 'WatchEvent':
-            itemText = itemEntry['payload']['action'] + ' watching <a target="_blank" href="' + itemUrl + '">' + itemEntry['repository']['name'] + '</a>';
-            break;
-          case 'CreateEvent':
-            if (itemEntry['repository']) {
-              if (!itemEntry['repository']['private']) {
-                itemText = 'created <a target="_blank" href="' + itemUrl + '">' + itemEntry['repository']['name'] + '</a>';
-              }
-            }
-            break;
-          case 'ForkEvent':
-            if (itemEntry['repository']) {
-              if (!itemEntry['repository']['private']) {
-                itemText = 'forked <a target="_blank" href="' + itemUrl + '">' + itemEntry['repository']['name'] + '</a>';
-              }
-            }
-            break;
-          case 'FollowEvent':
-            itemText = 'started following <a target="_blank" href="' + itemUrl + '">' + itemEntry['payload']['target']['login'] + '</a>';
-        }
-        /*
-                        when 'CommitCommentEvent'
-                            itemText = ''
-                        when 'PullRequestEvent'
-                            itemText = ''
-                        when 'GistEvent'
-                            itemText = ''
-                        when 'DownloadEvent'
-                            itemText = ''
-                        when 'IssueCommentEvent'
-                            itemText = ''
-                        when 'GollumEvent'
-                            itemText = ''
-                        when 'DeleteEvent'
-                            itemText = ''
-                        when 'TeamAddEvent'
-                            itemText = ''
-                        when 'PublicEvent'
-                            itemText = ''
-                        when 'MemberEvent'
-                            itemText = ''
-                        when 'IssuesEvent'
-                            itemText = ''
-                        when 'ForkApplyEvent'
-                            itemText = ''
-                        when 'ForkApplyEvent'
-                            itemText = ''
-        */
-        if (itemText) {
-          itemModel = new GithubModel({
-            type: itemType,
-            text: itemText,
-            date: itemDate,
-            url: itemUrl
-          });
-          modelsArray.push(itemModel);
-          if (modelsArray.length === grifo.appConfig.MAX_RESULTS_GITHUB) {
-            return modelsArray;
-          }
-        }
-      }
-      return modelsArray;
-    };
-
-    return GithubCollection;
-
-  })();
-
-  TwitterCollection = (function() {
-
-    __extends(TwitterCollection, Backbone.Collection);
-
-    function TwitterCollection() {
-      TwitterCollection.__super__.constructor.apply(this, arguments);
-    }
-
-    TwitterCollection.prototype.model = TwitterModel;
-
-    TwitterCollection.prototype.parse = function(response_) {
-      var iOf, itemDate, itemEntry, itemId, itemModel, itemText, itemTextComplete, itemUrl, modelsArray, _i, _len;
-      modelsArray = [];
-      for (_i = 0, _len = response_.length; _i < _len; _i++) {
-        itemEntry = response_[_i];
-        itemId = itemEntry['id_str'];
-        itemText = itemEntry['text'];
-        if (itemEntry['truncated'] && itemEntry['retweeted_status'] && itemEntry['retweeted_status']['text']) {
-          itemTextComplete = itemEntry['retweeted_status']['text'];
-          iOf = itemText.indexOf(itemTextComplete.substr(0, 20));
-          if (iOf !== -1) itemText = itemText.substr(0, iOf) + itemTextComplete;
-        }
-        itemText = Utils.linkifyUrls(itemText);
-        itemText = Utils.linkifyUsers(itemText);
-        itemText = Utils.linkifyHashes(itemText);
-        itemDate = Utils.relativeTime(itemEntry['created_at']);
-        itemUrl = 'https://twitter.com/';
-        itemUrl += itemEntry['user']['screen_name'];
-        itemUrl += '/statuses/';
-        itemUrl += itemEntry['id_str'];
-        itemModel = new TwitterModel({
-          id: itemId,
-          text: itemText,
-          date: itemDate,
-          url: itemUrl
-        });
-        modelsArray.push(itemModel);
-        if (modelsArray.length === grifo.appConfig.MAX_RESULTS_TWITTER) {
-          return modelsArray;
-        }
-      }
-      return modelsArray;
-    };
-
-    return TwitterCollection;
-
-  })();
-
-  YoutubeCollection = (function() {
-
-    __extends(YoutubeCollection, Backbone.Collection);
-
-    function YoutubeCollection() {
-      YoutubeCollection.__super__.constructor.apply(this, arguments);
-    }
-
-    YoutubeCollection.prototype.model = YoutubeModel;
-
-    YoutubeCollection.prototype.parse = function(response_) {
-      var isPortrait, itemDate, itemEntry, itemId, itemModel, itemTags, itemUrl, modelsArray, _i, _len, _ref;
-      modelsArray = [];
-      _ref = response_['feed']['entry'];
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        itemEntry = _ref[_i];
-        itemDate = Utils.relativeTime(itemEntry['published']['$t']);
-        itemUrl = itemEntry['id']['$t'];
-        itemUrl = itemUrl.replace('http://gdata.youtube.com/feeds/api/videos/', 'http://www.youtube.com/watch?v=');
-        itemId = itemUrl.replace('http://www.youtube.com/watch?v=', '');
-        itemTags = itemEntry['media$group']['media$keywords']['$t'];
-        isPortrait = false;
-        if (itemTags.toLowerCase().indexOf('vertical') !== -1 || itemTags.toLowerCase().indexOf('v') !== -1 || itemTags.toLowerCase().indexOf('portrait') !== -1) {
-          isPortrait = true;
-        }
-        itemModel = new YoutubeModel({
-          id: itemId,
-          url: itemUrl,
-          date: itemDate,
-          title: itemEntry['title']['$t'],
-          content: itemEntry['content']['$t'],
-          thumbnail_low: 'http://i.ytimg.com/vi/' + itemId + '/default.jpg',
-          thumbnail_medium: 'http://i.ytimg.com/vi/' + itemId + '/hqdefault.jpg',
-          is_portrait: isPortrait
-        });
-        modelsArray.push(itemModel);
-      }
-      return modelsArray;
-    };
-
-    return YoutubeCollection;
-
-  })();
-
   BrandCollection = (function() {
 
     __extends(BrandCollection, Backbone.Collection);
@@ -1242,6 +950,46 @@
 
   })();
 
+  ProjectCollection = (function() {
+
+    __extends(ProjectCollection, Backbone.Collection);
+
+    function ProjectCollection() {
+      ProjectCollection.__super__.constructor.apply(this, arguments);
+    }
+
+    ProjectCollection.prototype.model = ProjectModel;
+
+    ProjectCollection.prototype.parse = function(response_) {
+      var itemEntry, itemModel, modelsArray, _i, _len, _ref;
+      modelsArray = [];
+      _ref = response_['feed']['entry'];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        itemEntry = _ref[_i];
+        itemModel = new CreditGroupModel({
+          id: itemEntry['gsx$id']['$t'],
+          index: modelsArray.length,
+          tile_size: itemEntry['gsx$tilesize']['$t'],
+          short_title: itemEntry['gsx$shorttitle']['$t'],
+          long_title: itemEntry['gsx$longtitle']['$t'],
+          headline: itemEntry['gsx$headline']['$t'],
+          thumbnail: itemEntry['gsx$thumbnail']['$t'],
+          url: itemEntry['gsx$url']['$t'],
+          video: itemEntry['gsx$video']['$t'],
+          copy: itemEntry['gsx$copy']['$t'],
+          images: itemEntry['gsx$images']['$t'].split(','),
+          tags: itemEntry['gsx$tags']['$t'].split(','),
+          display_tags: itemEntry['gsx$displaytags']['$t'].split(',')
+        });
+        modelsArray.push(itemModel);
+      }
+      return modelsArray;
+    };
+
+    return ProjectCollection;
+
+  })();
+
   TagCollection = (function() {
 
     __extends(TagCollection, Backbone.Collection);
@@ -1292,46 +1040,6 @@
 
   })();
 
-  ProjectCollection = (function() {
-
-    __extends(ProjectCollection, Backbone.Collection);
-
-    function ProjectCollection() {
-      ProjectCollection.__super__.constructor.apply(this, arguments);
-    }
-
-    ProjectCollection.prototype.model = ProjectModel;
-
-    ProjectCollection.prototype.parse = function(response_) {
-      var itemEntry, itemModel, modelsArray, _i, _len, _ref;
-      modelsArray = [];
-      _ref = response_['feed']['entry'];
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        itemEntry = _ref[_i];
-        itemModel = new CreditGroupModel({
-          id: itemEntry['gsx$id']['$t'],
-          index: modelsArray.length,
-          tile_size: itemEntry['gsx$tilesize']['$t'],
-          short_title: itemEntry['gsx$shorttitle']['$t'],
-          long_title: itemEntry['gsx$longtitle']['$t'],
-          headline: itemEntry['gsx$headline']['$t'],
-          thumbnail: itemEntry['gsx$thumbnail']['$t'],
-          url: itemEntry['gsx$url']['$t'],
-          video: itemEntry['gsx$video']['$t'],
-          copy: itemEntry['gsx$copy']['$t'],
-          images: itemEntry['gsx$images']['$t'].split(','),
-          tags: itemEntry['gsx$tags']['$t'].split(','),
-          display_tags: itemEntry['gsx$displaytags']['$t'].split(',')
-        });
-        modelsArray.push(itemModel);
-      }
-      return modelsArray;
-    };
-
-    return ProjectCollection;
-
-  })();
-
   TagGroupCollection = (function() {
 
     __extends(TagGroupCollection, Backbone.Collection);
@@ -1358,6 +1066,297 @@
     };
 
     return TagGroupCollection;
+
+  })();
+
+  BlogCollection = (function() {
+
+    __extends(BlogCollection, Backbone.Collection);
+
+    function BlogCollection() {
+      this.parseAndAdd = __bind(this.parseAndAdd, this);
+      BlogCollection.__super__.constructor.apply(this, arguments);
+    }
+
+    BlogCollection.prototype.model = BlogModel;
+
+    BlogCollection.prototype.load = function() {
+      return $.get(this.url, this.parseAndAdd);
+    };
+
+    BlogCollection.prototype.parseAndAdd = function(response_) {
+      this.add(this.parse(response_));
+      return grifo.view.onLoad();
+    };
+
+    BlogCollection.prototype.parse = function(response_) {
+      var modelsArray;
+      modelsArray = [];
+      $(response_).find('item').each(function() {
+        var $item, itemDate, itemDescription, itemModel, itemTitle, itemUrl;
+        $item = $(this);
+        itemTitle = $item.find('title').text();
+        itemUrl = $item.find('link').text();
+        itemDescription = $item.find('description').text();
+        itemDate = Utils.relativeTime($item.find('pubDate').text());
+        itemModel = new BlogModel({
+          title: itemTitle,
+          url: itemUrl,
+          description: itemDescription,
+          date: itemDate
+        });
+        modelsArray.push(itemModel);
+        if (modelsArray.length === grifo.config.MAX_RESULTS_BLOG) {
+          return modelsArray;
+        }
+      });
+      return modelsArray;
+    };
+
+    return BlogCollection;
+
+  })();
+
+  FlickrCollection = (function() {
+
+    __extends(FlickrCollection, Backbone.Collection);
+
+    function FlickrCollection() {
+      FlickrCollection.__super__.constructor.apply(this, arguments);
+    }
+
+    FlickrCollection.prototype.model = FlickrModel;
+
+    FlickrCollection.prototype.parse = function(response_) {
+      var isPortrait, itemDate, itemDescription, itemEntry, itemHeight, itemImage, itemModel, itemTitle, itemUrl, itemWidth, modelsArray, _i, _len, _ref;
+      modelsArray = [];
+      _ref = response_['items'];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        itemEntry = _ref[_i];
+        isPortrait = false;
+        itemDescription = itemEntry['description'];
+        if (itemDescription) {
+          itemWidth = Utils.getWidth(itemDescription);
+          itemHeight = Utils.getHeight(itemDescription);
+          if (itemHeight > itemWidth) isPortrait = true;
+        }
+        itemTitle = itemEntry['title'];
+        itemUrl = itemEntry['link'];
+        itemImage = itemEntry['media']['m'].replace('_m.jpg', '.jpg');
+        itemDate = Utils.relativeTime(itemEntry['published']);
+        itemModel = new FlickrModel({
+          title: itemTitle,
+          url: itemUrl,
+          image: itemImage,
+          date: itemDate,
+          is_portrait: isPortrait
+        });
+        modelsArray.push(itemModel);
+        if (modelsArray.length === grifo.config.MAX_RESULTS_FLICKR) {
+          return modelsArray;
+        }
+      }
+      return modelsArray;
+    };
+
+    FlickrCollection.prototype.parseAndAdd = function(response_) {
+      return this.add(this.parse(response_));
+    };
+
+    return FlickrCollection;
+
+  })();
+
+  window.jsonFlickrFeed = function(data_) {
+    grifo.flickrCollection.reset();
+    return grifo.flickrCollection.parseAndAdd(data_);
+  };
+
+  GithubCollection = (function() {
+
+    __extends(GithubCollection, Backbone.Collection);
+
+    function GithubCollection() {
+      GithubCollection.__super__.constructor.apply(this, arguments);
+    }
+
+    GithubCollection.prototype.model = GithubModel;
+
+    GithubCollection.prototype.parse = function(response_) {
+      var itemDate, itemEntry, itemModel, itemPublic, itemText, itemType, itemUrl, modelsArray, _i, _len;
+      modelsArray = [];
+      for (_i = 0, _len = response_.length; _i < _len; _i++) {
+        itemEntry = response_[_i];
+        itemPublic = itemEntry['public'];
+        itemType = itemEntry['type'];
+        itemDate = Utils.relativeTime(itemEntry['created_at']);
+        itemUrl = itemEntry['url'];
+        itemText = null;
+        switch (itemType) {
+          case 'PushEvent':
+            if (itemEntry['repository']) {
+              if (!itemEntry['repository']['private']) {
+                itemText = 'pushed to <a target="_blank" href="' + itemUrl + '">' + itemEntry['repository']['name'] + '</a>';
+              }
+            }
+            break;
+          case 'WatchEvent':
+            itemText = itemEntry['payload']['action'] + ' watching <a target="_blank" href="' + itemUrl + '">' + itemEntry['repository']['name'] + '</a>';
+            break;
+          case 'CreateEvent':
+            if (itemEntry['repository']) {
+              if (!itemEntry['repository']['private']) {
+                itemText = 'created <a target="_blank" href="' + itemUrl + '">' + itemEntry['repository']['name'] + '</a>';
+              }
+            }
+            break;
+          case 'ForkEvent':
+            if (itemEntry['repository']) {
+              if (!itemEntry['repository']['private']) {
+                itemText = 'forked <a target="_blank" href="' + itemUrl + '">' + itemEntry['repository']['name'] + '</a>';
+              }
+            }
+            break;
+          case 'FollowEvent':
+            itemText = 'started following <a target="_blank" href="' + itemUrl + '">' + itemEntry['payload']['target']['login'] + '</a>';
+        }
+        /*
+                        when 'CommitCommentEvent'
+                            itemText = ''
+                        when 'PullRequestEvent'
+                            itemText = ''
+                        when 'GistEvent'
+                            itemText = ''
+                        when 'DownloadEvent'
+                            itemText = ''
+                        when 'IssueCommentEvent'
+                            itemText = ''
+                        when 'GollumEvent'
+                            itemText = ''
+                        when 'DeleteEvent'
+                            itemText = ''
+                        when 'TeamAddEvent'
+                            itemText = ''
+                        when 'PublicEvent'
+                            itemText = ''
+                        when 'MemberEvent'
+                            itemText = ''
+                        when 'IssuesEvent'
+                            itemText = ''
+                        when 'ForkApplyEvent'
+                            itemText = ''
+                        when 'ForkApplyEvent'
+                            itemText = ''
+        */
+        if (itemText) {
+          itemModel = new GithubModel({
+            type: itemType,
+            text: itemText,
+            date: itemDate,
+            url: itemUrl
+          });
+          modelsArray.push(itemModel);
+          if (modelsArray.length === grifo.config.MAX_RESULTS_GITHUB) {
+            return modelsArray;
+          }
+        }
+      }
+      return modelsArray;
+    };
+
+    return GithubCollection;
+
+  })();
+
+  TwitterCollection = (function() {
+
+    __extends(TwitterCollection, Backbone.Collection);
+
+    function TwitterCollection() {
+      TwitterCollection.__super__.constructor.apply(this, arguments);
+    }
+
+    TwitterCollection.prototype.model = TwitterModel;
+
+    TwitterCollection.prototype.parse = function(response_) {
+      var iOf, itemDate, itemEntry, itemId, itemModel, itemText, itemTextComplete, itemUrl, modelsArray, _i, _len;
+      modelsArray = [];
+      for (_i = 0, _len = response_.length; _i < _len; _i++) {
+        itemEntry = response_[_i];
+        itemId = itemEntry['id_str'];
+        itemText = itemEntry['text'];
+        if (itemEntry['truncated'] && itemEntry['retweeted_status'] && itemEntry['retweeted_status']['text']) {
+          itemTextComplete = itemEntry['retweeted_status']['text'];
+          iOf = itemText.indexOf(itemTextComplete.substr(0, 20));
+          if (iOf !== -1) itemText = itemText.substr(0, iOf) + itemTextComplete;
+        }
+        itemText = Utils.linkifyUrls(itemText);
+        itemText = Utils.linkifyUsers(itemText);
+        itemText = Utils.linkifyHashes(itemText);
+        itemDate = Utils.relativeTime(itemEntry['created_at']);
+        itemUrl = 'https://twitter.com/';
+        itemUrl += itemEntry['user']['screen_name'];
+        itemUrl += '/statuses/';
+        itemUrl += itemEntry['id_str'];
+        itemModel = new TwitterModel({
+          id: itemId,
+          text: itemText,
+          date: itemDate,
+          url: itemUrl
+        });
+        modelsArray.push(itemModel);
+        if (modelsArray.length === grifo.config.MAX_RESULTS_TWITTER) {
+          return modelsArray;
+        }
+      }
+      return modelsArray;
+    };
+
+    return TwitterCollection;
+
+  })();
+
+  YoutubeCollection = (function() {
+
+    __extends(YoutubeCollection, Backbone.Collection);
+
+    function YoutubeCollection() {
+      YoutubeCollection.__super__.constructor.apply(this, arguments);
+    }
+
+    YoutubeCollection.prototype.model = YoutubeModel;
+
+    YoutubeCollection.prototype.parse = function(response_) {
+      var isPortrait, itemDate, itemEntry, itemId, itemModel, itemTags, itemUrl, modelsArray, _i, _len, _ref;
+      modelsArray = [];
+      _ref = response_['feed']['entry'];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        itemEntry = _ref[_i];
+        itemDate = Utils.relativeTime(itemEntry['published']['$t']);
+        itemUrl = itemEntry['id']['$t'];
+        itemUrl = itemUrl.replace('http://gdata.youtube.com/feeds/api/videos/', 'http://www.youtube.com/watch?v=');
+        itemId = itemUrl.replace('http://www.youtube.com/watch?v=', '');
+        itemTags = itemEntry['media$group']['media$keywords']['$t'];
+        isPortrait = false;
+        if (itemTags.toLowerCase().indexOf('vertical') !== -1 || itemTags.toLowerCase().indexOf('v') !== -1 || itemTags.toLowerCase().indexOf('portrait') !== -1) {
+          isPortrait = true;
+        }
+        itemModel = new YoutubeModel({
+          id: itemId,
+          url: itemUrl,
+          date: itemDate,
+          title: itemEntry['title']['$t'],
+          content: itemEntry['content']['$t'],
+          thumbnail_low: 'http://i.ytimg.com/vi/' + itemId + '/default.jpg',
+          thumbnail_medium: 'http://i.ytimg.com/vi/' + itemId + '/hqdefault.jpg',
+          is_portrait: isPortrait
+        });
+        modelsArray.push(itemModel);
+      }
+      return modelsArray;
+    };
+
+    return YoutubeCollection;
 
   })();
 
@@ -1417,7 +1416,7 @@
     AppView.prototype.loadData = function() {
       var _this = this;
       grifo.projectCollection = new ProjectCollection;
-      grifo.projectCollection.url = grifo.appConfig.URL_PROJECTS;
+      grifo.projectCollection.url = grifo.config.URL_PROJECTS;
       grifo.projectCollection.fetch({
         success: function(model_, response_) {
           return _this.onLoad();
@@ -1427,7 +1426,7 @@
         }
       });
       grifo.tagCollection = new TagCollection();
-      grifo.tagCollection.url = grifo.appConfig.URL_TAGS;
+      grifo.tagCollection.url = grifo.config.URL_TAGS;
       grifo.tagCollection.fetch({
         success: function(model_, response_) {
           return _this.onLoad();
@@ -1437,7 +1436,7 @@
         }
       });
       grifo.tagGroupCollection = new TagGroupCollection();
-      grifo.tagGroupCollection.url = grifo.appConfig.URL_TAG_GROUPS;
+      grifo.tagGroupCollection.url = grifo.config.URL_TAG_GROUPS;
       grifo.tagGroupCollection.fetch({
         success: function(model_, response_) {
           return _this.onLoad();
@@ -1447,7 +1446,7 @@
         }
       });
       grifo.creditCollection = new CreditCollection();
-      grifo.creditCollection.url = grifo.appConfig.URL_CREDITS;
+      grifo.creditCollection.url = grifo.config.URL_CREDITS;
       grifo.creditCollection.fetch({
         success: function(model_, response_) {
           return _this.onLoad();
@@ -1457,7 +1456,7 @@
         }
       });
       grifo.creditGroupCollection = new CreditGroupCollection();
-      grifo.creditGroupCollection.url = grifo.appConfig.URL_CREDIT_GROUPS;
+      grifo.creditGroupCollection.url = grifo.config.URL_CREDIT_GROUPS;
       grifo.creditGroupCollection.fetch({
         success: function(model_, response_) {
           return _this.onLoad();
@@ -1467,7 +1466,7 @@
         }
       });
       grifo.experienceCollection = new ExperienceCollection();
-      grifo.experienceCollection.url = grifo.appConfig.URL_EXPERIENCES;
+      grifo.experienceCollection.url = grifo.config.URL_EXPERIENCES;
       grifo.experienceCollection.fetch({
         success: function(model_, response_) {
           return _this.onLoad();
@@ -1477,7 +1476,7 @@
         }
       });
       grifo.experienceGroupCollection = new ExperienceGroupCollection();
-      grifo.experienceGroupCollection.url = grifo.appConfig.URL_EXPERIENCE_GROUPS;
+      grifo.experienceGroupCollection.url = grifo.config.URL_EXPERIENCE_GROUPS;
       grifo.experienceGroupCollection.fetch({
         success: function(model_, response_) {
           return _this.onLoad();
@@ -1487,7 +1486,7 @@
         }
       });
       grifo.profileCollection = new ProfileCollection();
-      grifo.profileCollection.url = grifo.appConfig.URL_PROFILES;
+      grifo.profileCollection.url = grifo.config.URL_PROFILES;
       grifo.profileCollection.fetch({
         success: function(model_, response_) {
           return _this.onLoad();
@@ -1497,7 +1496,7 @@
         }
       });
       grifo.brandCollection = new BrandCollection();
-      grifo.brandCollection.url = grifo.appConfig.URL_BRANDS;
+      grifo.brandCollection.url = grifo.config.URL_BRANDS;
       grifo.brandCollection.fetch({
         success: function(model_, response_) {
           return _this.onLoad();
@@ -1507,7 +1506,7 @@
         }
       });
       grifo.labelCollection = new LabelCollection();
-      grifo.labelCollection.url = grifo.appConfig.URL_LABELS;
+      grifo.labelCollection.url = grifo.config.URL_LABELS;
       grifo.labelCollection.fetch({
         success: function(model_, response_) {
           return _this.onLoad();
@@ -1517,7 +1516,7 @@
         }
       });
       grifo.youtubeCollection = new YoutubeCollection();
-      grifo.youtubeCollection.url = grifo.appConfig.URL_YOUTUBE;
+      grifo.youtubeCollection.url = grifo.config.URL_YOUTUBE;
       grifo.youtubeCollection.fetch({
         success: function(model_, response_) {
           return _this.onLoad();
@@ -1527,7 +1526,7 @@
         }
       });
       grifo.twitterCollection = new TwitterCollection();
-      grifo.twitterCollection.url = grifo.appConfig.URL_TWITTER;
+      grifo.twitterCollection.url = grifo.config.URL_TWITTER;
       grifo.twitterCollection.fetch({
         success: function(model_, response_) {
           return _this.onLoad();
@@ -1537,7 +1536,7 @@
         }
       });
       grifo.githubCollection = new GithubCollection();
-      grifo.githubCollection.url = grifo.appConfig.URL_GITHUB;
+      grifo.githubCollection.url = grifo.config.URL_GITHUB;
       grifo.githubCollection.fetch({
         success: function(model_, response_) {
           return _this.onLoad();
@@ -1547,7 +1546,7 @@
         }
       });
       grifo.flickrCollection = new FlickrCollection();
-      grifo.flickrCollection.url = grifo.appConfig.URL_FLICKR;
+      grifo.flickrCollection.url = grifo.config.URL_FLICKR;
       grifo.flickrCollection.fetch({
         success: function(model_, response_) {
           return _this.onLoad();
@@ -1557,7 +1556,7 @@
         }
       });
       grifo.blogCollection = new BlogCollection();
-      grifo.blogCollection.url = grifo.appConfig.URL_BLOG;
+      grifo.blogCollection.url = grifo.config.URL_BLOG;
       return grifo.blogCollection.load();
     };
 
@@ -1573,7 +1572,7 @@
     };
 
     AppView.prototype.render = function() {
-      if (grifo.appState.isMobile) {
+      if (grifo.state.isMobile) {
         $('#draw').remove();
         $('#paperJs').remove();
         $('#bgJs').remove();
@@ -1608,16 +1607,16 @@
       if (id_ === this.currentPage && subId_ === this.currentSubPage && subSubId_ === this.currentSubSubPage) {
         return;
       }
-      grifo.appState.previousPage = grifo.appState.currentPage;
-      grifo.appState.previousSubPage = grifo.appState.currentSubPage;
-      grifo.appState.previousSubSubPage = grifo.appState.currentSubSubPage;
-      grifo.appState.currentPage = id_;
-      grifo.appState.currentSubPage = subId_;
-      grifo.appState.currentSubSubPage = subSubId_;
+      grifo.state.previousPage = grifo.state.currentPage;
+      grifo.state.previousSubPage = grifo.state.currentSubPage;
+      grifo.state.previousSubSubPage = grifo.state.currentSubSubPage;
+      grifo.state.currentPage = id_;
+      grifo.state.currentSubPage = subId_;
+      grifo.state.currentSubSubPage = subSubId_;
       this.headerView.selectItem(id_);
       top = 0.0;
       switch (id_) {
-        case grifo.appConfig.PAGE_PROJECTS:
+        case grifo.config.PAGE_PROJECTS:
           this.aboutPageView.hide();
           this.streamPageView.hide();
           grifo.tagCollection.select('');
@@ -1625,14 +1624,14 @@
           if (subId_) {
             this.projectsPageView.hide();
             this.projectPageView.show();
-            top = grifo.appConfig.SNAP_Y_HEADER_BG + 29.0;
+            top = grifo.config.SNAP_Y_HEADER_BG + 29.0;
           } else {
             this.projectPageView.hide();
             this.projectsPageView.filter();
             this.projectsPageView.show();
           }
           break;
-        case grifo.appConfig.PAGE_TAGS:
+        case grifo.config.PAGE_TAGS:
           this.aboutPageView.hide();
           this.projectPageView.hide();
           this.streamPageView.hide();
@@ -1640,16 +1639,16 @@
           this.projectsPageView.show();
           grifo.tagCollection.select(subId_);
           this.tagsPageView.show();
-          if (subId_) top = grifo.appConfig.SNAP_Y_HEADER_BG;
+          if (subId_) top = grifo.config.SNAP_Y_HEADER_BG;
           break;
-        case grifo.appConfig.PAGE_STREAM:
+        case grifo.config.PAGE_STREAM:
           this.tagsPageView.hide();
           this.projectsPageView.hide();
           this.projectPageView.hide();
           this.aboutPageView.hide();
           this.streamPageView.show();
           break;
-        case grifo.appConfig.PAGE_ABOUT:
+        case grifo.config.PAGE_ABOUT:
           this.tagsPageView.hide();
           this.projectsPageView.hide();
           this.projectPageView.hide();
@@ -1677,16 +1676,16 @@
       var headerBgOpacity, headerBgTop, headerLeftOpacity, headerTop, windowTop;
       if (!this.headerView || !this.headerBgView) return;
       windowTop = headerTop = headerBgTop = -this.$window.scrollTop();
-      if (windowTop < -grifo.appConfig.SNAP_Y_HEADER_BG) {
-        headerBgTop = -grifo.appConfig.SNAP_Y_HEADER_BG;
+      if (windowTop < -grifo.config.SNAP_Y_HEADER_BG) {
+        headerBgTop = -grifo.config.SNAP_Y_HEADER_BG;
       }
-      if (windowTop < -grifo.appConfig.SNAP_Y_HEADER) {
-        headerTop = -grifo.appConfig.SNAP_Y_HEADER;
+      if (windowTop < -grifo.config.SNAP_Y_HEADER) {
+        headerTop = -grifo.config.SNAP_Y_HEADER;
       }
       this.headerView.setTop(headerTop);
       this.headerBgView.setTop(headerBgTop);
-      headerBgOpacity = headerBgTop / -grifo.appConfig.SNAP_Y_HEADER_BG;
-      headerLeftOpacity = (headerTop - headerBgTop) / (grifo.appConfig.SNAP_Y_HEADER_BG - grifo.appConfig.SNAP_Y_HEADER);
+      headerBgOpacity = headerBgTop / -grifo.config.SNAP_Y_HEADER_BG;
+      headerLeftOpacity = (headerTop - headerBgTop) / (grifo.config.SNAP_Y_HEADER_BG - grifo.config.SNAP_Y_HEADER);
       this.headerView.setLeftOpacity(headerLeftOpacity);
       this.headerBgView.setOpacity(headerBgOpacity);
       return this.trigger(AppView.EVENT_REALIGNED);
@@ -1815,9 +1814,9 @@
     TagView.prototype.onClick = function(e_) {
       e_.preventDefault();
       if (this.model.get('selected')) {
-        return grifo.appRouter.navigateToTag();
+        return grifo.router.navigateToTag();
       } else {
-        return grifo.appRouter.navigateToTag(this.model.get('id'));
+        return grifo.router.navigateToTag(this.model.get('id'));
       }
     };
 
@@ -1940,10 +1939,10 @@
       network = $(e_.currentTarget).attr('id');
       switch (network) {
         case 'share-facebook':
-          url = grifo.appConfig.SHARE_URL_FACEBOOK.replace('{URL}', encodeURIComponent(grifo.labelCollection.get('share-url').get('label')));
+          url = grifo.config.SHARE_URL_FACEBOOK.replace('{URL}', encodeURIComponent(grifo.labelCollection.get('share-url').get('label')));
           break;
         case 'share-twitter':
-          url = grifo.appConfig.SHARE_URL_TWITTER.replace('{TEXT}', encodeURIComponent(grifo.labelCollection.get('share-tweet').get('label')));
+          url = grifo.config.SHARE_URL_TWITTER.replace('{TEXT}', encodeURIComponent(grifo.labelCollection.get('share-tweet').get('label')));
       }
       if (url) return window.open(url);
     };
@@ -2327,7 +2326,7 @@
 
     ProjectPageView.prototype.render = function() {
       var creditGroupModel, imageModel, nextModel, prevModel, tagId, tagModel, _i, _j, _k, _len, _len2, _len3, _ref, _ref2, _ref3;
-      this.model = grifo.projectCollection.get(grifo.appState.currentSubPage);
+      this.model = grifo.projectCollection.get(grifo.state.currentSubPage);
       prevModel = grifo.projectCollection.at(this.model.get('index') - 1.0);
       nextModel = grifo.projectCollection.at(this.model.get('index') + 1.0);
       if (!prevModel) {
@@ -2340,10 +2339,10 @@
         headline: this.model.get('headline'),
         url: this.model.get('url'),
         copy: this.model.get('copy'),
-        showArrows: grifo.appState.isDesktop,
-        prevUrl: '#/' + grifo.appConfig.PAGE_PROJECTS + '/' + prevModel.get('id') + '/',
+        showArrows: grifo.state.isDesktop,
+        prevUrl: '#/' + grifo.config.PAGE_PROJECTS + '/' + prevModel.get('id') + '/',
         prevTitle: prevModel.get('long_title'),
-        nextUrl: '#/' + grifo.appConfig.PAGE_PROJECTS + '/' + nextModel.get('id') + '/',
+        nextUrl: '#/' + grifo.config.PAGE_PROJECTS + '/' + nextModel.get('id') + '/',
         nextTitle: nextModel.get('long_title')
       }));
       _ref = this.model.get('tags');
@@ -2596,7 +2595,7 @@
 
     ThumbnailView.prototype.onClick = function(e_) {
       e_.preventDefault();
-      return grifo.appRouter.navigateToProject(this.model.get('id'));
+      return grifo.router.navigateToProject(this.model.get('id'));
     };
 
     ThumbnailView.prototype.onRollOver = function(e_) {

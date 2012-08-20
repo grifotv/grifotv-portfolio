@@ -32,7 +32,7 @@ class FlickrCollection extends Backbone.Collection
 
             modelsArray.push itemModel
 
-            if modelsArray.length == grifo.appConfig.MAX_RESULTS_FLICKR
+            if modelsArray.length == grifo.config.MAX_RESULTS_FLICKR
                 return modelsArray
 
         return modelsArray

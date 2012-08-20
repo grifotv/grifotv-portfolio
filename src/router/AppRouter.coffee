@@ -39,7 +39,7 @@ class AppRouter extends Backbone.Router
 
     hashChanged : ( id_ = null, subId_ = null, subSubId_ = null, actions_ = null )->
 
-        if id_ in [ grifo.appConfig.PAGE_PROJECTS, grifo.appConfig.PAGE_TAGS, grifo.appConfig.PAGE_STREAM, grifo.appConfig.PAGE_ABOUT ]
+        if id_ in [ grifo.config.PAGE_PROJECTS, grifo.config.PAGE_TAGS, grifo.config.PAGE_STREAM, grifo.config.PAGE_ABOUT ]
         
             # check current page
             currentPage = '/'
@@ -65,12 +65,12 @@ class AppRouter extends Backbone.Router
 
     default : ( actions_ )->
 
-        @hashChanged( grifo.appConfig.PAGE_DEFAULT )
+        @hashChanged( grifo.config.PAGE_DEFAULT )
 
 
     navigateToProject : ( projectId_ = null )->
 
-        hash = '//' + grifo.appConfig.PAGE_PROJECTS + '/'
+        hash = '//' + grifo.config.PAGE_PROJECTS + '/'
         
         if projectId_
             hash += projectId_ + '/'
@@ -80,7 +80,7 @@ class AppRouter extends Backbone.Router
 
     navigateToTag : ( tagId_ = null )->
 
-        hash = '//' + grifo.appConfig.PAGE_TAGS + '/'
+        hash = '//' + grifo.config.PAGE_TAGS + '/'
 
         if tagId_
             hash += tagId_ + '/'

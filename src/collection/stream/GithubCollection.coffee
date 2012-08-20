@@ -82,7 +82,7 @@ class GithubCollection extends Backbone.Collection
 
                 modelsArray.push itemModel
 
-                if modelsArray.length == grifo.appConfig.MAX_RESULTS_GITHUB
+                if modelsArray.length == grifo.config.MAX_RESULTS_GITHUB
                     return modelsArray
 
         return modelsArray

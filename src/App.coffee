@@ -4,17 +4,17 @@ $ ->
 	# only global property
 	window.grifo =
 
-		# app status
-		appState                  : null
+		# app state
+		state                     : null
 
 		# app config
-		appConfig                 : null
+		config                    : null
 
 		# app view
-		appView                   : null
+		view                      : null
 
 		# app router
-		appRouter                 : null
+		router                    : null
 
 		# portfolio collections
 		labelCollection           : null
@@ -37,22 +37,22 @@ $ ->
 
 
 	# start app
-	grifo.appState  = new AppState()
-	grifo.appConfig = new AppConfig()
-	grifo.appView   = new AppView()
+	grifo.state  = new AppState()
+	grifo.config = new AppConfig()
+	grifo.view   = new AppView()
 	
 	
 	# on data loaded
-	grifo.appView.on AppView.EVENT_DATA_LOADED, ->
+	grifo.view.on AppView.EVENT_DATA_LOADED, ->
 
 		# start router
-		grifo.appRouter = new AppRouter()
+		grifo.router = new AppRouter()
 
 		# bind router event to view callback
-		grifo.appRouter.on AppRouter.EVENT_HASH_CHANGED , grifo.appView.onHashChanged
+		grifo.router.on AppRouter.EVENT_HASH_CHANGED , grifo.view.onHashChanged
 
 		# bootstrap
-		grifo.appRouter.start()
+		grifo.router.start()
 
 
 # adding fake console to browsers that doesn't have it

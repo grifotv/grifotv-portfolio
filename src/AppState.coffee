@@ -36,13 +36,12 @@ class AppState
         if test.exec navigator.userAgent
             
             ieVersion = parseFloat RegExp.$1
-            $html.addClass 'ie' + ieVersion
+            $html.addClass 'ie-' + ieVersion
 
-            ###
             if ieVersion <= 8
-                $html.addClass 'oldie'
+                $html.addClass 'old-ie'
             else
-                $html.addClass 'newie'
-            ###
+                $html.addClass 'new-ie'
         else
-            $html.addClass( 'nonie' )
+            
+            $html.addClass( 'non-ie' )

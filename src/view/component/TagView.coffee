@@ -47,6 +47,6 @@ class TagView extends AbstractView
         e_.preventDefault()
         
         if @model.get 'selected'
-            grifo.appRouter.navigateToTag()
+            grifo.router.navigateToTag()
         else
-            grifo.appRouter.navigateToTag @model.get( 'id' )
+            grifo.router.navigateToTag @model.get( 'id' )

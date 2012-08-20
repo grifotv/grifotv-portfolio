@@ -14,7 +14,7 @@ class ProjectPageView extends AbstractPageView
 
     render: =>
 
-        @model    = grifo.projectCollection.get( grifo.appState.currentSubPage )
+        @model    = grifo.projectCollection.get( grifo.state.currentSubPage )
 
         prevModel = grifo.projectCollection.at( @model.get( 'index' ) - 1.0 )
         nextModel = grifo.projectCollection.at( @model.get( 'index' ) + 1.0 )
@@ -31,10 +31,10 @@ class ProjectPageView extends AbstractPageView
             headline  : @model.get 'headline'
             url       : @model.get 'url'
             copy      : @model.get 'copy'
-            showArrows: grifo.appState.isDesktop
-            prevUrl   : '#/' + grifo.appConfig.PAGE_PROJECTS + '/' + prevModel.get( 'id' ) + '/'
+            showArrows: grifo.state.isDesktop
+            prevUrl   : '#/' + grifo.config.PAGE_PROJECTS + '/' + prevModel.get( 'id' ) + '/'
             prevTitle : prevModel.get 'long_title'
-            nextUrl   : '#/' + grifo.appConfig.PAGE_PROJECTS + '/' + nextModel.get( 'id' ) + '/'
+            nextUrl   : '#/' + grifo.config.PAGE_PROJECTS + '/' + nextModel.get( 'id' ) + '/'
             nextTitle : nextModel.get 'long_title'
 
         for tagId in @model.get( 'tags' )

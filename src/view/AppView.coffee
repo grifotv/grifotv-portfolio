@@ -47,70 +47,70 @@ class AppView extends Backbone.View
 
         # 2 - load projects
         grifo.projectCollection     = new ProjectCollection
-        grifo.projectCollection.url = grifo.appConfig.URL_PROJECTS
+        grifo.projectCollection.url = grifo.config.URL_PROJECTS
         grifo.projectCollection.fetch
             success : ( model_, response_ ) => @onLoad()
             error   : ( model_, response_ ) => @onLoad()
 
         # 3 - load tags
         grifo.tagCollection     = new TagCollection()
-        grifo.tagCollection.url = grifo.appConfig.URL_TAGS
+        grifo.tagCollection.url = grifo.config.URL_TAGS
         grifo.tagCollection.fetch
             success : ( model_, response_ ) => @onLoad()
             error   : ( model_, response_ ) => @onLoad()
 
         # 4 - load tag groups
         grifo.tagGroupCollection     = new TagGroupCollection()
-        grifo.tagGroupCollection.url = grifo.appConfig.URL_TAG_GROUPS
+        grifo.tagGroupCollection.url = grifo.config.URL_TAG_GROUPS
         grifo.tagGroupCollection.fetch
             success : ( model_, response_ ) => @onLoad()
             error   : ( model_, response_ ) => @onLoad()
 
         # 5 - load credits
         grifo.creditCollection     = new CreditCollection()
-        grifo.creditCollection.url = grifo.appConfig.URL_CREDITS
+        grifo.creditCollection.url = grifo.config.URL_CREDITS
         grifo.creditCollection.fetch
             success : ( model_, response_ ) => @onLoad()
             error   : ( model_, response_ ) => @onLoad()
 
         # 6 - load credit groups
         grifo.creditGroupCollection     = new CreditGroupCollection()
-        grifo.creditGroupCollection.url = grifo.appConfig.URL_CREDIT_GROUPS
+        grifo.creditGroupCollection.url = grifo.config.URL_CREDIT_GROUPS
         grifo.creditGroupCollection.fetch
             success : ( model_, response_ ) => @onLoad()
             error   : ( model_, response_ ) => @onLoad()
 
         # 7 - load experiences
         grifo.experienceCollection     = new ExperienceCollection()
-        grifo.experienceCollection.url = grifo.appConfig.URL_EXPERIENCES
+        grifo.experienceCollection.url = grifo.config.URL_EXPERIENCES
         grifo.experienceCollection.fetch
             success : ( model_, response_ ) => @onLoad()
             error   : ( model_, response_ ) => @onLoad()
 
         # 8 - load experience groups
         grifo.experienceGroupCollection     = new ExperienceGroupCollection()
-        grifo.experienceGroupCollection.url = grifo.appConfig.URL_EXPERIENCE_GROUPS
+        grifo.experienceGroupCollection.url = grifo.config.URL_EXPERIENCE_GROUPS
         grifo.experienceGroupCollection.fetch
             success : ( model_, response_ ) => @onLoad()
             error   : ( model_, response_ ) => @onLoad()
 
         # 9 - load profiles
         grifo.profileCollection     = new ProfileCollection()
-        grifo.profileCollection.url = grifo.appConfig.URL_PROFILES
+        grifo.profileCollection.url = grifo.config.URL_PROFILES
         grifo.profileCollection.fetch
             success : ( model_, response_ ) => @onLoad()
             error   : ( model_, response_ ) => @onLoad()
 
         # 10 - load brands
         grifo.brandCollection     = new BrandCollection()
-        grifo.brandCollection.url = grifo.appConfig.URL_BRANDS
+        grifo.brandCollection.url = grifo.config.URL_BRANDS
         grifo.brandCollection.fetch
             success : ( model_, response_ ) => @onLoad()
             error   : ( model_, response_ ) => @onLoad()
 
         # 11 - load labels
         grifo.labelCollection     = new LabelCollection()
-        grifo.labelCollection.url = grifo.appConfig.URL_LABELS
+        grifo.labelCollection.url = grifo.config.URL_LABELS
         grifo.labelCollection.fetch
             success : ( model_, response_ ) => @onLoad()
             error   : ( model_, response_ ) => @onLoad()
@@ -120,35 +120,35 @@ class AppView extends Backbone.View
 
         # 12 - load youtube
         grifo.youtubeCollection     = new YoutubeCollection()
-        grifo.youtubeCollection.url = grifo.appConfig.URL_YOUTUBE
+        grifo.youtubeCollection.url = grifo.config.URL_YOUTUBE
         grifo.youtubeCollection.fetch
             success : ( model_, response_ ) => @onLoad()
             error   : ( model_, response_ ) => @onLoad()
 
         # 13 - load twitter
         grifo.twitterCollection     = new TwitterCollection()
-        grifo.twitterCollection.url = grifo.appConfig.URL_TWITTER
+        grifo.twitterCollection.url = grifo.config.URL_TWITTER
         grifo.twitterCollection.fetch
             success : ( model_, response_ ) => @onLoad()
             error   : ( model_, response_ ) => @onLoad()
 
         # 14 - load github
         grifo.githubCollection     = new GithubCollection()
-        grifo.githubCollection.url = grifo.appConfig.URL_GITHUB
+        grifo.githubCollection.url = grifo.config.URL_GITHUB
         grifo.githubCollection.fetch
             success : ( model_, response_ ) => @onLoad()
             error   : ( model_, response_ ) => @onLoad()
 
         # 15 - load flickr
         grifo.flickrCollection     = new FlickrCollection()
-        grifo.flickrCollection.url = grifo.appConfig.URL_FLICKR
+        grifo.flickrCollection.url = grifo.config.URL_FLICKR
         grifo.flickrCollection.fetch
             success : ( model_, response_ ) => @onLoad()
             error   : ( model_, response_ ) => @onLoad()
 
         # 16 - load blog
         grifo.blogCollection     = new BlogCollection()
-        grifo.blogCollection.url = grifo.appConfig.URL_BLOG
+        grifo.blogCollection.url = grifo.config.URL_BLOG
         grifo.blogCollection.load()
 
 
@@ -171,7 +171,7 @@ class AppView extends Backbone.View
         # BG
         
         # remove bg if mobile
-        if grifo.appState.isMobile
+        if grifo.state.isMobile
             $('#draw').remove()
             $('#paperJs').remove()
             $('#bgJs').remove()
@@ -234,13 +234,13 @@ class AppView extends Backbone.View
             return
 
         # store in status
-        grifo.appState.previousPage       = grifo.appState.currentPage
-        grifo.appState.previousSubPage    = grifo.appState.currentSubPage
-        grifo.appState.previousSubSubPage = grifo.appState.currentSubSubPage
+        grifo.state.previousPage       = grifo.state.currentPage
+        grifo.state.previousSubPage    = grifo.state.currentSubPage
+        grifo.state.previousSubSubPage = grifo.state.currentSubSubPage
 
-        grifo.appState.currentPage        = id_
-        grifo.appState.currentSubPage     = subId_
-        grifo.appState.currentSubSubPage  = subSubId_
+        grifo.state.currentPage        = id_
+        grifo.state.currentSubPage     = subId_
+        grifo.state.currentSubSubPage  = subSubId_
 
         # select item in header
         @headerView.selectItem id_
@@ -249,7 +249,7 @@ class AppView extends Backbone.View
 
         switch id_
 
-            when grifo.appConfig.PAGE_PROJECTS
+            when grifo.config.PAGE_PROJECTS
                 # hide
                 @aboutPageView.hide()
                 @streamPageView.hide()
@@ -263,7 +263,7 @@ class AppView extends Backbone.View
 
                     # show
                     @projectPageView.show()
-                    top = grifo.appConfig.SNAP_Y_HEADER_BG + 29.0
+                    top = grifo.config.SNAP_Y_HEADER_BG + 29.0
                 else
                     # hide
                     @projectPageView.hide()
@@ -272,7 +272,7 @@ class AppView extends Backbone.View
                     @projectsPageView.filter()
                     @projectsPageView.show()
 
-            when grifo.appConfig.PAGE_TAGS
+            when grifo.config.PAGE_TAGS
                 # hide
                 @aboutPageView.hide()
                 @projectPageView.hide()
@@ -286,9 +286,9 @@ class AppView extends Backbone.View
                 @tagsPageView.show()
 
                 if subId_
-                    top = grifo.appConfig.SNAP_Y_HEADER_BG
+                    top = grifo.config.SNAP_Y_HEADER_BG
 
-            when grifo.appConfig.PAGE_STREAM
+            when grifo.config.PAGE_STREAM
                 # hide
                 @tagsPageView.hide()
                 @projectsPageView.hide()
@@ -298,7 +298,7 @@ class AppView extends Backbone.View
                 # show
                 @streamPageView.show()
 
-            when grifo.appConfig.PAGE_ABOUT
+            when grifo.config.PAGE_ABOUT
                 # hide
                 @tagsPageView.hide()
                 @projectsPageView.hide()
@@ -329,19 +329,19 @@ class AppView extends Backbone.View
         # calculate top
         windowTop = headerTop = headerBgTop = - @$window.scrollTop()
         
-        if windowTop < -grifo.appConfig.SNAP_Y_HEADER_BG
-            headerBgTop = - grifo.appConfig.SNAP_Y_HEADER_BG
+        if windowTop < -grifo.config.SNAP_Y_HEADER_BG
+            headerBgTop = - grifo.config.SNAP_Y_HEADER_BG
 
-        if windowTop < -grifo.appConfig.SNAP_Y_HEADER
-            headerTop   = - grifo.appConfig.SNAP_Y_HEADER 
+        if windowTop < -grifo.config.SNAP_Y_HEADER
+            headerTop   = - grifo.config.SNAP_Y_HEADER 
 
         # set top
         @headerView.setTop       headerTop
         @headerBgView.setTop     headerBgTop
 
         # calculate opacity
-        headerBgOpacity   = headerBgTop / - grifo.appConfig.SNAP_Y_HEADER_BG
-        headerLeftOpacity = ( headerTop - headerBgTop ) / ( grifo.appConfig.SNAP_Y_HEADER_BG - grifo.appConfig.SNAP_Y_HEADER )
+        headerBgOpacity   = headerBgTop / - grifo.config.SNAP_Y_HEADER_BG
+        headerLeftOpacity = ( headerTop - headerBgTop ) / ( grifo.config.SNAP_Y_HEADER_BG - grifo.config.SNAP_Y_HEADER )
 
         # set opacity
         @headerView.setLeftOpacity headerLeftOpacity

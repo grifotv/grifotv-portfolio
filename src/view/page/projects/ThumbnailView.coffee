@@ -56,7 +56,7 @@ class ThumbnailView extends AbstractView
     onClick : ( e_ )=>
 
         e_.preventDefault()
-        grifo.appRouter.navigateToProject @model.get('id')
+        grifo.router.navigateToProject @model.get('id')
 
 
     onRollOver : ( e_ )=>

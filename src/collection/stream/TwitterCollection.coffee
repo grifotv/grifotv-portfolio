@@ -37,7 +37,7 @@ class TwitterCollection extends Backbone.Collection
 
             modelsArray.push itemModel
 
-            if modelsArray.length == grifo.appConfig.MAX_RESULTS_TWITTER
+            if modelsArray.length == grifo.config.MAX_RESULTS_TWITTER
                 return modelsArray
        
         return modelsArray
