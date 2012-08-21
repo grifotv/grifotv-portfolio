@@ -1,11 +1,12 @@
 (function() {
   var AboutPageView, AbstractPageView, AbstractView, AppConfig, AppRouter, AppService, AppState, AppView, BlogCollection, BlogModel, BlogView, BrandCollection, BrandModel, BrandView, CreditCollection, CreditGroupCollection, CreditGroupModel, CreditGroupView, CreditModel, CreditView, ExperienceCollection, ExperienceGroupCollection, ExperienceGroupModel, ExperienceGroupView, ExperienceModel, FlickrCollection, FlickrModel, FlickrView, GithubCollection, GithubModel, GithubView, HeaderBgView, HeaderView, LabelCollection, LabelModel, NavView, ProfileCollection, ProfileModel, ProfileView, ProjectCollection, ProjectModel, ProjectPageView, ProjectsPageView, ShareView, StreamPageView, TagCollection, TagGroupCollection, TagGroupModel, TagGroupView, TagModel, TagView, TagsPageView, ThumbnailView, TwitterCollection, TwitterModel, TwitterView, Utils, WordStreamLineView, YoutubeCollection, YoutubeModel, YoutubeView;
-  var __hasProp = Object.prototype.hasOwnProperty, __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype; return child; }, __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; }, __hasProp = Object.prototype.hasOwnProperty, __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype; return child; };
 
   $(function() {
     window.grifo = {
       state: null,
       config: null,
+      service: null,
       view: null,
       router: null,
       labelCollection: null,
@@ -22,16 +23,26 @@
       twitterCollection: null,
       githubCollection: null,
       flickrCollection: null,
-      blogCollection: null
+      blogCollection: null,
+      loaded: 0.0,
+      numLoaded: 2.0,
+      onLoaded: null
     };
     grifo.state = new AppState();
     grifo.config = new AppConfig();
+    grifo.service = new AppService();
     grifo.view = new AppView();
-    return grifo.view.on(AppView.EVENT_DATA_LOADED, function() {
+    grifo.onLoaded = function() {
+      grifo.loaded++;
+      if (grifo.loaded < grifo.numLoaded) return;
+      grifo.view.start();
       grifo.router = new AppRouter();
       grifo.router.on(AppRouter.EVENT_HASH_CHANGED, grifo.view.onHashChanged);
       return grifo.router.start();
-    });
+    };
+    grifo.service.on(AppService.EVENT_LOADED, grifo.onLoaded);
+    grifo.view.on(AppView.EVENT_LOADED, grifo.onLoaded);
+    return grifo.service.start();
   });
 
   if (!window['console']) {
@@ -210,11 +221,169 @@
 
   AppService = (function() {
 
-    AppService.prototype.test = false;
+    AppService.EVENT_LOADED = 'EVENT_LOADED';
+
+    AppService.prototype.loaded = 0.0;
+
+    AppService.prototype.numLoaded = 14.0;
 
     function AppService() {
-      console.log(this.test);
+      this.onLoad = __bind(this.onLoad, this);      _.extend(this, Backbone.Events);
     }
+
+    AppService.prototype.start = function() {
+      var _this = this;
+      grifo.projectCollection = new ProjectCollection;
+      grifo.projectCollection.url = grifo.config.URL_PROJECTS;
+      grifo.projectCollection.fetch({
+        success: function(model_, response_) {
+          return _this.onLoad();
+        },
+        error: function(model_, response_) {
+          return _this.onLoad();
+        }
+      });
+      grifo.tagCollection = new TagCollection();
+      grifo.tagCollection.url = grifo.config.URL_TAGS;
+      grifo.tagCollection.fetch({
+        success: function(model_, response_) {
+          return _this.onLoad();
+        },
+        error: function(model_, response_) {
+          return _this.onLoad();
+        }
+      });
+      grifo.tagGroupCollection = new TagGroupCollection();
+      grifo.tagGroupCollection.url = grifo.config.URL_TAG_GROUPS;
+      grifo.tagGroupCollection.fetch({
+        success: function(model_, response_) {
+          return _this.onLoad();
+        },
+        error: function(model_, response_) {
+          return _this.onLoad();
+        }
+      });
+      grifo.creditCollection = new CreditCollection();
+      grifo.creditCollection.url = grifo.config.URL_CREDITS;
+      grifo.creditCollection.fetch({
+        success: function(model_, response_) {
+          return _this.onLoad();
+        },
+        error: function(model_, response_) {
+          return _this.onLoad();
+        }
+      });
+      grifo.creditGroupCollection = new CreditGroupCollection();
+      grifo.creditGroupCollection.url = grifo.config.URL_CREDIT_GROUPS;
+      grifo.creditGroupCollection.fetch({
+        success: function(model_, response_) {
+          return _this.onLoad();
+        },
+        error: function(model_, response_) {
+          return _this.onLoad();
+        }
+      });
+      grifo.experienceCollection = new ExperienceCollection();
+      grifo.experienceCollection.url = grifo.config.URL_EXPERIENCES;
+      grifo.experienceCollection.fetch({
+        success: function(model_, response_) {
+          return _this.onLoad();
+        },
+        error: function(model_, response_) {
+          return _this.onLoad();
+        }
+      });
+      grifo.experienceGroupCollection = new ExperienceGroupCollection();
+      grifo.experienceGroupCollection.url = grifo.config.URL_EXPERIENCE_GROUPS;
+      grifo.experienceGroupCollection.fetch({
+        success: function(model_, response_) {
+          return _this.onLoad();
+        },
+        error: function(model_, response_) {
+          return _this.onLoad();
+        }
+      });
+      grifo.profileCollection = new ProfileCollection();
+      grifo.profileCollection.url = grifo.config.URL_PROFILES;
+      grifo.profileCollection.fetch({
+        success: function(model_, response_) {
+          return _this.onLoad();
+        },
+        error: function(model_, response_) {
+          return _this.onLoad();
+        }
+      });
+      grifo.brandCollection = new BrandCollection();
+      grifo.brandCollection.url = grifo.config.URL_BRANDS;
+      grifo.brandCollection.fetch({
+        success: function(model_, response_) {
+          return _this.onLoad();
+        },
+        error: function(model_, response_) {
+          return _this.onLoad();
+        }
+      });
+      grifo.labelCollection = new LabelCollection();
+      grifo.labelCollection.url = grifo.config.URL_LABELS;
+      grifo.labelCollection.fetch({
+        success: function(model_, response_) {
+          return _this.onLoad();
+        },
+        error: function(model_, response_) {
+          return _this.onLoad();
+        }
+      });
+      grifo.youtubeCollection = new YoutubeCollection();
+      grifo.youtubeCollection.url = grifo.config.URL_YOUTUBE;
+      grifo.youtubeCollection.fetch({
+        success: function(model_, response_) {
+          return _this.onLoad();
+        },
+        error: function(model_, response_) {
+          return _this.onLoad();
+        }
+      });
+      grifo.twitterCollection = new TwitterCollection();
+      grifo.twitterCollection.url = grifo.config.URL_TWITTER;
+      grifo.twitterCollection.fetch({
+        success: function(model_, response_) {
+          return _this.onLoad();
+        },
+        error: function(model_, response_) {
+          return _this.onLoad();
+        }
+      });
+      grifo.githubCollection = new GithubCollection();
+      grifo.githubCollection.url = grifo.config.URL_GITHUB;
+      grifo.githubCollection.fetch({
+        success: function(model_, response_) {
+          return _this.onLoad();
+        },
+        error: function(model_, response_) {
+          return _this.onLoad();
+        }
+      });
+      grifo.flickrCollection = new FlickrCollection();
+      grifo.flickrCollection.url = grifo.config.URL_FLICKR;
+      grifo.flickrCollection.fetch({
+        success: function(model_, response_) {
+          return _this.onLoad();
+        },
+        error: function(model_, response_) {
+          return _this.onLoad();
+        }
+      });
+      grifo.blogCollection = new BlogCollection();
+      grifo.blogCollection.url = grifo.config.URL_BLOG;
+      return grifo.blogCollection.load();
+    };
+
+    AppService.prototype.onLoad = function() {
+      this.loaded++;
+      if (this.loaded === this.numLoaded) {
+        return this.trigger(AppService.EVENT_LOADED);
+      }
+    };
 
     return AppService;
 
@@ -390,106 +559,6 @@
     };
 
     return AppRouter;
-
-  })();
-
-  BlogModel = (function() {
-
-    __extends(BlogModel, Backbone.Model);
-
-    function BlogModel() {
-      BlogModel.__super__.constructor.apply(this, arguments);
-    }
-
-    BlogModel.prototype.defaults = {
-      title: '',
-      url: '',
-      description: '',
-      date: ''
-    };
-
-    return BlogModel;
-
-  })();
-
-  FlickrModel = (function() {
-
-    __extends(FlickrModel, Backbone.Model);
-
-    function FlickrModel() {
-      FlickrModel.__super__.constructor.apply(this, arguments);
-    }
-
-    FlickrModel.prototype.defaults = {
-      title: '',
-      url: '',
-      image: '',
-      date: '',
-      is_portrait: false
-    };
-
-    return FlickrModel;
-
-  })();
-
-  GithubModel = (function() {
-
-    __extends(GithubModel, Backbone.Model);
-
-    function GithubModel() {
-      GithubModel.__super__.constructor.apply(this, arguments);
-    }
-
-    GithubModel.prototype.defaults = {
-      type: '',
-      text: '',
-      date: '',
-      url: ''
-    };
-
-    return GithubModel;
-
-  })();
-
-  TwitterModel = (function() {
-
-    __extends(TwitterModel, Backbone.Model);
-
-    function TwitterModel() {
-      TwitterModel.__super__.constructor.apply(this, arguments);
-    }
-
-    TwitterModel.prototype.defaults = {
-      id: '',
-      text: '',
-      date: '',
-      url: ''
-    };
-
-    return TwitterModel;
-
-  })();
-
-  YoutubeModel = (function() {
-
-    __extends(YoutubeModel, Backbone.Model);
-
-    function YoutubeModel() {
-      YoutubeModel.__super__.constructor.apply(this, arguments);
-    }
-
-    YoutubeModel.prototype.defaults = {
-      id: '',
-      url: '',
-      date: '',
-      title: '',
-      content: '',
-      thumbnail_low: '',
-      thumbnail_medium: '',
-      is_portrait: false
-    };
-
-    return YoutubeModel;
 
   })();
 
@@ -731,6 +800,106 @@
     };
 
     return TagModel;
+
+  })();
+
+  BlogModel = (function() {
+
+    __extends(BlogModel, Backbone.Model);
+
+    function BlogModel() {
+      BlogModel.__super__.constructor.apply(this, arguments);
+    }
+
+    BlogModel.prototype.defaults = {
+      title: '',
+      url: '',
+      description: '',
+      date: ''
+    };
+
+    return BlogModel;
+
+  })();
+
+  FlickrModel = (function() {
+
+    __extends(FlickrModel, Backbone.Model);
+
+    function FlickrModel() {
+      FlickrModel.__super__.constructor.apply(this, arguments);
+    }
+
+    FlickrModel.prototype.defaults = {
+      title: '',
+      url: '',
+      image: '',
+      date: '',
+      is_portrait: false
+    };
+
+    return FlickrModel;
+
+  })();
+
+  GithubModel = (function() {
+
+    __extends(GithubModel, Backbone.Model);
+
+    function GithubModel() {
+      GithubModel.__super__.constructor.apply(this, arguments);
+    }
+
+    GithubModel.prototype.defaults = {
+      type: '',
+      text: '',
+      date: '',
+      url: ''
+    };
+
+    return GithubModel;
+
+  })();
+
+  TwitterModel = (function() {
+
+    __extends(TwitterModel, Backbone.Model);
+
+    function TwitterModel() {
+      TwitterModel.__super__.constructor.apply(this, arguments);
+    }
+
+    TwitterModel.prototype.defaults = {
+      id: '',
+      text: '',
+      date: '',
+      url: ''
+    };
+
+    return TwitterModel;
+
+  })();
+
+  YoutubeModel = (function() {
+
+    __extends(YoutubeModel, Backbone.Model);
+
+    function YoutubeModel() {
+      YoutubeModel.__super__.constructor.apply(this, arguments);
+    }
+
+    YoutubeModel.prototype.defaults = {
+      id: '',
+      url: '',
+      date: '',
+      title: '',
+      content: '',
+      thumbnail_low: '',
+      thumbnail_medium: '',
+      is_portrait: false
+    };
+
+    return YoutubeModel;
 
   })();
 
@@ -1086,7 +1255,7 @@
 
     BlogCollection.prototype.parseAndAdd = function(response_) {
       this.add(this.parse(response_));
-      return grifo.view.onLoad();
+      return grifo.service.onLoad();
     };
 
     BlogCollection.prototype.parse = function(response_) {
@@ -1369,11 +1538,10 @@
       this.onHashChanged = __bind(this.onHashChanged, this);
       this.show = __bind(this.show, this);
       this.render = __bind(this.render, this);
-      this.onLoad = __bind(this.onLoad, this);
       AppView.__super__.constructor.apply(this, arguments);
     }
 
-    AppView.EVENT_DATA_LOADED = 'EVENT_DATA_LOADED';
+    AppView.EVENT_LOADED = 'EVENT_LOADED';
 
     AppView.EVENT_REALIGNED = 'EVENT_REALIGNED';
 
@@ -1384,10 +1552,6 @@
     AppView.prototype.$window = null;
 
     AppView.prototype.template = null;
-
-    AppView.prototype.loaded = 0.0;
-
-    AppView.prototype.numLoaded = 15.0;
 
     AppView.prototype.headerView = null;
 
@@ -1404,171 +1568,20 @@
     AppView.prototype.aboutPageView = null;
 
     AppView.prototype.initialize = function() {
+      var _this = this;
       this.$el = $(this.el);
       this.$window = $(window);
       this.template = _.template($('#template_app').html());
       this.$window.scroll(this.realign);
       this.$window.resize(this.realign);
-      this.$window.load(this.onLoad);
-      return this.loadData();
+      return this.$window.load(function() {
+        return _this.trigger(AppView.EVENT_LOADED);
+      });
     };
 
-    AppView.prototype.loadData = function() {
-      var _this = this;
-      grifo.projectCollection = new ProjectCollection;
-      grifo.projectCollection.url = grifo.config.URL_PROJECTS;
-      grifo.projectCollection.fetch({
-        success: function(model_, response_) {
-          return _this.onLoad();
-        },
-        error: function(model_, response_) {
-          return _this.onLoad();
-        }
-      });
-      grifo.tagCollection = new TagCollection();
-      grifo.tagCollection.url = grifo.config.URL_TAGS;
-      grifo.tagCollection.fetch({
-        success: function(model_, response_) {
-          return _this.onLoad();
-        },
-        error: function(model_, response_) {
-          return _this.onLoad();
-        }
-      });
-      grifo.tagGroupCollection = new TagGroupCollection();
-      grifo.tagGroupCollection.url = grifo.config.URL_TAG_GROUPS;
-      grifo.tagGroupCollection.fetch({
-        success: function(model_, response_) {
-          return _this.onLoad();
-        },
-        error: function(model_, response_) {
-          return _this.onLoad();
-        }
-      });
-      grifo.creditCollection = new CreditCollection();
-      grifo.creditCollection.url = grifo.config.URL_CREDITS;
-      grifo.creditCollection.fetch({
-        success: function(model_, response_) {
-          return _this.onLoad();
-        },
-        error: function(model_, response_) {
-          return _this.onLoad();
-        }
-      });
-      grifo.creditGroupCollection = new CreditGroupCollection();
-      grifo.creditGroupCollection.url = grifo.config.URL_CREDIT_GROUPS;
-      grifo.creditGroupCollection.fetch({
-        success: function(model_, response_) {
-          return _this.onLoad();
-        },
-        error: function(model_, response_) {
-          return _this.onLoad();
-        }
-      });
-      grifo.experienceCollection = new ExperienceCollection();
-      grifo.experienceCollection.url = grifo.config.URL_EXPERIENCES;
-      grifo.experienceCollection.fetch({
-        success: function(model_, response_) {
-          return _this.onLoad();
-        },
-        error: function(model_, response_) {
-          return _this.onLoad();
-        }
-      });
-      grifo.experienceGroupCollection = new ExperienceGroupCollection();
-      grifo.experienceGroupCollection.url = grifo.config.URL_EXPERIENCE_GROUPS;
-      grifo.experienceGroupCollection.fetch({
-        success: function(model_, response_) {
-          return _this.onLoad();
-        },
-        error: function(model_, response_) {
-          return _this.onLoad();
-        }
-      });
-      grifo.profileCollection = new ProfileCollection();
-      grifo.profileCollection.url = grifo.config.URL_PROFILES;
-      grifo.profileCollection.fetch({
-        success: function(model_, response_) {
-          return _this.onLoad();
-        },
-        error: function(model_, response_) {
-          return _this.onLoad();
-        }
-      });
-      grifo.brandCollection = new BrandCollection();
-      grifo.brandCollection.url = grifo.config.URL_BRANDS;
-      grifo.brandCollection.fetch({
-        success: function(model_, response_) {
-          return _this.onLoad();
-        },
-        error: function(model_, response_) {
-          return _this.onLoad();
-        }
-      });
-      grifo.labelCollection = new LabelCollection();
-      grifo.labelCollection.url = grifo.config.URL_LABELS;
-      grifo.labelCollection.fetch({
-        success: function(model_, response_) {
-          return _this.onLoad();
-        },
-        error: function(model_, response_) {
-          return _this.onLoad();
-        }
-      });
-      grifo.youtubeCollection = new YoutubeCollection();
-      grifo.youtubeCollection.url = grifo.config.URL_YOUTUBE;
-      grifo.youtubeCollection.fetch({
-        success: function(model_, response_) {
-          return _this.onLoad();
-        },
-        error: function(model_, response_) {
-          return _this.onLoad();
-        }
-      });
-      grifo.twitterCollection = new TwitterCollection();
-      grifo.twitterCollection.url = grifo.config.URL_TWITTER;
-      grifo.twitterCollection.fetch({
-        success: function(model_, response_) {
-          return _this.onLoad();
-        },
-        error: function(model_, response_) {
-          return _this.onLoad();
-        }
-      });
-      grifo.githubCollection = new GithubCollection();
-      grifo.githubCollection.url = grifo.config.URL_GITHUB;
-      grifo.githubCollection.fetch({
-        success: function(model_, response_) {
-          return _this.onLoad();
-        },
-        error: function(model_, response_) {
-          return _this.onLoad();
-        }
-      });
-      grifo.flickrCollection = new FlickrCollection();
-      grifo.flickrCollection.url = grifo.config.URL_FLICKR;
-      grifo.flickrCollection.fetch({
-        success: function(model_, response_) {
-          return _this.onLoad();
-        },
-        error: function(model_, response_) {
-          return _this.onLoad();
-        }
-      });
-      grifo.blogCollection = new BlogCollection();
-      grifo.blogCollection.url = grifo.config.URL_BLOG;
-      return grifo.blogCollection.load();
-    };
-
-    AppView.prototype.onLoad = function() {
-      this.loaded++;
-      if (this.loaded === this.numLoaded) return this.onLoadComplete();
-    };
-
-    AppView.prototype.onLoadComplete = function() {
+    AppView.prototype.start = function() {
       this.render();
-      this.show();
-      return this.trigger(AppView.EVENT_DATA_LOADED);
+      return this.show();
     };
 
     AppView.prototype.render = function() {

@@ -23,7 +23,7 @@
 			"file": "src/App.coffee",
 			"settings":
 			{
-				"buffer_size": 1429,
+				"buffer_size": 1404,
 				"line_ending": "Unix"
 			}
 		},
@@ -31,7 +31,7 @@
 			"file": "src/view/page/project/ProjectPageView.coffee",
 			"settings":
 			{
-				"buffer_size": 2500,
+				"buffer_size": 2488,
 				"line_ending": "Unix"
 			}
 		},
@@ -60,10 +60,90 @@
 			}
 		},
 		{
+			"file": "src/AppState.coffee",
+			"settings":
+			{
+				"buffer_size": 1371,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/router/AppRouter.coffee",
+			"settings":
+			{
+				"buffer_size": 2587,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/view/page/projects/ThumbnailView.coffee",
+			"settings":
+			{
+				"buffer_size": 1875,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/view/page/stream/BlogView.coffee",
+			"settings":
+			{
+				"buffer_size": 451,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "src/view/AppView.coffee",
 			"settings":
 			{
-				"buffer_size": 11032,
+				"buffer_size": 10918,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/view/component/TagView.coffee",
+			"settings":
+			{
+				"buffer_size": 1027,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/view/header/ShareView.coffee",
+			"settings":
+			{
+				"buffer_size": 729,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/collection/stream/BlogCollection.coffee",
+			"settings":
+			{
+				"buffer_size": 1008,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/collection/stream/FlickrCollection.coffee",
+			"settings":
+			{
+				"buffer_size": 1349,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/collection/stream/GithubCollection.coffee",
+			"settings":
+			{
+				"buffer_size": 3065,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/collection/stream/TwitterCollection.coffee",
+			"settings":
+			{
+				"buffer_size": 1426,
 				"line_ending": "Unix"
 			}
 		}
@@ -241,6 +321,16 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"grifo.appConfig",
+			"grifo.app",
+			"grifo.appC",
+			"grifo.appS",
+			"grifo.app",
+			"grifo.appState",
+			"appConfig",
+			"app",
+			"appConfig",
+			"app",
 			"EVENT",
 			"event",
 			"appStatus",
@@ -358,17 +448,7 @@
 			"\"images\": \"\",",
 			"tag",
 			"webfonts/",
-			"tag",
-			"0a9fe1",
-			"tag",
-			"tags",
-			"border-radius",
-			"tag",
-			"-moz-border-radius",
-			"tag",
-			"creative & art d",
-			"video-container",
-			"video"
+			"tag"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -423,15 +503,15 @@
 					"file": "src/App.coffee",
 					"settings":
 					{
-						"buffer_size": 1429,
+						"buffer_size": 1404,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1001,
-								1001
+								1199,
+								1199
 							]
 						],
 						"settings":
@@ -450,15 +530,19 @@
 					"file": "src/view/page/project/ProjectPageView.coffee",
 					"settings":
 					{
-						"buffer_size": 2500,
+						"buffer_size": 2488,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1064,
-								1064
+								1097,
+								1097
+							],
+							[
+								1242,
+								1242
 							]
 						],
 						"settings":
@@ -468,7 +552,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 176.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -538,8 +622,8 @@
 						"selection":
 						[
 							[
-								17213,
-								17213
+								17332,
+								17335
 							]
 						],
 						"settings":
@@ -549,30 +633,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 7242.0,
+						"translation.y": 7156.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
-				}
-			]
-		},
-		{
-			"sheets":
-			[
+				},
 				{
 					"buffer": 6,
-					"file": "src/view/AppView.coffee",
+					"file": "src/AppState.coffee",
 					"settings":
 					{
-						"buffer_size": 11032,
+						"buffer_size": 1371,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5810,
-								5810
+								6,
+								9
 							]
 						],
 						"settings":
@@ -582,7 +661,337 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1989.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/router/AppRouter.coffee",
+					"settings":
+					{
+						"buffer_size": 2587,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6,
+								9
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "src/view/page/projects/ThumbnailView.coffee",
+					"settings":
+					{
+						"buffer_size": 1875,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1529,
+								1529
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/view/page/stream/BlogView.coffee",
+					"settings":
+					{
+						"buffer_size": 451,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 10,
+					"file": "src/view/AppView.coffee",
+					"settings":
+					{
+						"buffer_size": 10918,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5814,
+								5814
+							],
+							[
+								7507,
+								7507
+							],
+							[
+								7540,
+								7540
+							],
+							[
+								7572,
+								7572
+							],
+							[
+								7605,
+								7605
+							],
+							[
+								7640,
+								7640
+							],
+							[
+								7673,
+								7673
+							],
+							[
+								7712,
+								7712
+							],
+							[
+								7757,
+								7757
+							],
+							[
+								7805,
+								7805
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2085.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "src/view/component/TagView.coffee",
+					"settings":
+					{
+						"buffer_size": 1027,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								935,
+								935
+							],
+							[
+								989,
+								989
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "src/view/header/ShareView.coffee",
+					"settings":
+					{
+						"buffer_size": 729,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								384,
+								384
+							],
+							[
+								560,
+								560
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "src/collection/stream/BlogCollection.coffee",
+					"settings":
+					{
+						"buffer_size": 1008,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								207,
+								207
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "src/collection/stream/FlickrCollection.coffee",
+					"settings":
+					{
+						"buffer_size": 1349,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1070,
+								1070
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "src/collection/stream/GithubCollection.coffee",
+					"settings":
+					{
+						"buffer_size": 3065,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2974,
+								2974
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 286.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "src/collection/stream/TwitterCollection.coffee",
+					"settings":
+					{
+						"buffer_size": 1426,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1330,
+								1330
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

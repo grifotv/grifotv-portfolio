@@ -1,7 +1,7 @@
 class AppView extends Backbone.View
 
     # events
-    @EVENT_DATA_LOADED   : 'EVENT_DATA_LOADED'
+    @EVENT_LOADED        : 'EVENT_LOADED'
     @EVENT_REALIGNED     : 'EVENT_REALIGNED'
 
     # el
@@ -9,10 +9,6 @@ class AppView extends Backbone.View
     $el                  : null
     $window              : null
     template             : null
-    
-    # ints
-    loaded               : 0.0
-    numLoaded            : 15.0 # total of 16
 
     # header views
     headerView           : null
@@ -36,134 +32,14 @@ class AppView extends Backbone.View
         @$window.resize @realign
 
         # 1 - load dom
-        @$window.load   @onLoad
-
-        @loadData()
-
-
-    loadData: ->
-
-        # PORTFOLIO COLLECTIONS
-
-        # 2 - load projects
-        grifo.projectCollection     = new ProjectCollection
-        grifo.projectCollection.url = grifo.config.URL_PROJECTS
-        grifo.projectCollection.fetch
-            success : ( model_, response_ ) => @onLoad()
-            error   : ( model_, response_ ) => @onLoad()
-
-        # 3 - load tags
-        grifo.tagCollection     = new TagCollection()
-        grifo.tagCollection.url = grifo.config.URL_TAGS
-        grifo.tagCollection.fetch
-            success : ( model_, response_ ) => @onLoad()
-            error   : ( model_, response_ ) => @onLoad()
-
-        # 4 - load tag groups
-        grifo.tagGroupCollection     = new TagGroupCollection()
-        grifo.tagGroupCollection.url = grifo.config.URL_TAG_GROUPS
-        grifo.tagGroupCollection.fetch
-            success : ( model_, response_ ) => @onLoad()
-            error   : ( model_, response_ ) => @onLoad()
-
-        # 5 - load credits
-        grifo.creditCollection     = new CreditCollection()
-        grifo.creditCollection.url = grifo.config.URL_CREDITS
-        grifo.creditCollection.fetch
-            success : ( model_, response_ ) => @onLoad()
-            error   : ( model_, response_ ) => @onLoad()
-
-        # 6 - load credit groups
-        grifo.creditGroupCollection     = new CreditGroupCollection()
-        grifo.creditGroupCollection.url = grifo.config.URL_CREDIT_GROUPS
-        grifo.creditGroupCollection.fetch
-            success : ( model_, response_ ) => @onLoad()
-            error   : ( model_, response_ ) => @onLoad()
-
-        # 7 - load experiences
-        grifo.experienceCollection     = new ExperienceCollection()
-        grifo.experienceCollection.url = grifo.config.URL_EXPERIENCES
-        grifo.experienceCollection.fetch
-            success : ( model_, response_ ) => @onLoad()
-            error   : ( model_, response_ ) => @onLoad()
-
-        # 8 - load experience groups
-        grifo.experienceGroupCollection     = new ExperienceGroupCollection()
-        grifo.experienceGroupCollection.url = grifo.config.URL_EXPERIENCE_GROUPS
-        grifo.experienceGroupCollection.fetch
-            success : ( model_, response_ ) => @onLoad()
-            error   : ( model_, response_ ) => @onLoad()
-
-        # 9 - load profiles
-        grifo.profileCollection     = new ProfileCollection()
-        grifo.profileCollection.url = grifo.config.URL_PROFILES
-        grifo.profileCollection.fetch
-            success : ( model_, response_ ) => @onLoad()
-            error   : ( model_, response_ ) => @onLoad()
-
-        # 10 - load brands
-        grifo.brandCollection     = new BrandCollection()
-        grifo.brandCollection.url = grifo.config.URL_BRANDS
-        grifo.brandCollection.fetch
-            success : ( model_, response_ ) => @onLoad()
-            error   : ( model_, response_ ) => @onLoad()
-
-        # 11 - load labels
-        grifo.labelCollection     = new LabelCollection()
-        grifo.labelCollection.url = grifo.config.URL_LABELS
-        grifo.labelCollection.fetch
-            success : ( model_, response_ ) => @onLoad()
-            error   : ( model_, response_ ) => @onLoad()
-
-
-        # STREAM COLLECTIONS
-
-        # 12 - load youtube
-        grifo.youtubeCollection     = new YoutubeCollection()
-        grifo.youtubeCollection.url = grifo.config.URL_YOUTUBE
-        grifo.youtubeCollection.fetch
-            success : ( model_, response_ ) => @onLoad()
-            error   : ( model_, response_ ) => @onLoad()
-
-        # 13 - load twitter
-        grifo.twitterCollection     = new TwitterCollection()
-        grifo.twitterCollection.url = grifo.config.URL_TWITTER
-        grifo.twitterCollection.fetch
-            success : ( model_, response_ ) => @onLoad()
-            error   : ( model_, response_ ) => @onLoad()
-
-        # 14 - load github
-        grifo.githubCollection     = new GithubCollection()
-        grifo.githubCollection.url = grifo.config.URL_GITHUB
-        grifo.githubCollection.fetch
-            success : ( model_, response_ ) => @onLoad()
-            error   : ( model_, response_ ) => @onLoad()
-
-        # 15 - load flickr
-        grifo.flickrCollection     = new FlickrCollection()
-        grifo.flickrCollection.url = grifo.config.URL_FLICKR
-        grifo.flickrCollection.fetch
-            success : ( model_, response_ ) => @onLoad()
-            error   : ( model_, response_ ) => @onLoad()
-
-        # 16 - load blog
-        grifo.blogCollection     = new BlogCollection()
-        grifo.blogCollection.url = grifo.config.URL_BLOG
-        grifo.blogCollection.load()
-
-
-    onLoad: =>
-
-        @loaded++
-        @onLoadComplete() if @loaded == @numLoaded
+        @$window.load =>
+            @trigger AppView.EVENT_LOADED
                
 
-    onLoadComplete: ->
+    start: ->
 
         @render()
         @show()
-
-        @trigger AppView.EVENT_DATA_LOADED
 
 
     render: =>
@@ -322,7 +198,9 @@ class AppView extends Backbone.View
 
         $( 'html,body' ).stop().animate { scrollTop: y_ } , { duration: difY, easing: 'easeOutExpo' }
 
+
     realign: =>
+
         if !@headerView || !@headerBgView
             return
 
