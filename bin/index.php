@@ -16,7 +16,7 @@
       
       <meta name="viewport" content="user-scalable=yes, width=device-width" />
       <meta name="apple-mobile-web-app-capable" content="yes">
-      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />  
+      <meta name="apple-mobile-web-app-status-bar-style" content="black" />  
 
       <meta itemprop="image" content="http://www.grifo.tv/site.png">
       <meta property="og:image" content="http://www.grifo.tv/site.png" />
