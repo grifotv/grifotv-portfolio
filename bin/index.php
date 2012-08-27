@@ -152,7 +152,7 @@
 
             <div class="size1of3">
               <h3><%= footer1_title %></h3>
-              <div class="new-row">
+              <div class="new-row selectable">
                 <br/><%= footer1_copy %><br/>
                 <div id="follow">
 
@@ -213,12 +213,12 @@
 
             <div class="size1of3">
               <h3><%= footer2_title %></h3>
-              <div class="new-row"><br/><%= footer2_copy %></div>
+              <div class="new-row selectable"><br/><%= footer2_copy %></div>
             </div>
 
             <div class="size1of3">
               <h3><%= footer3_title %></h3>
-              <div class="new-row"><br/><%= footer3_copy %></div>
+              <div class="new-row selectable"><br/><%= footer3_copy %></div>
             </div>
 
           </div>

@@ -83,7 +83,16 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
    ========================================================================== */
 
 *{
-  -webkit-text-size-adjust:none;
+    -webkit-text-size-adjust:none;
+    
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -moz-user-drag: none;
+    -webkit-user-drag: none;
 }
 
 html,body {
@@ -133,6 +142,20 @@ html,body {
 ::-webkit-scrollbar-corner
 {
 	background-color:#fafafa;
+}
+
+.selectable, 
+.selectable p, 
+.selectable a, 
+.selectable i, 
+.selectable b,
+.selectable span,
+h1, h2, h3, h4, h5, p, a {
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
 }
 
 
