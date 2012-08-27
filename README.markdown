@@ -3,33 +3,27 @@ GRIFO Portfolio
 
 
 Text Editor
-
-	Sublime http://www.sublimetext.com
+<a href="http://www.sublimetext.com" target="_blank">Sublime</a>
 
 
 Language
-
-	CoffeeScript http://coffeescript.org
+<a href="http://coffeescript.org" target="_blank">CoffeeScript</a> 
 
 
 Framework
-
-	Backbone.js http://backbonejs.org
+<a href="http://backbonejs.org" target="_blank">Backbone.js</a> 
 
 
 Gridj System
-
-	jQuery Isotope plugin
+<a href="http://isotope.metafizzy.co/" target="_blank">jQuery Isotope plugin</a>
 
 
 Background Canvas Animation
-
-	Paper.js http://paperjs.org
+<a href="http://paperjs.org" target="_blank">Paper.js</a> 
 
 
 CMS
-
-	Google Docs spreadsheet https://docs.google.com/spreadsheet/pub?key=0AuMegPFV2btJdGFIMWE1V0VvOUFuUlVpWXp3UXlwQ1E&output=html
+<a href="https://docs.google.com/spreadsheet/pub?key=0AuMegPFV2btJdGFIMWE1V0VvOUFuUlVpWXp3UXlwQ1E&output=html" target="_blank">Google Docs spreadsheet</a> 
 
 
 ***Work in progress***
