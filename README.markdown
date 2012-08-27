@@ -1,23 +1,35 @@
 GRIFO Portfolio
 ==================
 
-*Text Editor*
-	— Sublime http://www.sublimetext.com
 
-*Language*
-	— CoffeeScript http://coffeescript.org
+Text Editor
 
-*Framework*
-	— Backbone.js http://backbonejs.org
+	Sublime http://www.sublimetext.com
 
-*Gridj System*
-	— jQuery Isotope plugin
 
-*Background Canvas Animation*
-	— Paper.js http://paperjs.org
+Language
 
-*CMS*
-	— Google Docs spreadsheet https://docs.google.com/spreadsheet/pub?key=0AuMegPFV2btJdGFIMWE1V0VvOUFuUlVpWXp3UXlwQ1E&output=html
+	CoffeeScript http://coffeescript.org
+
+
+Framework
+
+	Backbone.js http://backbonejs.org
+
+
+Gridj System
+
+	jQuery Isotope plugin
+
+
+Background Canvas Animation
+
+	Paper.js http://paperjs.org
+
+
+CMS
+
+	Google Docs spreadsheet https://docs.google.com/spreadsheet/pub?key=0AuMegPFV2btJdGFIMWE1V0VvOUFuUlVpWXp3UXlwQ1E&output=html
 
 
 ***Work in progress***
