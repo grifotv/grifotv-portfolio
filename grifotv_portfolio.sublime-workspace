@@ -23,7 +23,7 @@
 			"file": "src/App.coffee",
 			"settings":
 			{
-				"buffer_size": 1404,
+				"buffer_size": 2210,
 				"line_ending": "Unix"
 			}
 		},
@@ -47,7 +47,7 @@
 			"file": "bin/css/style.css",
 			"settings":
 			{
-				"buffer_size": 22269,
+				"buffer_size": 22767,
 				"line_ending": "Unix"
 			}
 		},
@@ -55,7 +55,7 @@
 			"file": "bin/index.php",
 			"settings":
 			{
-				"buffer_size": 17384,
+				"buffer_size": 17405,
 				"line_ending": "Unix"
 			}
 		},
@@ -92,10 +92,18 @@
 			}
 		},
 		{
+			"file": "src/view/page/stream/WordStreamLineView.coffee",
+			"settings":
+			{
+				"buffer_size": 140,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "src/view/AppView.coffee",
 			"settings":
 			{
-				"buffer_size": 10918,
+				"buffer_size": 6108,
 				"line_ending": "Unix"
 			}
 		},
@@ -119,7 +127,7 @@
 			"file": "src/collection/stream/BlogCollection.coffee",
 			"settings":
 			{
-				"buffer_size": 1008,
+				"buffer_size": 1011,
 				"line_ending": "Unix"
 			}
 		},
@@ -144,6 +152,14 @@
 			"settings":
 			{
 				"buffer_size": 1426,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/AppConfig.coffee",
+			"settings":
+			{
+				"buffer_size": 4721,
 				"line_ending": "Unix"
 			}
 		}
@@ -176,6 +192,8 @@
 	},
 	"file_history":
 	[
+		"/Users/grifotv/devserver/sublime/grifotv-portfolio/bin/css/style.min.css",
+		"/Users/grifotv/devserver/sublime/grifotv-portfolio/README.markdown",
 		"/Users/grifotv_mobile/devserver/sublime/grifotv-portfolio/src/AppService.coffee",
 		"/Users/grifotv_mobile/devserver/sublime/grifotv-portfolio/src/router/AppRouter.coffee",
 		"/Users/grifotv_mobile/devserver/sublime/grifotv-portfolio/bin/index.html",
@@ -213,7 +231,6 @@
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/view/page/project/ProfileView.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/view/page/project/ProjectPageView.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/router/AppRouter.coffee",
-		"/Users/grifotv/devserver/sublime/grifotv-portfolio/README.markdown",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/App.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/view/AppView.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv-portfolio/src/collection/portfolio/CreditCollection.coffee",
@@ -302,8 +319,7 @@
 		"/Users/grifotv/devserver/sublime/grifotv_portfolio/bin/css/layout.css",
 		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/PageContainerView.coffee",
 		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/collection/ProjectCollection.coffee",
-		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/ThumbnailView.coffee",
-		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/model/stream/FlickrModel.coffee"
+		"/Users/grifotv/devserver/sublime/grifotv_portfolio/src/view/ThumbnailView.coffee"
 	],
 	"find":
 	{
@@ -467,7 +483,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -503,21 +519,22 @@
 					"file": "src/App.coffee",
 					"settings":
 					{
-						"buffer_size": 1404,
+						"buffer_size": 2210,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1199,
-								1199
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -588,15 +605,15 @@
 					"file": "bin/css/style.css",
 					"settings":
 					{
-						"buffer_size": 22269,
+						"buffer_size": 22767,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								20292,
-								20292
+								5956,
+								5956
 							]
 						],
 						"settings":
@@ -605,7 +622,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 13719.0,
+						"translation.y": 1704.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -615,15 +632,15 @@
 					"file": "bin/index.php",
 					"settings":
 					{
-						"buffer_size": 17384,
+						"buffer_size": 17405,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								17332,
-								17335
+								4424,
+								4284
 							]
 						],
 						"settings":
@@ -633,7 +650,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 7156.0,
+						"translation.y": 6652.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -749,63 +766,53 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 3,
-			"sheets":
-			[
+				},
 				{
 					"buffer": 10,
-					"file": "src/view/AppView.coffee",
+					"file": "src/view/page/stream/WordStreamLineView.coffee",
 					"settings":
 					{
-						"buffer_size": 10918,
+						"buffer_size": 140,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5814,
-								5814
-							],
+								46,
+								46
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 7,
+			"sheets":
+			[
+				{
+					"buffer": 11,
+					"file": "src/view/AppView.coffee",
+					"settings":
+					{
+						"buffer_size": 6108,
+						"regions":
+						{
+						},
+						"selection":
+						[
 							[
-								7507,
-								7507
-							],
-							[
-								7540,
-								7540
-							],
-							[
-								7572,
-								7572
-							],
-							[
-								7605,
-								7605
-							],
-							[
-								7640,
-								7640
-							],
-							[
-								7673,
-								7673
-							],
-							[
-								7712,
-								7712
-							],
-							[
-								7757,
-								7757
-							],
-							[
-								7805,
-								7805
+								0,
+								0
 							]
 						],
 						"settings":
@@ -821,7 +828,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 12,
 					"file": "src/view/component/TagView.coffee",
 					"settings":
 					{
@@ -853,7 +860,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 13,
 					"file": "src/view/header/ShareView.coffee",
 					"settings":
 					{
@@ -885,19 +892,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 14,
 					"file": "src/collection/stream/BlogCollection.coffee",
 					"settings":
 					{
-						"buffer_size": 1008,
+						"buffer_size": 1011,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								207,
-								207
+								0,
+								0
 							]
 						],
 						"settings":
@@ -913,7 +920,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 14,
+					"buffer": 15,
 					"file": "src/collection/stream/FlickrCollection.coffee",
 					"settings":
 					{
@@ -941,7 +948,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 15,
+					"buffer": 16,
 					"file": "src/collection/stream/GithubCollection.coffee",
 					"settings":
 					{
@@ -969,7 +976,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 16,
+					"buffer": 17,
 					"file": "src/collection/stream/TwitterCollection.coffee",
 					"settings":
 					{
@@ -982,6 +989,34 @@
 							[
 								1330,
 								1330
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "src/AppConfig.coffee",
+					"settings":
+					{
+						"buffer_size": 4721,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								530,
+								482
 							]
 						],
 						"settings":
@@ -1039,7 +1074,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 100.0
+		"height": 79.0
 	},
 	"replace":
 	{

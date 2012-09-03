@@ -176,9 +176,9 @@
 
     AppConfig.prototype.USER_ID_FLICKR = '41688283@N07';
 
-    AppConfig.prototype.MAX_RESULTS_YOUTUBE = 9;
+    AppConfig.prototype.MAX_RESULTS_YOUTUBE = 7;
 
-    AppConfig.prototype.MAX_RESULTS_TWITTER = 6;
+    AppConfig.prototype.MAX_RESULTS_TWITTER = 7;
 
     AppConfig.prototype.MAX_RESULTS_GITHUB = 6;
 
@@ -861,25 +861,6 @@
 
   })();
 
-  TwitterModel = (function() {
-
-    __extends(TwitterModel, Backbone.Model);
-
-    function TwitterModel() {
-      TwitterModel.__super__.constructor.apply(this, arguments);
-    }
-
-    TwitterModel.prototype.defaults = {
-      id: '',
-      text: '',
-      date: '',
-      url: ''
-    };
-
-    return TwitterModel;
-
-  })();
-
   YoutubeModel = (function() {
 
     __extends(YoutubeModel, Backbone.Model);
@@ -900,6 +881,25 @@
     };
 
     return YoutubeModel;
+
+  })();
+
+  TwitterModel = (function() {
+
+    __extends(TwitterModel, Backbone.Model);
+
+    function TwitterModel() {
+      TwitterModel.__super__.constructor.apply(this, arguments);
+    }
+
+    TwitterModel.prototype.defaults = {
+      id: '',
+      text: '',
+      date: '',
+      url: ''
+    };
+
+    return TwitterModel;
 
   })();
 
@@ -1254,8 +1254,7 @@
     };
 
     BlogCollection.prototype.parseAndAdd = function(response_) {
-      this.add(this.parse(response_));
-      return grifo.service.onLoad();
+      return this.add(this.parse(response_));
     };
 
     BlogCollection.prototype.parse = function(response_) {
@@ -2972,7 +2971,7 @@
       WordStreamLineView.__super__.constructor.apply(this, arguments);
     }
 
-    WordStreamLineView.prototype.className = 'word-stream-line size1of3';
+    WordStreamLineView.prototype.className = 'word-stream-line size1of3 selectable';
 
     WordStreamLineView.prototype.render = function() {
       return this;
