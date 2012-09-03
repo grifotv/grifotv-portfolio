@@ -7,7 +7,7 @@ class BlogCollection extends Backbone.Collection
 
     parseAndAdd : ( response_ ) =>
         @add @parse( response_ )
-        grifo.service.onLoad()
+        #grifo.service.onLoad()
 
     parse : ( response_ ) ->
         
