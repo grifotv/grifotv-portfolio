@@ -3,19 +3,20 @@ class YoutubeCollection extends Backbone.Collection
     model : YoutubeModel
 
     parse : ( response_ ) ->
-
         modelsArray = []
 
         for itemEntry in response_[ 'feed' ][ 'entry' ]
 
+            
             itemDate   = Utils.relativeTime( itemEntry[ 'published' ][ '$t' ] )
             itemUrl    = itemEntry[ 'id' ][ '$t' ]
             itemUrl    = itemUrl.replace( 'http://gdata.youtube.com/feeds/api/videos/', 'http://www.youtube.com/watch?v=' )
             itemId     = itemUrl.replace( 'http://www.youtube.com/watch?v=', '' )
             itemTags   = itemEntry[ 'media$group' ][ 'media$keywords' ][ '$t' ]
+            itemDesc   = itemEntry[ 'media$group' ][ 'media$description' ][ '$t' ]
             isPortrait = false
             
-            if itemTags.toLowerCase().indexOf( 'vertical' ) != -1 || itemTags.toLowerCase().indexOf( 'v' ) != -1 || itemTags.toLowerCase().indexOf( 'portrait' ) != -1
+            if @isPortrait( itemTags ) || @isPortrait( itemDesc )
                 isPortrait = true
 
             itemModel  = new YoutubeModel
@@ -31,3 +32,12 @@ class YoutubeCollection extends Backbone.Collection
             modelsArray.push itemModel
 
         return modelsArray
+
+
+    isPortrait : ( string_ ) ->
+
+        if string_
+            if string_.toLowerCase().indexOf( 'vertical' ) != -1 || string_.toLowerCase().indexOf( 'v' ) != -1 || string_.toLowerCase().indexOf( 'portrait' ) != -1
+                return true
+
+        return false
