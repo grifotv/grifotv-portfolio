@@ -7,7 +7,7 @@ Language — <a href="http://coffeescript.org" target="_blank">CoffeeScript</a>
 
 Framework — <a href="http://backbonejs.org" target="_blank">Backbone.js</a> 
 
-Gridj System — <a href="http://isotope.metafizzy.co/" target="_blank">jQuery Isotope plugin</a>
+Grid System — <a href="http://isotope.metafizzy.co/" target="_blank">jQuery Isotope plugin</a>
 
 Background Canvas Animation — <a href="http://paperjs.org" target="_blank">Paper.js</a> 
 
