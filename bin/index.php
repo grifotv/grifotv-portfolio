@@ -25,11 +25,11 @@
       <link rel="apple-touch-icon" href="apple.png">
 
       <meta itemprop="name" content="GRIFO">
-      <meta itemprop="description" content="I’m Danilo Figueiredo a Creative Developer from Brazil, crafting interactive experiences for digital platforms. I’m based in London and currently work at Hi-ReS!">
-      <meta name="description" content="I’m Danilo Figueiredo a Creative Developer from Brazil, crafting interactive experiences for digital platforms. I’m based in London and currently work at Hi-ReS!">
-      <meta name="keywords" content="Danilo Figueiredo, Brazilian, Creative, Flash, Motion, Animation, Design, Designer, Development, Developer, Coder, Digital, Interactive, London, Sao Paulo, Glasgow, Hi-ReS!, Less Rain, Grafikonstruct, Curious Group" />
+      <meta itemprop="description" content="I’m Danilo Figueiredo a Creative Developer from Brazil, crafting interactive experiences for digital platforms. I’m based in London and currently work at Stinkdigital">
+      <meta name="description" content="I’m Danilo Figueiredo a Creative Developer from Brazil, crafting interactive experiences for digital platforms. I’m based in London and currently work at Stinkdigital">
+      <meta name="keywords" content="Danilo Figueiredo, Brazilian, Creative, Flash, Motion, Animation, Design, Designer, Development, Developer, Coder, Digital, Interactive, London, Sao Paulo, Glasgow, Stinkdigital, Hi-ReS!, Less Rain, Grafikonstruct, Curious Group" />
       <meta property="og:title" content="GRIFO" />
-      <meta property="og:description" content="I’m Danilo Figueiredo a Creative Developer from Brazil, crafting interactive experiences for digital platforms. I’m based in London and currently work at Hi-ReS!" />
+      <meta property="og:description" content="I’m Danilo Figueiredo a Creative Developer from Brazil, crafting interactive experiences for digital platforms. I’m based in London and currently work at Stinkdigital" />
 
       <meta name="author" content="http://www.grifo.tv" />
       <meta name="copyright" content="grifo.tv" />
