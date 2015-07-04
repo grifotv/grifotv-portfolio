@@ -11,6 +11,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "src/AppService.coffee",
+			"settings":
+			{
+				"buffer_size": 4914,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "GRIFO Coffee",
 	"command_palette":
@@ -40,6 +48,7 @@
 	},
 	"file_history":
 	[
+		"/Users/grifotv/repositories/sublime/grifotv-portfolio/bin/index.php",
 		"/Users/grifotv/repositories/sublime/grifotv-portfolio/src/collection/stream/YoutubeCollection.coffee",
 		"/Users/grifotv/repositories/sublime/grifotv-portfolio/src/view/AppView.coffee",
 		"/Users/grifotv/repositories/sublime/grifotv-portfolio/src/view/component/TagView.coffee",
@@ -54,7 +63,6 @@
 		"/Users/grifotv/repositories/sublime/grifotv-portfolio/src/view/page/project/ProjectPageView.coffee",
 		"/Users/grifotv/repositories/sublime/grifotv-portfolio/scripts/coffee.sh",
 		"/Users/grifotv/repositories/sublime/grifotv-portfolio/bin/css/style.css",
-		"/Users/grifotv/repositories/sublime/grifotv-portfolio/bin/index.php",
 		"/Users/grifotv/repositories/sublime/grifotv-portfolio/src/AppState.coffee",
 		"/Users/grifotv/repositories/sublime/grifotv-portfolio/src/router/AppRouter.coffee",
 		"/Users/grifotv/repositories/sublime/grifotv-portfolio/src/view/page/projects/ThumbnailView.coffee",
@@ -331,8 +339,37 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "src/AppService.coffee",
+					"settings":
+					{
+						"buffer_size": 4914,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								128,
+								128
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		},
 		{
@@ -369,7 +406,7 @@
 		"cols":
 		[
 			0.0,
-			0.5,
+			0.931318681319,
 			1.0
 		],
 		"rows":
@@ -381,7 +418,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 79.0
+		"height": 474.0
 	},
 	"replace":
 	{

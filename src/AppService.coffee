@@ -5,7 +5,7 @@ class AppService
     
     # ints
     loaded        : 0.0
-    numLoaded     : 12.0 # total of 15
+    numLoaded     : 11.0 # total of 15
 
 
     constructor :->
